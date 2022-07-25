@@ -8,6 +8,7 @@ import RightSide from './components/common/RightSide';
 const Layout = () => {
     const [left, setLeft] = useState(true)
     const [right, setRight] = useState(false)
+    console.log(left, right);
     return (
         <>
             <header className=''>
@@ -18,19 +19,19 @@ const Layout = () => {
                     setRight={setRight}
                 />
             </header>
-            <div className="flex mt-[100px]">
-                <div className={`${left ? "w-[200px]" : "w-[60px]"} h-auto overflow-hidden relative transition-all duration-300 ease-linear`}>
+            <div className="flex items-start mt-[60px]">
+                <div className={`${left ? "w-[200px]" : "w-[60px]"} h-auto  relative transition-all duration-300 ease-linear`}>
                     <LeftSide left={left} />
                 </div>
-                <div className='flex-1 ' style={{zIndex:100}}>
-                    <main className='w-full'>
+                <div className={`${(left && right) ? "w-[calc(100%-410px)]" : (left && !right) ? "w-[calc(100%-210px)]" : (!left && right) ? "w-[calc(100%-270px)]" : "w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
+                    <main className=''>
                         <Main />
                     </main>
-                    <footer className='w-full'>
+                    <footer className=''>
                         <Footer />
                     </footer>
                 </div>
-                <div className={`${right ? "w-[200px] visible" : "w-[0px] invisible"} h-auto overflow-hidden relative transition-all duration-300 ease-linear`}>
+                <div className={`${right ? "w-[200px] visible" : "w-[0px] invisible"} h-auto  relative transition-all duration-300 ease-linear`}>
                     <RightSide right={right} />
                 </div>
             </div>

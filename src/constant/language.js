@@ -1,0 +1,1 @@
+export const bangla = localStorage.getItem('lan') === 'bn'

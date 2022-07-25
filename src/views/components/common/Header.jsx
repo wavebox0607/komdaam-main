@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 // import { NavLink } from 'react-router-dom';
-import { XIcon, ArrowLeftIcon, ArrowRightIcon, MenuIcon, DotsVerticalIcon, ShoppingCartIcon  } from '@heroicons/react/outline'
-import { SearchIcon,PhoneIcon } from '@heroicons/react/solid'
+import {  MenuIcon, ShoppingCartIcon } from '@heroicons/react/outline'
+import { SearchIcon, PhoneIcon } from '@heroicons/react/solid'
 import logo from '../../../assets/logo1.png'
+import { Link, NavLink } from 'react-router-dom';
 const Header = ({ left, setLeft, right, setRight }) => {
     const handleLeft = () => {
         setLeft(!left)
@@ -30,9 +31,11 @@ const HeaderDown = ({ handleRight, handleLeft }) => {
                         <MenuIcon className='h-5 w-5' />
                     </div>
                 </div>
-                <div className="w-[100px] h-full">
-                    <img src={logo} className="w-full h-full object-fit" alt="" />
-                </div>
+                <Link to='/'>
+                    <div className="w-[100px] h-full">
+                        <img src={logo} className="w-full h-full object-fit" alt="" />
+                    </div>
+                </Link>
             </div>
 
             {/* search section  */}
@@ -46,9 +49,9 @@ const HeaderDown = ({ handleRight, handleLeft }) => {
             </div>
 
             <div className="flex justify-end col-span-4 md:col-span-3 space-x-2">
-                <div className="">
+                <NavLink to='/offer' className="">
                     <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Offer</p>
-                </div>
+                </NavLink>
                 <div className="">
                     <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Need help</p>
                 </div>

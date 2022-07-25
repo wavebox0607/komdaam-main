@@ -1,11 +1,14 @@
 import React from 'react';
-import { Hero } from '../components/screen/home';
-import Help from '../components/screen/home/Help';
+import { CurrentOffer, FeatureCategory, FeatureProduct, Help, Hero, Step } from '../components/screen/home';
 
 const Home = () => {
 	return (
-		<div className='w-full bg-stone-700 flex justify-center h-screen'>
+		<div className='w-full'>
 			<Hero />
+			<Step />
+			<CurrentOffer />
+			<FeatureCategory />
+			<FeatureProduct />
 			<Help />
 		</div>
 	);

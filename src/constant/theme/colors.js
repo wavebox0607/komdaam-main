@@ -4,3 +4,4 @@ export const color = {
 	darkGray: "#38384F",
 	green: "#50c878",
 }
+export const green = '#50c878'
