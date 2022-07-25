@@ -13,6 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import { bannerImg } from '../../../../constant/imgUri';
 import { HomePage } from '../../../../services';
+import { SectionHeading } from '../../utils';
 // import SectionHeading from '../../../Components/Shared/SectionHeading';
 
 const CurrentOffer = () => {
@@ -23,13 +24,13 @@ const CurrentOffer = () => {
     }
     return (
         <>
-            <div className='bg-gray-100 py-12'>
+            <div className='bg-white py-12'>
 
                 <div className="mt-10 ">
-                    {/* <SectionHeading text={"Current Offers"} /> */}
+                    <SectionHeading text={"Current Offers"} />
                 </div>
 
-                <div className=" shadow-lg rounded-md p-8 m-4 bg-white">
+                <div className=" shadow-lg rounded-md p-8 m-4">
                     <Swiper
                         loop={true}
                         spaceBetween={30}

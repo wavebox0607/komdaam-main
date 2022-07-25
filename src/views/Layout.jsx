@@ -8,7 +8,6 @@ import RightSide from './components/common/RightSide';
 const Layout = () => {
     const [left, setLeft] = useState(true)
     const [right, setRight] = useState(false)
-    console.log(left, right);
     return (
         <>
             <header className=''>

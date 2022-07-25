@@ -1,6 +1,9 @@
 import React from 'react';
+import { SwiperSlide } from 'swiper/react';
 import { Product } from '../../../../services';
 import ProductCard from '../../card/ProductCard';
+import { SectionHeading } from '../../utils';
+import Slider from '../../utils/Slider';
 
 const FeatureProduct = () => {
     const { data, isLoading } = Product.GetAll()
@@ -10,9 +13,47 @@ const FeatureProduct = () => {
     // if (isFetching) {
     //     return <div className='w-full h-screen flex justify-center items-center'>Fatching...</div> 
     // }
+    const prev = 'newArrrival_productThirteen_prev'
+    const next = 'newArrrival_productThirteen_next'
+
     return (
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 px-4'>
-            {data?.data?.map((item) => <ProductCard item={item} />)}
+
+        <div className="mx-4 sm:px-0 py-12 ">
+           
+            <SectionHeading text={"Feature Product"} />
+            <Slider
+                prevEl={prev}
+                nextEl={next}
+                breakpoints={{
+                    75: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    600: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1440: {
+                        slidesPerView: 5,
+                        spaceBetween: 20,
+                    },
+                }}
+            >
+
+                {data?.data?.map((item) =>
+                    <SwiperSlide key={item?.id}>
+                        <ProductCard item={item} />
+                    </SwiperSlide>
+                )}
+            </Slider>
         </div>
     );
 };

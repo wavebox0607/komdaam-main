@@ -6,19 +6,17 @@ import { bangla } from '../../../constant/language';
 import Taka from '../utils/Taka';
 
 const ProductCard = ({ item }) => {
-
-    console.log(bangla);
     return (
-        <div className='bg-white rounded-lg hover:bg-green-200 shadow-md group transition-all duration-300 ease-linear overflow-hidden max-h-full flex flex-col'>
-            <div className="w-full h-[145px] md:h-[273px] p-2">
-                <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
-            </div>
-            <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
-            <div className="p-2 flex-1 flex flex-col h-auto">
-                <div className="flex-1">
-                    <Link to={'/' + item?.slug}><h4 className='text-center font-semibold text-[14px] hover:text-[#50c878]'>{item?.name}</h4></Link>
-                    <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক:" : "Per Unit:" : null}{item?.per_unit}</p>
+        <div className='bg-white rounded-lg hover:bg-green-200 shadow-md group transition-all duration-300 ease-linear overflow-hidden h-full flex flex-col'>
+            <Link to={'/product/' + item?.slug}>
+                <div className="w-full h-[145px] md:h-[273px] p-2">
+                    <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
                 </div>
+            </Link>
+            <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
+            <div className="p-2 flex-1">
+                <Link to={'/' + item?.slug}><h4 className='text-center font-semibold text-[14px] hover:text-[#50c878]'>{item?.name}</h4></Link>
+                <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক:" : "Per Unit:" : null}{item?.per_unit}</p>
             </div>
             <div className="">
                 <AddToCart item={item} />

@@ -73,7 +73,6 @@ const HeaderTop = () => {
     useEffect(() => {
 
         const result = localStorage.getItem('lan')
-        console.log("result", result);
         setLan(result)
 
     }, [])

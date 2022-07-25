@@ -1,4 +1,8 @@
+import Taka from './Taka'
 import Slider from "./Slider"
+import SectionHeading from './Heading'
 export {
-    Slider
+    Taka,
+    Slider,
+    SectionHeading
 }

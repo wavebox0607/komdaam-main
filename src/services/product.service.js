@@ -8,6 +8,13 @@ class ProductApi {
         })
         return data
     }
+    GetSingle = (slug) => {
+        const data = useQuery(['productDetails', slug], () => httpReq.get(`product-details?slug=${slug}`), {
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
+        })
+        return { data, ...data }
+    }
 
 }
 

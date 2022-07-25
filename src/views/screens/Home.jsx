@@ -3,14 +3,14 @@ import { CurrentOffer, FeatureCategory, FeatureProduct, Help, Hero, Step } from 
 
 const Home = () => {
 	return (
-		<div className='w-full'>
+		<>
 			<Hero />
 			<Step />
 			<CurrentOffer />
 			<FeatureCategory />
 			<FeatureProduct />
 			<Help />
-		</div>
+		</>
 	);
 };
 

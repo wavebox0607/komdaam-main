@@ -4,7 +4,7 @@ import help from '../../../../assets/help.webp'
 
 const Help = () => {
     return (
-        <div className='grid md:grid-cols-2 grid-cols-1 mt-24 mb-12'>
+        <div className='grid md:grid-cols-2 grid-cols-1 mt-24 mb-12 shadow-md mx-4'>
             <div className=" flex flex-col space-y-2">
                 <h3 className='text-4xl text-red-500 text-center font-semibold'>NEED HELP?</h3>
                 <p className='text-center font-bold'>We are just a call away.</p>
