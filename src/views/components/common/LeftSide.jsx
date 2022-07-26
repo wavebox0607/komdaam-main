@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { categoryImg } from '../../../constant/imgUri';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import { HomePage } from '../../../services';
+import { Link } from 'react-router-dom'
 
 const LeftSide = ({ left }) => {
     const [show, setShow] = useState(null)
@@ -24,10 +25,11 @@ const SingleCat = ({ item, show, setShow }) => {
 
     return <>
         <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center'>
-            <div className="flex-1 flex space-x-1">
-                <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />
-                <p>{item.name}</p>
-            </div>
+            <Link to={"/category/" + item?.slug}>
+                <div className="flex-1 flex space-x-1">
+                    <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />
+                    <p>{item.name}</p>
+                </div></Link>
             {item?.subcategory ? <div className="">
                 {show ? <ChevronUpIcon className='h-4 w-4' /> :
                     <ChevronDownIcon className='h-4 w-4' />}
@@ -40,10 +42,12 @@ const SingleCat = ({ item, show, setShow }) => {
 const SingleSub = ({ item }) => {
     return (
         <div className='flex ml-4'>
-            <div className="flex-1 flex space-x-1">
-                <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
-                <p>{item?.name}</p>
-            </div>
+            <Link to={'/category/' + item?.slug}>
+                <div className="flex-1 flex space-x-1">
+                    <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
+                    <p>{item?.name}</p>
+                </div>
+            </Link>
 
         </div>
     )
