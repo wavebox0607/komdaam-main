@@ -6,10 +6,10 @@ import { Product } from '../../services';
 import ProductCard from '../components/card/ProductCard';
 import { Pagination } from '../components/utils';
 
-const Category = () => {
+const SubCategory = () => {
     const params = useParams()
     const [page, setPage] = useState('?page=1')
-    const { data, isLoading } = Product.GetCatProduct(params?.slug, page)
+    const { data, isLoading } = Product.GetSubCatProduct(params?.slug, page)
 
 
     console.log(data);
@@ -50,4 +50,4 @@ const Category = () => {
 
 };
 
-export default Category;
+export default SubCategory;

@@ -42,7 +42,7 @@ const SingleCat = ({ item, show, setShow }) => {
 const SingleSub = ({ item }) => {
     return (
         <div className='flex ml-4'>
-            <Link to={'/category/' + item?.slug}>
+            <Link to={'/subcategory/' + item?.slug}>
                 <div className="flex-1 flex space-x-1">
                     <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
                     <p>{item?.name}</p>

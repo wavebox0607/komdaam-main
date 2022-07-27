@@ -83,15 +83,15 @@ const HeaderTop = () => {
     }
     return (
         <div className={`w-full flex justify-between bg-[#50c878] h-6`}>
-            <div className='flex items-center divide-x-2 space-x-2'>
-                <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p>
-                <div className='flex space-x-1 pl-2'>
+            {/* <div className='flex items-center divide-x-2 space-x-2'> */}
+                {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
+                <div className='flex items-center space-x-1 pl-2'>
                     <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                     <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                     <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                     <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                 </div>
-            </div>
+            {/* </div> */}
             <div className="space-x-4 flex pr-2 text-sm items-center font-medium text-white">
                 {/* language  */}
                 <div className="divide-x-2 flex space-x-2 ">

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import httpReq from "./http.service";
 class ProductApi {
-    
+
     GetAll = () => {
         const data = useQuery(['allproduct'], () => httpReq.get('allproduct'), {
             refetchOnMount: true,
@@ -19,8 +19,8 @@ class ProductApi {
     }
 
     // category wise product
-    GetCatProduct = (slug) => {
-        const data = useQuery(['getcatproduct', slug], () => httpReq.get(`getcatproduct?slug=${slug}`), {
+    GetCatProduct = (slug, page) => {
+        const data = useQuery(['getcatproduct', slug], () => httpReq.get(`getcatproduct?slug=${slug}&page=${page}`), {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
@@ -28,12 +28,23 @@ class ProductApi {
     }
 
     // subcategory wise product
-    GetSubCatProduct = (slug) => {
-        const data = useQuery(['getsubcatproduct', slug], () => httpReq.get(`getsubcatproduct?slug=${slug}`), {
+    GetSubCatProduct = (slug, page) => {
+        const data = useQuery(['getsubcatproduct', slug], () => httpReq.get(`getsubcatproduct?slug=${slug}&page=${page}`), {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
         return { data, ...data }
+    }
+    // create unic id 
+     makeid = (length) => {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() *
+                charactersLength));
+        }
+        return result;
     }
 
 }
