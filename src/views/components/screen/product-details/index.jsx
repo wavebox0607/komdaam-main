@@ -1,7 +1,11 @@
-import ImageSection from "./ImageSection"
-import ImageZoom from "./ImageZoom"
+// import ImageSection from "./ImageSection"
+// import ImageZoom from "./ImageZoom"
+import AddToCart from "./AddToCart"
+import Description from "./Description"
 
 export {
-    ImageSection,
-    ImageZoom
+    // ImageSection,
+    // ImageZoom,
+    AddToCart,
+    Description
 }

@@ -22,7 +22,7 @@ const Layout = () => {
                 <div className={`${left ? "w-[200px]" : "w-[60px]"} h-auto  relative transition-all duration-300 ease-linear`}>
                     <LeftSide left={left} />
                 </div>
-                <div className={`${(left && right) ? "w-[calc(100%-410px)]" : (left && !right) ? "w-[calc(100%-210px)]" : (!left && right) ? "w-[calc(100%-270px)]" : "w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
+                <div className={`${(left && right) ? "w-[calc(100%-540px)]" : (left && !right) ? "w-[calc(100%-210px)]" : (!left && right) ? "w-[calc(100%-400px)]" : "w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
                     <main className=''>
                         <Main />
                     </main>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import { NavLink } from 'react-router-dom';
-import {  MenuIcon, ShoppingCartIcon } from '@heroicons/react/outline'
+import { MenuIcon, ShoppingCartIcon } from '@heroicons/react/outline'
 import { SearchIcon, PhoneIcon } from '@heroicons/react/solid'
 import logo from '../../../assets/logo1.png'
 import { Link, NavLink } from 'react-router-dom';
@@ -84,13 +84,13 @@ const HeaderTop = () => {
     return (
         <div className={`w-full flex justify-between bg-[#50c878] h-6`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
-                {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
-                <div className='flex items-center space-x-1 pl-2'>
-                    <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                    <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                    <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                    <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                </div>
+            {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
+            <div className='flex items-center space-x-1 pl-2'>
+                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
+                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
+                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
+                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
+            </div>
             {/* </div> */}
             <div className="space-x-4 flex pr-2 text-sm items-center font-medium text-white">
                 {/* language  */}
@@ -106,7 +106,7 @@ const HeaderTop = () => {
                 </div>
                 {/* login */}
                 <div className="">
-                    <p className='text-white hover:text-red-600'>Login</p>
+                    <NavLink to='/login' className='text-white hover:text-red-600'>Login</NavLink>
                 </div>
                 {/* Signup */}
                 <div className="">

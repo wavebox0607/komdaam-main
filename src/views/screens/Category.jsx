@@ -11,8 +11,6 @@ const Category = () => {
     const [page, setPage] = useState('?page=1')
     const { data, isLoading } = Product.GetCatProduct(params?.slug, page)
 
-
-    console.log(data);
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading</div>
     }
