@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@heroicons/react/solid';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { productImg } from '../../constant/imgUri';
 import { bangla } from '../../constant/language';
@@ -13,19 +13,27 @@ const ProductDetails = () => {
     // const [already, setAlready] = useState(false)
     let { slug } = useParams();
     const { data, isLoading } = Product.GetSingle(slug)
-    
+
     const { cartList } = useSelector((state) => state.cart)
+
+    useEffect(() => {
+        if (data?.data?.variant) {
+            setUnit(data?.data?.variant[0])
+        }
+    }, [data?.data?.variant])
+
 
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
     }
+
 
     return (
         <div className='px-4 py-6 my-12'>
             <div className="grid md:grid-cols-8 grid-cols-1 md:gap-4 ">
 
                 <div className="md:col-span-3 h-[400px] w-full">
-                    {data?.data?.images?.slice(0, 1).map((item,id) =>
+                    {data?.data?.images?.slice(0, 1).map((item, id) =>
                         <Zoom
                             key={id}
                             img={productImg + item}

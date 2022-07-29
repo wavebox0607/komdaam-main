@@ -14,9 +14,9 @@ axiosInstance.interceptors.request.use((config) => {
     // config.params['auth'] = 'iazadur'
     // console.log(config);
     // console.log(config);
-    config.headers['Authorization'] = "iazadur"
+
+    config.headers['Authorization'] = token ? 'Bearer ' + token : null
     config.headers['Accept-Language'] = localStorage.getItem("lan") || 'en'
-    // config.headers['Authorization'] = token ? 'Bearer ' + token : null
     return config;
 });
 

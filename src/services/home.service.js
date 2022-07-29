@@ -1,6 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import httpReq from "./http.service";
 class HomeApi {
+    // get user
+    GetUser = () => {
+        const data = useQuery(['getuser'], () => httpReq.get('getuser'), {
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
+        })
+        return data
+    }
     // get slider
     GetSlider = () => {
         const data = useQuery(['slider'], () => httpReq.get('slider'), {

@@ -1,4 +1,5 @@
 import { MinusIcon, PlusIcon } from "@heroicons/react/solid"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { bangla } from "../../../../constant/language"
 import { addToCartList, decrementQty } from "../../../../redux/slice/cart"
@@ -6,6 +7,16 @@ import { Product } from "../../../../services"
 
 const AddToCart = ({ product, unit, already }) => {
     const dispatch = useDispatch()
+
+    const [alreadyCart, setAlreadyCart] = useState(null)
+
+    useEffect(() => {
+        const inCart = already.find(i => i.variantId === unit?.id)
+
+        setAlreadyCart(inCart)
+
+    }, [already, unit?.id])
+
 
     const data = {
         cartId: Product.makeid(100),
@@ -56,7 +67,7 @@ const AddToCart = ({ product, unit, already }) => {
                 <MinusIcon className='h-4 w-4' />
             </div>
             <div className="flex items-center gap-2 h-full px-4">
-                <p>0</p>
+                <p>{alreadyCart?.qty ? alreadyCart?.qty : 0}</p>
                 <p>{bangla ? "কার্টে" : 'in cart'}</p>
             </div>
             <div onClick={() => handleAddToCart()} className="hover:bg-[#000] px-2 hover:stroke-[#fff] stroke-[#50c878] text-[#50c878] hover:text-white h-full flex items-center transition-all duration-300 ease-linear">

@@ -8,7 +8,7 @@ const LeftSide = ({ left }) => {
     const [show, setShow] = useState(null)
     const { data } = HomePage.GetCategory()
     return (
-        <div className={`fixed left-0 top-[80px] bottom-0 overflow-y-scroll example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear`}>
+        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear`}>
             <div className="flex flex-col space-y-2 px-2">
                 {
                     data?.data?.map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
