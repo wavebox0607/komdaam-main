@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 // import { NavLink } from 'react-router-dom';
-import { MenuIcon, ShoppingCartIcon } from '@heroicons/react/outline'
-import { SearchIcon, PhoneIcon } from '@heroicons/react/solid'
-import logo from '../../../assets/logo1.png'
+import { MenuIcon, ShoppingCartIcon } from '@heroicons/react/outline';
+import { PhoneIcon, SearchIcon } from '@heroicons/react/solid';
+import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import logo from '../../../assets/logo1.png';
+import { logout } from '../../../redux/slice/auth';
+
+
+
 const Header = ({ left, setLeft, right, setRight }) => {
     const handleLeft = () => {
         setLeft(!left)
@@ -22,6 +28,7 @@ const Header = ({ left, setLeft, right, setRight }) => {
 export default Header;
 
 const HeaderDown = ({ handleRight, handleLeft }) => {
+    const { cartList } = useSelector((state) => state.cart)
     return (
         <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
             {/* menu and logo section  */}
@@ -56,8 +63,8 @@ const HeaderDown = ({ handleRight, handleLeft }) => {
                     <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Need help</p>
                 </div>
                 <div className="flex items-center px-2">
-                    <div className="cursor-pointer" onClick={() => handleRight()}>
-
+                    <div className="cursor-pointer relative" onClick={() => handleRight()}>
+                        <div className="rounded-full absolute -top-2 -right-2 bg-[#50c878] text-white "><p className='text-xs px-1'>{cartList?.length}</p></div>
                         <ShoppingCartIcon className='h-6 w-6 ' />
                     </div>
                 </div>
@@ -70,17 +77,19 @@ const HeaderDown = ({ handleRight, handleLeft }) => {
 
 const HeaderTop = () => {
     const [lan, setLan] = useState(null)
-    useEffect(() => {
+    const { user } = useSelector((state) => state.auth)
 
+    useEffect(() => {
         const result = localStorage.getItem('lan')
         setLan(result)
-
     }, [])
 
     const handleLanguage = (str) => {
         localStorage.setItem('lan', str)
         window.location.reload()
     }
+
+    const dispatch = useDispatch()
     return (
         <div className={`w-full flex justify-between bg-[#50c878] h-6`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
@@ -105,13 +114,21 @@ const HeaderTop = () => {
                     <p className='text-white group-hover:text-red-600'>01991666031</p>
                 </div>
                 {/* login */}
-                <div className="">
+                {!user?.verify && <div className="">
                     <NavLink to='/login' className='text-white hover:text-red-600'>Login</NavLink>
-                </div>
+                </div>}
                 {/* Signup */}
-                <div className="">
-                    <p className='text-white hover:text-red-600'>Sign Up</p>
-                </div>
+                {!user?.verify && <div className="">
+                    <NavLink to={'/sign-up'} className='text-white hover:text-red-600'>Sign Up</NavLink>
+                </div>}
+
+                {user?.verify && <NavLink to="/profile" className="">
+                    <p className='text-white hover:text-red-600'>Profile</p>
+                </NavLink>}
+                {user?.verify && <div onClick={() => dispatch(logout())} className="">
+                    <p className='text-white hover:text-red-600'>Logout</p>
+                </div>}
+
             </div>
         </div>
     )

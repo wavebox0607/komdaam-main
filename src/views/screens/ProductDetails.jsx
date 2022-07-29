@@ -7,6 +7,7 @@ import { Product } from '../../services';
 import { Taka, Zoom } from '../components/utils';
 import { AddToCart, Description } from '../components/screen/product-details';
 import { useSelector } from 'react-redux';
+import RelatedProducts from '../components/screen/product-details/RelatedProducts';
 
 const ProductDetails = () => {
     const [unit, setUnit] = useState(null)
@@ -76,6 +77,10 @@ const ProductDetails = () => {
             </div>
 
             <Description desc={data?.data?.description} />
+
+            <div className="border-t border-gray-400 py-5">
+                <RelatedProducts id={data?.data?.category_id} />
+            </div>
         </div>
     );
 };
