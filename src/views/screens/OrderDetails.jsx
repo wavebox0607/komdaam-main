@@ -16,8 +16,7 @@ const OrderDetails = () => {
     // const [transaction, setTransaction] = useState({})
     const { user } = useSelector((state) => state.auth);
 
-    const [userData, setuserDetails] = useState(null)
-    
+    const { data } = HomePage.GetUser()
     const params = useParams()
 
     const [call, setCall] = useState(false)
@@ -60,7 +59,7 @@ const OrderDetails = () => {
                 <h1 className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9  text-gray-800">Order #{order?.reference_no}</h1>
                 <p className="text-base font-medium leading-6 text-gray-600">{new Date(order?.created_at).toLocaleString()}</p>
             </div>
-            <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
+            <div className="mt-10 flex flex-col xl:flex-row justify-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
                 <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
                     <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
                         <p className="text-lg md:text-xl font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
@@ -98,31 +97,31 @@ const OrderDetails = () => {
                     <div className="flex  flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0 ">
                         <div className="flex flex-col justify-start items-start flex-shrink-0">
                             <div className="flex justify-center  w-full  md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
-                                {!userData?.image ?
+                                {!data?.image ?
                                     <img src="https://nwsid.net/wp-content/uploads/2015/05/dummy-profile-pic.png" className="w-14 object-cover h-14" alt="avatar" /> :
-                                    <img src={profileImg + userData?.image} className="w-14 object-cover h-14" alt="avatar" />}
+                                    <img src={profileImg + data?.image} className="w-14 object-cover h-14" alt="avatar" />}
                                 <div className=" flex justify-start items-start flex-col space-y-2">
-                                    {userData?.name ? <p className="text-base font-semibold leading-4 text-left text-gray-800">{userData?.name}</p> : null}
-                                    <p className="text-sm leading-5 text-gray-600"><span className='font-semibold'>Join us:</span> {new Date(userData?.created_at).toDateString()}</p>
+                                    {data?.name ? <p className="text-base font-semibold leading-4 text-left text-gray-800">{data?.name}</p> : null}
+                                    <p className="text-sm leading-5 text-gray-600"><span className='font-semibold'>Join us:</span> {new Date(data?.created_at).toDateString()}</p>
                                 </div>
                             </div>
 
 
-                            {userData?.phone ?
+                            {data?.phone ?
                                 <div className="flex justify-center  md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
                                     <PhoneIcon className='font-extralight' height={20} />
 
-                                    <p className="cursor-pointer text-sm leading-5 text-gray-800">{userData?.phone}</p>
+                                    <p className="cursor-pointer text-sm leading-5 text-gray-800">{data?.phone}</p>
                                 </div> : null
                             }
-                            {userData?.email ?
+                            {data?.email ?
                                 <div className="flex justify-center  md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M3 7L12 13L21 7" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
 
-                                    <p className="cursor-pointer text-sm leading-5 text-gray-800">{userData?.email}</p>
+                                    <p className="cursor-pointer text-sm leading-5 text-gray-800">{data?.email}</p>
                                 </div> : null}
 
 
@@ -132,16 +131,16 @@ const OrderDetails = () => {
                                 <div className="flex justify-center md:justify-start  items-center md:items-start flex-col space-y-4 xl:mt-8">
                                     <p className="text-base font-semibold leading-4 text-center md:text-left text-gray-800">Shipping Address</p>
                                     <div className="w-48 lg:w-full xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">
-                                        <h3 className='font-semibold tracking-wider'>Name: {userData?.name}</h3>
-                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Phone:</span> {userData?.phone}</p>
-                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Address: </span>{userData?.address}
+                                        <h3 className='font-semibold tracking-wider'>Name: {data?.name}</h3>
+                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Phone:</span> {data?.phone}</p>
+                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Address: </span>{data?.address}
                                         </p>
                                     </div>
 
                                 </div>
 
                             </div>
-                            {order?.status === "Pending" && order?.payurl && <div className='text-red-500'>Exprie In:  <Countdown date={order_create_time + 3000000} renderer={renderer} /></div>}
+                            {order?.status === "Pending" && order?.payurl && <div className='text-red-500'>Expire In:  <Countdown date={order_create_time + 3000000} renderer={renderer} /></div>}
                             {order?.status === "Pending" && order?.payurl && pay === 'show' && <div className="flex w-full justify-center items-center md:justify-start md:items-start">
                                 <button
                                     onClick={() => window.location.replace(order?.payurl)}
