@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { profileImg } from '../../constant/imgUri';
 import { HomePage, httpReq } from '../../services';
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { Navigate } from 'react-router-dom';
 
 const Profile = () => {
     const { user } = useSelector((state) => state.auth)
@@ -75,14 +76,17 @@ const Profile = () => {
     const useUpdateProfile = () => {
         const queryClient = useQueryClient()
         return useMutation(update, {
-            onSuccess: (data) => {
-                queryClient.setQueryData('getuser', (old) => {
-                    return {
-                        ...old,
-                        data: { ...old, ...data?.data }
-                    }
-                }
-                )
+            onSuccess: () => {
+                queryClient.invalidateQueries('getuser')
+                queryClient.fetchQuery('getuser')
+                Navigate('/profile')
+                // queryClient.setQueryData('getuser', (old) => {
+                //     return {
+                //         ...old,
+                //         data: { ...old, ...data?.data }
+                //     }
+                // }
+                // )
             }
         })
     }
