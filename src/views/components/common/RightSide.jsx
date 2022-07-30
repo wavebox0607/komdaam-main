@@ -1,13 +1,14 @@
-import { ChevronDownIcon, ChevronUpIcon, XIcon } from '@heroicons/react/solid';
+import { ChevronDownIcon, ChevronUpIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/solid';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { productImg } from '../../../constant/imgUri';
 import { bangla } from '../../../constant/language';
-import { decrementQty, incrementQty, removeToCartList } from '../../../redux/slice/cart';
+import { decrementQty, incrementQty, removeToCartList, toggleCart } from '../../../redux/slice/cart';
 import { Taka } from '../utils';
 
 const RightSide = ({ right }) => {
+    const dispatch = useDispatch()
     const { cartList } = useSelector((state) => state.cart)
     const priceList = cartList?.map(p => p.qty * p.price)
     const total = priceList.reduce(
@@ -15,10 +16,19 @@ const RightSide = ({ right }) => {
         0
     );
     return (
-        <div className={`fixed right-0 top-[100px] bottom-0    ${right ? "w-[330px]" : "w-[0px]"} transition-all duration-300 ease-linear`}>
+        <div className={`fixed right-0 top-[70px] bottom-0    ${right ? "w-[330px]" : "w-[0px]"} transition-all duration-100 ease-linear`}>
             <div className="flex flex-col justify-between h-full ">
                 <div className="flex-1 w-full overflow-y-scroll example">
-                    <h3>দ্রুত ডেলিভারী</h3>
+                    <div className="flex justify-between bg-[#50c878] px-2 h-[40px] items-center">
+                        <div className="flex items-center text-[15px] font-bold text-white gap-2">
+                            <ShoppingCartIcon className='h-5 w-5 ' color='white' />
+                            <p>{cartList.length + " "}ITEMS</p>
+                        </div>
+                        <div className="">
+                            <button onClick={() => dispatch(toggleCart())} className='border border-white px-4 hover:text-[#50c878] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
+                        </div>
+                    </div>
+                    <h3 className='bg-gray-50 font-semibold py-1'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>
                     {
                         cartList?.map((item) => <SingleCart key={item?.cartId} item={item} />)
                     }

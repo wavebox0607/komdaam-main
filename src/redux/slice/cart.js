@@ -7,6 +7,7 @@ export const cartSlice = createSlice({
   initialState: {
     cartList: [],
     cartOpen: false,
+    total: 0
   },
   reducers: {
     addToCartList: (state, action) => {
@@ -38,12 +39,21 @@ export const cartSlice = createSlice({
       }
     },
 
+    // Remove single product from cart List 
     removeToCartList: (state, action) => {
       state.cartList = state.cartList.filter((items) => items.cartId !== action.payload)
     },
 
+    // delete all product in cart List 
     clearCartList: (state) => {
       state.cartList = []
+    },
+    getTotal: (state) => {
+      const priceList = state.cartList?.map(p => p.qty * p.price)
+      state.total = priceList.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0
+      );
     },
 
     // Right side Cart open / close 
@@ -53,8 +63,6 @@ export const cartSlice = createSlice({
   },
 
 })
-
-
 
 
 export const { addToCartList, removeToCartList, incrementQty, decrementQty, clearCartList, toggleCart } = cartSlice.actions

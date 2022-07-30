@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import CartPopUp from './components/common/CartPopUp';
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 import LeftSide from './components/common/LeftSide';
@@ -30,10 +31,11 @@ const Layout = () => {
                         <Footer />
                     </footer>
                 </div>
-                <div className={`${right ? "w-[200px] visible" : "w-[0px] invisible"} h-auto  relative transition-all duration-300 ease-linear`}>
+                <div className={`${right ? "w-[200px] visible" : "w-[0px] invisible"} h-auto  relative transition-all duration-100 ease-linear`}>
                     <RightSide right={right} />
                 </div>
             </div>
+            <CartPopUp right={right} />
         </>
     );
 };
