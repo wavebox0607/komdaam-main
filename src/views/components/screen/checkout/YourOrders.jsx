@@ -14,7 +14,7 @@ import { Taka } from '../../utils';
 const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) => {
 	const cartList = useSelector((state) => state.cart.cartList)
 	const { user } = useSelector((state) => state.auth)
-	const { data } = HomePage.GetInfo()
+	const { data } = HomePage.GetSettings()
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const priceList = cartList?.map(p => p.qty * p.price)
@@ -156,7 +156,7 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			</div>
 
 			<button
-				className={`font-semibold tracking-wider my-1 border border-gray-300 w-full py-3  text-white transition-all duration-200 ease-linear bg-[#50c878] hover:bg-red-600 hover:text-gray-100 hover:shadow-lg rounded-md`}
+				className={`font-semibold tracking-wider my-1 border border-gray-300 w-full py-3  text-white transition-all duration-200 ease-linear bg-[#50c878] hover:bg-[#26ad53] hover:text-gray-100 hover:shadow-lg rounded-md`}
 	
 				onClick={() => handleCheckout()}
 			>
@@ -177,7 +177,7 @@ const Single = ({ item }) => {
 
 	return <div key={item.id} className="flex justify-between space-y-2 space-x-1 items-center last:border-0 border-b border-gray-400 py-2">
 		<div className="w-14">
-			<img className='w-14 h-14 ' src={productImg + item.image[0]} alt="" />
+			<img className='w-14 h-14 ' src={productImg + item?.images[0]} alt="" />
 
 		</div>
 		<div className="flex flex-col gap-x-2 gap-y-1 pl-2">

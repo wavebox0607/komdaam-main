@@ -14,7 +14,7 @@ const Discount = ({ setCupon, setShipping_area }) => {
     `
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
-	const { data } = HomePage.GetInfo()
+	const { data } = HomePage.GetSettings()
 	const cartList = useSelector((state) => state.cart.cartList)
 	const get_discout = (res) => {
 		const priceList = cartList?.map(p => p.qty * getPrice(p.regular_price, p.discount_price, p.discount_type))

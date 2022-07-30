@@ -1,8 +1,9 @@
+import { ShoppingBagIcon } from "@heroicons/react/outline"
 import { MinusIcon, PlusIcon } from "@heroicons/react/solid"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { bangla } from "../../../../constant/language"
-import { addToCartList, decrementQty } from "../../../../redux/slice/cart"
+import { addToCartList, decrementQty, toggleCart } from "../../../../redux/slice/cart"
 import { Product } from "../../../../services"
 
 const AddToCart = ({ product, unit, already }) => {
@@ -61,7 +62,7 @@ const AddToCart = ({ product, unit, already }) => {
         }
     }
 
-    return (<div className="flex mt-6">
+    return (<div className="flex mt-6 space-x-2">
         <div className="rounded-full flex items-center border border-black  hover:stroke-white  divide-x divide-black h-[36px] overflow-hidden">
             <div onClick={() => handleDecrementCartItem()} className="h-full flex items-center hover:bg-[#000] px-2 hover:stroke-[#fff]  stroke-[#50c878] text-[#50c878] hover:text-white transition-all duration-300 ease-linear">
                 <MinusIcon className='h-4 w-4' />
@@ -74,6 +75,21 @@ const AddToCart = ({ product, unit, already }) => {
                 <PlusIcon className='h-4 w-4' />
             </div>
         </div>
+
+
+        {alreadyCart?.cartId ?
+            <div onClick={() => dispatch(toggleCart())} className="rounded-full flex items-center border border-[#50c878] text-[#50c878] hover:text-white hover:bg-[#50c878] h-[36px] overflow-hidden transition-all duration-300 ease-linear cursor-pointer">
+
+                <h4 className="px-6  font-semibold"> Buy Now</h4>
+            </div>
+            :
+            <div className="rounded-full flex items-center border border-[#50c878]  hover:stroke-white h-[36px] overflow-hidden ">
+
+                <div onClick={() => handleAddToCart()} className="hover:bg-[#50c878]  hover:stroke-[#fff] stroke-[#50c878] text-[#50c878] hover:text-white h-full flex items-center transition-all duration-300 ease-linear space-x-2 px-4 cursor-pointer">
+                    <ShoppingBagIcon className='h-5 w-5' />
+                    <p className=" font-bold text-[14px] ">Add To Cart</p>
+                </div>
+            </div>}
     </div>
     )
 }

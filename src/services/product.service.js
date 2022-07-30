@@ -10,12 +10,22 @@ class ProductApi {
         return data
     }
 
+    // product details api 
     GetSingle = (slug) => {
         const data = useQuery(['productDetails', slug], () => httpReq.get(`product-details?slug=${slug}`), {
+            refetchOnMount: true, cacheTime: 500
+        })
+        return { data, ...data }
+    }
+
+
+    // Related product details api 
+    GetRelatedProduct = (slug) => {
+        const data = useQuery(['relatedProduct', slug], () => httpReq.get(`related_product?slug=${slug}`), {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
-        return { data, ...data }
+        return data
     }
 
     // category wise product
@@ -36,7 +46,7 @@ class ProductApi {
         return { data, ...data }
     }
     // create unic id 
-     makeid = (length) => {
+    makeid = (length) => {
         var result = '';
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;

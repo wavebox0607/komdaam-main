@@ -78,8 +78,8 @@ const ProductDetails = () => {
 
             <Description desc={data?.data?.description} />
 
-            <div className="border-t border-gray-400 py-5">
-                <RelatedProducts id={data?.data?.category_id} />
+            <div className=" py-5">
+                <RelatedProducts slug={data?.data?.slug} />
             </div>
         </div>
     );

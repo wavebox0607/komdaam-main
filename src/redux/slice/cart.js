@@ -5,7 +5,8 @@ import { createSlice } from '@reduxjs/toolkit'
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cartList: []
+    cartList: [],
+    cartOpen: false,
   },
   reducers: {
     addToCartList: (state, action) => {
@@ -43,6 +44,11 @@ export const cartSlice = createSlice({
 
     clearCartList: (state) => {
       state.cartList = []
+    },
+
+    // Right side Cart open / close 
+    toggleCart: (state) => {
+      state.cartOpen = !state.cartOpen
     }
   },
 
@@ -51,7 +57,7 @@ export const cartSlice = createSlice({
 
 
 
-export const { addToCartList, removeToCartList, incrementQty, decrementQty, clearCartList } = cartSlice.actions
+export const { addToCartList, removeToCartList, incrementQty, decrementQty, clearCartList, toggleCart } = cartSlice.actions
 
 
 export default cartSlice.reducer

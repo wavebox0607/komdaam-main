@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 import LeftSide from './components/common/LeftSide';
@@ -7,15 +8,14 @@ import RightSide from './components/common/RightSide';
 
 const Layout = () => {
     const [left, setLeft] = useState(true)
-    const [right, setRight] = useState(false)
+    const right = useSelector((state) => state.cart.cartOpen)
+
     return (
         <>
             <header className=''>
                 <Header
                     left={left}
                     setLeft={setLeft}
-                    right={right}
-                    setRight={setRight}
                 />
             </header>
             <div className="flex items-start mt-[60px]">

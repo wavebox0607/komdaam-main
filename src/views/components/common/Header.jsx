@@ -7,28 +7,28 @@ import { Link, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import logo from '../../../assets/logo1.png';
 import { logout } from '../../../redux/slice/auth';
+import { toggleCart } from '../../../redux/slice/cart';
 
 
 
-const Header = ({ left, setLeft, right, setRight }) => {
+const Header = ({ left, setLeft }) => {
     const handleLeft = () => {
         setLeft(!left)
     }
-    const handleRight = () => {
-        setRight(!right)
-    }
+ 
     return (
         <div className='fixed top-0 left-0 right-0' style={{ zIndex: 10000000 }}>
             <HeaderTop />
-            <HeaderDown handleLeft={handleLeft} handleRight={handleRight} />
+            <HeaderDown handleLeft={handleLeft} />
         </div>
     );
 };
 
 export default Header;
 
-const HeaderDown = ({ handleRight, handleLeft }) => {
+const HeaderDown = ({  handleLeft }) => {
     const { cartList } = useSelector((state) => state.cart)
+    const dispatch = useDispatch()
     return (
         <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
             {/* menu and logo section  */}
@@ -63,7 +63,7 @@ const HeaderDown = ({ handleRight, handleLeft }) => {
                     <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Need help</p>
                 </div>
                 <div className="flex items-center px-2">
-                    <div className="cursor-pointer relative" onClick={() => handleRight()}>
+                    <div className="cursor-pointer relative" onClick={() => dispatch(toggleCart())}>
                         <div className="rounded-full absolute -top-2 -right-2 bg-[#50c878] text-white "><p className='text-xs px-1'>{cartList?.length}</p></div>
                         <ShoppingCartIcon className='h-6 w-6 ' />
                     </div>
