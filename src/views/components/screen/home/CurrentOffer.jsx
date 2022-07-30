@@ -24,13 +24,13 @@ const CurrentOffer = () => {
     }
     return (
         <>
-            <div className='bg-white py-12'>
+            <div className='py-12  '>
 
                 <div className="mt-10 ">
                     <SectionHeading text={"Current Offers"} />
                 </div>
 
-                <div className=" shadow-lg rounded-md p-8 m-4">
+                <div className=" ">
                     <Swiper
                         loop={true}
                         spaceBetween={30}
@@ -48,7 +48,7 @@ const CurrentOffer = () => {
                                 spaceBetween: 20,
                             }
                         }}
-                        className="mySwiper"
+                        className="mySwiper  !-z-10 "
                     >
                         {data?.triple_banner?.map((b) =>
                             <SwiperSlide key={b.id}>

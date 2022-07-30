@@ -1,11 +1,10 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { profileImg } from '../../constant/imgUri';
 import { HomePage, httpReq } from '../../services';
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { Navigate } from 'react-router-dom';
 
 const Profile = () => {
     const { user } = useSelector((state) => state.auth)
@@ -26,7 +25,7 @@ const Profile = () => {
         reader.onerror = error => reject(error);
     });
 
-    
+
     const update_profile = (res) => {
         httpReq.post('user/updateprofile', res)
             .then(res => {
@@ -73,13 +72,13 @@ const Profile = () => {
         }
     }
 
+    const queryClient = useQueryClient()
     const useUpdateProfile = () => {
-        const queryClient = useQueryClient()
         return useMutation(update, {
             onSuccess: () => {
                 queryClient.invalidateQueries('getuser')
                 queryClient.fetchQuery('getuser')
-                Navigate('/profile')
+
                 // queryClient.setQueryData('getuser', (old) => {
                 //     return {
                 //         ...old,
@@ -87,21 +86,32 @@ const Profile = () => {
                 //     }
                 // }
                 // )
+            },
+            
+            onSettled: () => {
+                queryClient.invalidateQueries('getuser')
             }
         })
     }
 
     const { mutate } = useUpdateProfile()
 
-    
+
     const onSubmit = data => {
-        mutate(data)
+        mutate(data, {
+            onSuccess: () => {
+                queryClient.invalidateQueries('getuser')
+            },
+            onSettled: () => {
+                queryClient.invalidateQueries('getuser')
+            }
+        })
     };
 
 
 
 
-   
+
     return (
         <>
 

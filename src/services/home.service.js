@@ -4,8 +4,7 @@ class HomeApi {
     // get user
     GetUser = () => {
         const data = useQuery(['getuser'], () => httpReq.get('getuser'), {
-            refetchOnMount:'always',
-            cacheTime: 500
+            cacheTime: 0
         })
         return data
     }
