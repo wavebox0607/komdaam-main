@@ -125,7 +125,7 @@ const HeaderTop = () => {
                 {user?.verify && <NavLink to="/profile" className="">
                     <p className='text-white hover:text-red-600'>Profile</p>
                 </NavLink>}
-                {user?.verify && <div onClick={() => dispatch(logout())} className="">
+                {user?.verify && <div onClick={() => dispatch(logout())} className="cursor-pointer">
                     <p className='text-white hover:text-red-600'>Logout</p>
                 </div>}
 

@@ -9,6 +9,13 @@ import { AddToCart, Description } from '../components/screen/product-details';
 import { useSelector } from 'react-redux';
 import RelatedProducts from '../components/screen/product-details/RelatedProducts';
 
+import {
+    FacebookIcon,
+    TwitterIcon,
+    FacebookShareButton,
+    TwitterShareButton
+} from "react-share";
+
 const ProductDetails = () => {
     const [unit, setUnit] = useState(null)
     // const [already, setAlready] = useState(false)
@@ -70,6 +77,16 @@ const ProductDetails = () => {
 
 
 
+                    {/* Share Button  */}
+                    <div className="my-3 flex items-center space-x-2">
+                        <h2 className='text-black font-semibold'>Share: </h2>
+                        <FacebookShareButton url={window.location.href}>
+                            <FacebookIcon size={32} round={true} />
+                        </FacebookShareButton>
+                        <TwitterShareButton url={window.location.href} >
+                            <TwitterIcon size={32} round={true} />
+                        </TwitterShareButton>
+                    </div>
 
 
 

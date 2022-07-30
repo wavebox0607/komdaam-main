@@ -16,7 +16,7 @@ const Footer = () => {
 
 export default Footer;
 const FooterTop = () => {
-    return <footer className="text-gray-600 body-font">
+    return <footer className="text-gray-600 bg-green-100">
         <div className="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
 
             <div className="flex-grow flex flex-wrap  -mb-10 md:text-left text-center order-first">
@@ -82,7 +82,7 @@ const FooterTop = () => {
 }
 
 const FooterBottom = () => {
-    return <footer className="text-gray-600 body-font">
+    return <footer className="text-gray-600  bg-green-300">
         <div className="container px-5 py-10 mx-auto">
             <div className="flex flex-wrap md:text-left text-center order-first">
                 <div className="lg:w-1/4 md:w-1/2 w-full px-4">
