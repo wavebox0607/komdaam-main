@@ -17,7 +17,7 @@ const Hero = () => {
         return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
     }
     return (
-        <div className='pt-2  hidden md:block'>
+        <div className='pt-2 '>
             <Swiper
                 loop={true}
                 spaceBetween={30}
@@ -28,11 +28,11 @@ const Hero = () => {
                     delay: 1000
                 }}
                 modules={[Pagination, Autoplay]}
-                className="mySwiper !-z-10 w-screen"
+                className="mySwiper !-z-10"
             >
 
                 {data?.data?.map((item) => <SwiperSlide  key={item?.image}>
-                    <img src={sliderImg + item?.image} className={"!w-full h-[350px] !-z-10"} alt="" />
+                    <img src={sliderImg + item?.image} className={"w-full h-[350px] !-z-10"} alt="" />
                 </SwiperSlide>)}
 
 

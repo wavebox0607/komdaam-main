@@ -7,9 +7,12 @@ import LeftSide from './components/common/LeftSide';
 import Main from './components/common/Main';
 import RightSide from './components/common/RightSide';
 import MobileBottomNav from './components/mobile/MobileBottomNav';
+import { Left, Right } from './components/overly';
 
 const Layout = () => {
     const [left, setLeft] = useState(true)
+    const [category, setCategory] = useState(false)
+    const [cart, setCart] = useState(false)
     const right = useSelector((state) => state.cart.cartOpen)
 
     useEffect(() => {
@@ -30,7 +33,7 @@ const Layout = () => {
                 <div className={`${left ? "w-[200px]" : "w-[60px]"} h-auto hidden lg:block  relative transition-all duration-300 ease-linear`}>
                     <LeftSide left={left} />
                 </div>
-                <div className={`${(left && right) ? "lg:w-[calc(100%-540px)]" : (left && !right) ? "lg:w-[calc(100%-210px)]" : (!left && right) ? "lg:w-[calc(100%-400px)]" : "lg:w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
+                <div className={`${(left && right) ? "w-full 2md:w-[calc(100%-540px)]" : (left && !right) ? "w-full 2md:w-[calc(100%-210px)]" : (!left && right) ? "w-full 2md:w-[calc(100%-400px)]" : "w-full 2md:w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
                     <main className=''>
                         <Main />
                     </main>
@@ -43,7 +46,9 @@ const Layout = () => {
                 </div>
             </div>
             <CartPopUp right={right} />
-            <MobileBottomNav />
+            <MobileBottomNav setCategory={setCategory} category={category} setCart={setCart} cart={cart} />
+            <Left setOpen={setCategory} open={category} />
+            <Right setOpen={setCart} open={cart} />
         </>
     );
 };

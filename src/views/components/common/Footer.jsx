@@ -112,9 +112,11 @@ const FooterBottom = () => {
                 <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                     <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-3 text-center ">Newsletter</h2>
                     <div className="form-control">
-                        <div className="flex flex-wrap shadow-lg rounded overflow-hidden">
+                        <div className="flex flex-wrap sm:flex-nowrap shadow-lg rounded overflow-hidden">
                             <input type="text" placeholder="Receive the latest news" className="input flex-1 border-none outline-0  focus:border-0 focus:outline-0" />
-                            <button className=" border-0 bg-[#50c878] hover:bg-[#1aa749] text-white font-semibold capitalize lg:px-2 xl:px-8 px-1 w-full sm:w-max">Sign Up</button>
+                            <div className="sm:min-w-max">
+                                <button className=" border-0 bg-[#50c878] hover:bg-[#1aa749] text-white font-semibold capitalize lg:px-2  px-1 w-full sm:min-w-max h-full">Sign Up</button>
+                            </div>
                         </div>
                     </div>
                 </div>

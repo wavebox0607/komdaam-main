@@ -45,7 +45,7 @@ export default function Right({ setOpen, open }) {
                                 leaveTo="translate-x-full"
                             >
                                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                                    <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                    <div className="flex  flex-col overflow-y-scroll bg-white shadow-xl">
                                         <div className="flex-1 w-full overflow-y-scroll example">
                                             <div className="flex justify-between bg-[#50c878] px-2 h-[40px] items-center">
                                                 <div className="flex items-center text-[15px] font-bold text-white gap-2">
@@ -61,7 +61,7 @@ export default function Right({ setOpen, open }) {
                                                 cartList?.map((item) => <SingleCart key={item?.cartId} item={item} />)
                                             }
                                         </div>
-                                        <div className=" w-full mb-3">
+                                        <div className=" w-full mb-16">
                                             <div className="flex mx-6 rounded-lg text-white overflow-hidden">
                                                 <NavLink to='/checkout' className="flex justify-center items-center bg-[#ff9eab] font-semibold flex-1 py-2">{bangla ? "অর্ডার করুন" : "Checkout"}</NavLink>
                                                 <div className="flex justify-center items-center bg-[#ff7358] flex-1 py-2"><Taka tk={total} /></div>

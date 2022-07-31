@@ -34,8 +34,8 @@ const HeaderDown = ({ handleLeft }) => {
     return (
         <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
             {/* menu and logo section  */}
-            <div className="flex items-center space-x-2 col-span-3 lg:col-span-3 h-[27px] " style={{ zIndex: 100000 }}>
-                <div className="hidden lg:flex">
+            <div className="flex items-center space-x-2 col-span-3 2md:col-span-3 h-[27px] " style={{ zIndex: 100000 }}>
+                <div className="hidden 2md:flex">
                     <div className="border border-gray-300 p-1 cursor-pointer" onClick={() => handleLeft()}>
                         <MenuIcon className='h-5 w-5' />
                     </div>
@@ -48,7 +48,7 @@ const HeaderDown = ({ handleLeft }) => {
             </div>
 
             {/* search section  */}
-            <div className="col-span-8 lg:col-span-6 max-h-[30px] relative">
+            <div className="col-span-8 2md:col-span-6 max-h-[30px] relative">
                 <input className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc]' type="text" />
                 <div className="absu absolute right-2 top-0 bottom-0 flex items-center  ">
                     <div className="rounded-full p-1 bg-[#50c878] text-white">
@@ -57,12 +57,12 @@ const HeaderDown = ({ handleLeft }) => {
                 </div>
             </div>
 
-            <div className="lg:hidden flex justify-center items-center">
+            <div className="2md:hidden flex justify-center items-center">
                 {/* <DotsVerticalIcon className='h-5 w-5' /> */}
                 <Options />
             </div>
 
-            <div className="hidden lg:flex justify-end col-span-4 lg:col-span-3 space-x-2">
+            <div className="hidden 2md:flex justify-end col-span-4 2md:col-span-3 space-x-2">
                 <NavLink to='/offer' className="">
                     <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Offer</p>
                 </NavLink>
@@ -95,7 +95,7 @@ const HeaderTop = () => {
 
     const dispatch = useDispatch()
     return (
-        <div className={`w-full hidden lg:flex justify-between bg-[#50c878] h-6`}>
+        <div className={`w-full hidden 2md:flex justify-between bg-[#50c878] h-6`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
             <div className='flex items-center space-x-1 pl-2'>
