@@ -34,7 +34,7 @@ const Address = ({ selectAddress, setSelectAddress }) => {
 							<label htmlFor="name" className="block text-xl font-semibold text-gray-700">
 								Addresses
 							</label>
-							<span className='text-green-600 font-semibold tracking-wider cursor-pointer' onClick={() => setOpen(true)}> + Add</span>
+							<span className='text-[#50c878]-600 font-semibold tracking-wider cursor-pointer' onClick={() => setOpen(true)}> + Add</span>
 						</div>
 						<div className="grid sm:grid-cols-2 gap-4">
 

@@ -2,7 +2,8 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from '../../../private/Private';
 import PublicRoute from '../../../private/Public';
-import { About, Category, ChangePassword, Checkout, Dashboard, ForgetPassword, Home, Login, NotFound, Order, OrderDetails, ProductDetails, Profile, Signup, SubCategory, VerifyOtp } from '../../screens';
+import { About, Category, ChangePassword, Checkout, Dashboard, ForgetPassword, Home, Login, NotFound, Offer, Order, OrderDetails, ProductDetails, Profile, Signup, SubCategory, VerifyOtp, Search } from '../../screens';
+
 import ScrollToTop from '../react-router/ScrollToTop';
 
 const Main = () => {
@@ -15,8 +16,10 @@ const Main = () => {
                 <Route path="/category/:slug" element={<Category />} />
                 <Route path="/subcategory/:slug" element={<SubCategory />} />
                 <Route path="/product/:slug" element={<ProductDetails />} />
+                <Route path="/search" element={<Offer />} />
+                <Route path="/search/:src" element={<Search />} />
                 <Route path="about" element={<About />} />
-                <Route path="offer" element={<About />} />
+                <Route path="offer" element={<Offer />} />
 
 
                 {/* Private Routes  */}

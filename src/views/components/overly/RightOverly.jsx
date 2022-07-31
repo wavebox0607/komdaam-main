@@ -44,8 +44,8 @@ export default function Right({ setOpen, open }) {
                                 leaveFrom="translate-x-0"
                                 leaveTo="translate-x-full"
                             >
-                                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                                    <div className="flex  flex-col overflow-y-scroll bg-white shadow-xl">
+                                <Dialog.Panel className="pointer-events-auto w-screen max-w-md pl-10">
+                                    <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                         <div className="flex-1 w-full overflow-y-scroll example">
                                             <div className="flex justify-between bg-[#50c878] px-2 h-[40px] items-center">
                                                 <div className="flex items-center text-[15px] font-bold text-white gap-2">

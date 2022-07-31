@@ -10,7 +10,7 @@ const LeftSide = ({ left }) => {
     const { data } = HomePage.GetCategory()
     return (
         <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear`}>
-            <div className="flex flex-col space-y-[6px] px-2">
+            <div className="flex flex-col space-y-[6px] px-2 text-[14px]">
                 {left ?
                     <div className='flex items-center'>
                         <Link to={"/offer"}>
@@ -40,7 +40,7 @@ const SingleCat = ({ item, show, setShow }) => {
     return <>
         <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-1 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all duration-200 ease-linear'>
             <Link to={"/category/" + item?.slug}>
-                <div className="flex-1 flex space-x-[6px]">
+                <div className="flex-1 flex space-x-[8px]">
                     <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />
                     <p>{item.name}</p>
                 </div></Link>
@@ -55,9 +55,9 @@ const SingleCat = ({ item, show, setShow }) => {
 
 const SingleSub = ({ item }) => {
     return (
-        <div className='flex ml-4'>
+        <div className='flex ml-4 hover:text-[#50c878] text-[14px]'>
             <Link to={'/subcategory/' + item?.slug}>
-                <div className="flex-1 flex space-x-1">
+                <div className="flex-1 flex space-x-3 py-1">
                     <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
                     <p>{item?.name}</p>
                 </div>
@@ -72,7 +72,7 @@ const SingleCat2 = ({ item }) => {
     const [show, setShow] = useState(null)
 
     return <>
-        <div className='relative w-full flex justify-center'>
+        <div className='relative w-full flex justify-center text-[14px]'>
             <NavLink to={'/category/' + item?.slug}
                 onMouseEnter={() => setShow(item?.subcategory ? item?.slug : null)}
                 onMouseLeave={() => setShow(null)}
@@ -93,7 +93,7 @@ const SingleCat2 = ({ item }) => {
 const SingleSub2 = ({ item }) => {
     return (
         <Link to={'/subcategory/' + item?.slug} className='' >
-            <div className="px-2 flex space-x-1">
+            <div className="px-2 flex space-x-2">
                 <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
                 <p>{item?.name}</p>
             </div>

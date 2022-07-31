@@ -16,9 +16,8 @@
   .example::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
-
-  /* .example::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
-  } */
+  }
 
 

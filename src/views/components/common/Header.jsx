@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { MenuIcon, ShoppingCartIcon } from '@heroicons/react/outline';
 import { PhoneIcon, SearchIcon } from '@heroicons/react/solid';
 import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import logo from '../../../assets/logo1.png';
 import { logout } from '../../../redux/slice/auth';
@@ -31,6 +31,8 @@ export default Header;
 const HeaderDown = ({ handleLeft }) => {
     const { cartList } = useSelector((state) => state.cart)
     const dispatch = useDispatch()
+    let navigate = useNavigate();
+
     return (
         <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
             {/* menu and logo section  */}
@@ -49,7 +51,7 @@ const HeaderDown = ({ handleLeft }) => {
 
             {/* search section  */}
             <div className="col-span-8 2md:col-span-6 max-h-[30px] relative">
-                <input className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc]' type="text" />
+                <input onChange={(e) => navigate(`/search/${e.target.value}`)} className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc]' type="text" />
                 <div className="absu absolute right-2 top-0 bottom-0 flex items-center  ">
                     <div className="rounded-full p-1 bg-[#50c878] text-white">
                         <SearchIcon className='h-4 w-4 stroke-2 stroke-white' />

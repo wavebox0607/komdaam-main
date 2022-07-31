@@ -14,6 +14,8 @@ import NotFound from "./Notfound"
 import OrderDetails from "./OrderDetails"
 import VerifyOtp from "./VerifyOtp"
 import ForgetPassword from "./ForgetPassword"
+import Offer from "./Offer"
+import Search from './Search'
 
 export {
     NotFound,
@@ -32,4 +34,6 @@ export {
     Signup,
     VerifyOtp,
     ForgetPassword,
+    Offer,
+    Search
 }

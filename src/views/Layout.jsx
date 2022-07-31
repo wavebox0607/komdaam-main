@@ -21,6 +21,9 @@ const Layout = () => {
         }
     }, [])
 
+
+
+    console.log(category);
     return (
         <>
             <header className=''>

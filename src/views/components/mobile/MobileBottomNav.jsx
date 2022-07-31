@@ -1,9 +1,7 @@
 import React from 'react';
-import { AiOutlineUser } from "react-icons/ai"
-import { HiOutlineShoppingBag } from "react-icons/hi"
-import { CgMenuGridO } from "react-icons/cg"
-import { GrHomeRounded } from "react-icons/gr"
 import { NavLink } from 'react-router-dom';
+import { MenuIcon, ShoppingBagIcon } from '@heroicons/react/solid';
+import { HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
 
 const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
 
@@ -15,21 +13,26 @@ const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
     }
     return (
         <>
-            <div className='fixed bottom-0 left-0 w-full px-8 py-2 bg-white shadow-lg md:hidden block z-50'>
+            <div className='fixed bottom-0 left-0 w-full px-8 py-2 bg-white shadow-lg 2md:hidden block !z-[100]'>
                 <div className="flex justify-between py-2">
-                    <div onClick={() => handleCategory()} className="text-black font-semibold text-lg p-2">
-                        <CgMenuGridO className='text-2xl' />
-                    </div>
+                    {category ? <div className="text-black font-semibold text-lg">
+                        <MenuOutline className='w-7 h-7' />
+                    </div> : <div onClick={handleCategory} className="text-black font-semibold text-lg">
+                        <MenuIcon className='w-7 h-7' />
+                    </div>}
                     <NavLink to='/'>
                         <div className="text-black font-semibold text-lg">
-                            <GrHomeRounded className='text-2xl' />
+                            <HomeIcon className='w-7 h-7' />
                         </div>
                     </NavLink>
-                    <div className=" items-center text-black font-semibold text-lg">
-                        <HiOutlineShoppingBag onClick={() => handleCart()} className='text-2xl' />
-                    </div>
+                    {cart ? <div className=" items-center text-black font-semibold text-lg">
+                        <ShoppingOutline className='  w-7 h-7' />
+                    </div> :
+                        <div onClick={handleCart} className=" items-center text-black font-semibold text-lg">
+                            <ShoppingBagIcon className=' w-7 h-7' />
+                        </div>}
                     <NavLink to={'/profile'} className="flex flex-col justify-center items-center text-black font-semibold text-lg">
-                        <AiOutlineUser className='text-2xl' />
+                        <UserIcon className='w-7 h-7' />
                     </NavLink>
                 </div>
             </div>

@@ -28,9 +28,27 @@ class ProductApi {
         return data
     }
 
+    // popular product product
+    GetPopularProduct = (page) => {
+        const data = useQuery(['popular_product', page], () => httpReq.get(`popular_product${page}`), {
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
+        })
+        return { data, ...data }
+    }
+
+    // popular product product
+    GetFeatureProduct = (page) => {
+        const data = useQuery(['feature_product', page], () => httpReq.get(`feature_product${page}`), {
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
+        })
+        return { data, ...data }
+    }
+
     // category wise product
     GetCatProduct = (slug, page) => {
-        const data = useQuery(['getcatproduct', slug], () => httpReq.get(`getcatproduct?slug=${slug}&page=${page}`), {
+        const data = useQuery(['getcatproduct', slug], () => httpReq.get(`getcatproduct${page}&slug=${slug}`), {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
@@ -39,7 +57,7 @@ class ProductApi {
 
     // subcategory wise product
     GetSubCatProduct = (slug, page) => {
-        const data = useQuery(['getsubcatproduct', slug], () => httpReq.get(`getsubcatproduct?slug=${slug}&page=${page}`), {
+        const data = useQuery(['getsubcatproduct', slug], () => httpReq.get(`getsubcatproduct${page}&slug=${slug}`), {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
