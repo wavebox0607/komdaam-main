@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 import logo from '../../../assets/logo1.png';
 import { logout } from '../../../redux/slice/auth';
 import { toggleCart } from '../../../redux/slice/cart';
+import Options from '../dropdown/Options';
+import { handleLanguage } from '../../../constant/language';
 
 
 
@@ -15,9 +17,9 @@ const Header = ({ left, setLeft }) => {
     const handleLeft = () => {
         setLeft(!left)
     }
- 
+
     return (
-        <div className='fixed top-0 left-0 right-0' style={{ zIndex: 10000000 }}>
+        <div className='fixed top-0 left-0 right-0' style={{ zIndex: 10 }}>
             <HeaderTop />
             <HeaderDown handleLeft={handleLeft} />
         </div>
@@ -26,27 +28,27 @@ const Header = ({ left, setLeft }) => {
 
 export default Header;
 
-const HeaderDown = ({  handleLeft }) => {
+const HeaderDown = ({ handleLeft }) => {
     const { cartList } = useSelector((state) => state.cart)
     const dispatch = useDispatch()
     return (
         <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
             {/* menu and logo section  */}
-            <div className="flex items-center space-x-2 col-span-4 md:col-span-3 h-[27px] " style={{ zIndex: 100000 }}>
-                <div className="">
+            <div className="flex items-center space-x-2 col-span-3 lg:col-span-3 h-[27px] " style={{ zIndex: 100000 }}>
+                <div className="hidden lg:flex">
                     <div className="border border-gray-300 p-1 cursor-pointer" onClick={() => handleLeft()}>
                         <MenuIcon className='h-5 w-5' />
                     </div>
                 </div>
                 <Link to='/'>
-                    <div className="w-[100px] h-full">
-                        <img src={logo} className="w-full h-full object-fit" alt="" />
+                    <div className="w-[80px] md:w-[100px] h-full flex items-center">
+                        <img src={logo} className="w-full h-[27px] md:h-full object-fit" alt="" />
                     </div>
                 </Link>
             </div>
 
             {/* search section  */}
-            <div className="col-span-7 md:col-span-6 max-h-[30px] relative">
+            <div className="col-span-8 lg:col-span-6 max-h-[30px] relative">
                 <input className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc]' type="text" />
                 <div className="absu absolute right-2 top-0 bottom-0 flex items-center  ">
                     <div className="rounded-full p-1 bg-[#50c878] text-white">
@@ -55,7 +57,12 @@ const HeaderDown = ({  handleLeft }) => {
                 </div>
             </div>
 
-            <div className="flex justify-end col-span-4 md:col-span-3 space-x-2">
+            <div className="lg:hidden flex justify-center items-center">
+                {/* <DotsVerticalIcon className='h-5 w-5' /> */}
+                <Options />
+            </div>
+
+            <div className="hidden lg:flex justify-end col-span-4 lg:col-span-3 space-x-2">
                 <NavLink to='/offer' className="">
                     <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Offer</p>
                 </NavLink>
@@ -84,14 +91,11 @@ const HeaderTop = () => {
         setLan(result)
     }, [])
 
-    const handleLanguage = (str) => {
-        localStorage.setItem('lan', str)
-        window.location.reload()
-    }
+
 
     const dispatch = useDispatch()
     return (
-        <div className={`w-full flex justify-between bg-[#50c878] h-6`}>
+        <div className={`w-full hidden lg:flex justify-between bg-[#50c878] h-6`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
             <div className='flex items-center space-x-1 pl-2'>

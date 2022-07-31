@@ -7,7 +7,6 @@ export const cartSlice = createSlice({
   initialState: {
     cartList: [],
     cartOpen: false,
-    total: 0
   },
   reducers: {
     addToCartList: (state, action) => {
@@ -18,12 +17,12 @@ export const cartSlice = createSlice({
         cartItem.qty = action.payload.qty ? cartItem.qty + action.payload.qty : cartItem.qty + 1;
         toast("Add to cart successfully!", {
           type: 'success'
-      })
+        })
       } else {
         state.cartList.push({ ...action.payload, qty: action.payload.qty || 1 });
         toast("Add to cart successfully!", {
           type: 'success'
-      })
+        })
       }
     },
     incrementQty: (state, action) => {
@@ -32,7 +31,7 @@ export const cartSlice = createSlice({
         cartItem.qty = cartItem.qty + 1;
         toast("Add to cart successfully!", {
           type: 'success'
-      })
+        })
       }
     },
 
@@ -44,13 +43,14 @@ export const cartSlice = createSlice({
         state.cartList = state.cartList.filter(i => i.cartId !== action.payload)
         toast("Remove from cart successfully!", {
           type: 'warning'
-      })
+        })
       }
+
       if (cartItem.qty > 1) {
         cartItem.qty = cartItem.qty - 1;
         toast("Remove from cart successfully!", {
           type: 'warning'
-      })
+        })
       }
     },
 
@@ -63,24 +63,25 @@ export const cartSlice = createSlice({
     clearCartList: (state) => {
       state.cartList = []
     },
-    getTotal: (state) => {
-      const priceList = state.cartList?.map(p => p.qty * p.price)
-      state.total = priceList.reduce(
-        (previousValue, currentValue) => previousValue + currentValue,
-        0
-      );
-    },
+
+
+
 
     // Right side Cart open / close 
     toggleCart: (state) => {
       state.cartOpen = !state.cartOpen
-    }
+    },
+
+
+
+
+
   },
 
 })
 
 
-export const { addToCartList, removeToCartList, incrementQty, decrementQty, clearCartList, toggleCart } = cartSlice.actions
+export const { addToCartList, removeToCartList, incrementQty, decrementQty, clearCartList, toggleCart, setLanguage } = cartSlice.actions
 
 
 export default cartSlice.reducer

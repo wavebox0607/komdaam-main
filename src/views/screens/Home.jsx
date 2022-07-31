@@ -1,14 +1,16 @@
 import React from 'react';
-import { CurrentOffer, FeatureCategory, FeatureProduct, Help, Hero, Step } from '../components/screen/home';
+import { Banner, CategoryProduct, CurrentOffer, FeatureCategory, FeatureProduct, Help, Hero, Step } from '../components/screen/home';
 
 const Home = () => {
 	return (
 		<>
 			<Hero />
-			<Step />
-			<CurrentOffer />
 			<FeatureCategory />
+			<CurrentOffer />
 			<FeatureProduct />
+			<CategoryProduct />
+			<Banner />
+			<Step />
 			<Help />
 		</>
 	);

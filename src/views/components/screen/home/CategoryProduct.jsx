@@ -5,7 +5,7 @@ import ProductCard from '../../card/ProductCard';
 import { SectionHeading } from '../../utils';
 import Slider from '../../utils/Slider';
 
-const FeatureProduct = () => {
+const CategoryProduct = () => {
     const { data, isLoading } = Product.GetAll()
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
@@ -13,14 +13,14 @@ const FeatureProduct = () => {
     // if (isFetching) {
     //     return <div className='w-full h-screen flex justify-center items-center'>Fatching...</div> 
     // }
-    const prev = 'newArrrival_productThirteen_prev'
-    const next = 'newArrrival_productThirteen_next'
+    const prev = 'CategoryProductPrev'
+    const next = 'CategoryProductNext'
 
     return (
 
         <div className="mx-4 sm:px-0 py-12 ">
-           
-            <SectionHeading text={"Feature Product"} />
+
+            <SectionHeading text={"Personal Care"} />
             <Slider
                 prevEl={prev}
                 nextEl={next}
@@ -50,7 +50,7 @@ const FeatureProduct = () => {
             >
 
                 {data?.data?.map((item) =>
-                    <SwiperSlide key={item?.id}>
+                    <SwiperSlide className="!-z-10" key={item?.id}>
                         <ProductCard item={item} />
                     </SwiperSlide>
                 )}
@@ -59,4 +59,4 @@ const FeatureProduct = () => {
     );
 };
 
-export default FeatureProduct;
+export default CategoryProduct;

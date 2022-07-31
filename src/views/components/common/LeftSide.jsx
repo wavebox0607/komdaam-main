@@ -10,7 +10,7 @@ const LeftSide = ({ left }) => {
     const { data } = HomePage.GetCategory()
     return (
         <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear`}>
-            <div className="flex flex-col space-y-[12px] px-2">
+            <div className="flex flex-col space-y-[6px] px-2">
                 {left ?
                     <div className='flex items-center'>
                         <Link to={"/offer"}>
@@ -38,14 +38,14 @@ export default LeftSide;
 const SingleCat = ({ item, show, setShow }) => {
 
     return <>
-        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between'>
+        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-1 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all duration-200 ease-linear'>
             <Link to={"/category/" + item?.slug}>
-                <div className="flex-1 flex space-x-1">
+                <div className="flex-1 flex space-x-[6px]">
                     <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />
                     <p>{item.name}</p>
                 </div></Link>
             {item?.subcategory ? <div className="">
-                {show === item.slug  ? <ChevronUpIcon className='h-4 w-4' /> :
+                {show === item.slug ? <ChevronUpIcon className='h-4 w-4' /> :
                     <ChevronDownIcon className='h-4 w-4' />}
             </div> : null}
         </div>
