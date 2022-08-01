@@ -1,42 +1,34 @@
 import React from 'react';
-
-// import Swiper core and required modules
-import { A11y, EffectFade, Navigation } from 'swiper';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Autoplay, Navigation } from 'swiper';
 
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-fade';
-import { bannerImg } from '../../../../constant/imgUri';
-import { HomePage } from '../../../../services';
 import { SectionHeading } from '../../utils';
-// import SectionHeading from '../../../Components/Shared/SectionHeading';
+import { HomePage } from '../../../../services';
+import { bannerImg } from '../../../../constant/imgUri';
+import { ChevronRightIcon } from '@heroicons/react/outline';
+import { ChevronLeftIcon } from '@heroicons/react/solid';
 
 const CurrentOffer = () => {
-
-    const { data, isLoading } = HomePage.GetBanner()
-    if (isLoading) {
-        return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
-    }
+    const { data } = HomePage.GetBanner()
     return (
-        <>
-            <div className='py-12  '>
+        <div className=' py-5'>
+            <div className="pt-10">
+                <SectionHeading text={"Current Offer"} />
+            </div>
+            <div className="relative">
+                <div className="px-4 shadow-lg rounded-md py-5 mt-6">
 
-                <div className="mt-10 ">
-                    <SectionHeading text={"Current Offers"} />
-                </div>
-
-                <div className=" ">
                     <Swiper
                         loop={true}
-                        spaceBetween={30}
-                        navigation={true}
 
-                        modules={[A11y, EffectFade, Navigation]}
+
+                        autoplay={{
+                            delay: 5000
+                        }}
                         breakpoints={{
 
                             380: {
@@ -46,26 +38,44 @@ const CurrentOffer = () => {
                             640: {
                                 slidesPerView: 2,
                                 spaceBetween: 20,
+                            },
+                            786: {
+                                slidesPerView: 3,
+                                spaceBetween: 20,
                             }
                         }}
-                        className="mySwiper  !-z-10 "
+                        modules={[Autoplay, Navigation]}
+
+                        navigation={{
+                            prevEl: `.offer_prev`,
+                            nextEl: `.offer_next`,
+                        }}
+                        className="mySwiper"
                     >
-                        {data?.triple_banner?.map((b) =>
-                            <SwiperSlide key={b.id}>
-                                <img src={bannerImg + b?.image} alt="" />
-                            </SwiperSlide>
-                        )}
+
+                        {
+                            data?.triple_banner?.map((item) =>
+                                <SwiperSlide className='hiji' key={item.id}>
+                                    <img src={bannerImg + item?.image} alt='' className='h-[255px] w-full rounded-md !-z-10' />
+                                </SwiperSlide>
+                            )
+                        }
+
 
 
                     </Swiper>
                 </div>
-
-
-
+                <div className=" absolute inset-0 flex justify-between items-center">
+                    <div className={`rounded-full bg-white shadow-lg p-[6px] z-10 offer_prev`}> <ChevronLeftIcon className='h-4 w-4' /></div>
+                    <div className={`rounded-full bg-white shadow-lg p-[6px] z-10 offer_next`}> <ChevronRightIcon className='h-4 w-4' /></div>
+                </div>
             </div>
-
-        </>
+        </div>
     );
 };
 
+// bg-[#50c878]
+
 export default CurrentOffer;
+
+

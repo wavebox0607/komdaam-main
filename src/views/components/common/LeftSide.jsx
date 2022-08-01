@@ -9,7 +9,7 @@ const LeftSide = ({ left }) => {
     const [show, setShow] = useState(null)
     const { data } = HomePage.GetCategory()
     return (
-        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear`}>
+        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[100]`}>
             <div className="flex flex-col space-y-[6px] px-2 text-[14px]">
                 {left ?
                     <div className='flex items-center'>
@@ -82,7 +82,7 @@ const SingleCat2 = ({ item }) => {
             {show === item.slug ? <div
                 onMouseEnter={() => setShow(item?.subcategory ? item?.slug : null)}
                 onMouseLeave={() => setShow(null)}
-                className='absolute -top-1 left-8 flex flex-col bg-white w-max p-2 space-y-2 shadow-lg overflow-hidden'>
+                className='absolute -top-1 left-8 flex flex-col bg-white w-max p-2 space-y-2 shadow-lg overflow-hidden !z-[100000000000000]'>
                 {item?.subcategory?.map((item) => <SingleSub2 key={item?.id} item={item} />)}
             </div> : null}
         </div>
@@ -91,13 +91,15 @@ const SingleCat2 = ({ item }) => {
 
 
 const SingleSub2 = ({ item }) => {
+    
     return (
-        <Link to={'/subcategory/' + item?.slug} className='' >
+        <Link to={'/subcategory/' + item?.slug} className='!z-50 overflow-hidden' >
             <div className="px-2 flex space-x-2">
                 <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
-                <p>{item?.name}</p>
+                <p className='!z-50'>{item?.name}</p>
             </div>
 
         </Link>
     )
 }
+

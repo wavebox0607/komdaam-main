@@ -28,7 +28,7 @@ const Hero = () => {
                     delay: 1000
                 }}
                 modules={[Pagination, Autoplay]}
-                className="mySwiper !-z-10"
+                className="mySwiper"
             >
 
                 {data?.data?.map((item) => <SwiperSlide  key={item?.image}>

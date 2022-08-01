@@ -6,9 +6,9 @@ const Home = () => {
 		<>
 			<Hero />
 			<FeatureCategory />
-			<CurrentOffer />
-			<FeatureProduct />
 			<Banner />
+			<FeatureProduct />
+			<CurrentOffer />
 			<CategoryProduct />
 			<Step />
 			<Help />
