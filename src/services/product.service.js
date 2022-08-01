@@ -28,14 +28,24 @@ class ProductApi {
         return data
     }
 
+
+    // popular product product
+    GetOffer = (page) => {
+        const data = useQuery(['offer', page], () => httpReq.get(`offer${page}`), {
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
+        })
+        return data
+    }
     // popular product product
     GetPopularProduct = (page) => {
         const data = useQuery(['popular_product', page], () => httpReq.get(`popular_product${page}`), {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
-        return { data, ...data }
+        return data
     }
+
 
     // popular product product
     GetFeatureProduct = (page) => {
@@ -43,8 +53,9 @@ class ProductApi {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
-        return { data, ...data }
+        return data
     }
+
 
     // category wise product
     GetCatProduct = (slug, page) => {
@@ -55,6 +66,7 @@ class ProductApi {
         return { data, ...data }
     }
 
+
     // subcategory wise product
     GetSubCatProduct = (slug, page) => {
         const data = useQuery(['getsubcatproduct', slug], () => httpReq.get(`getsubcatproduct${page}&slug=${slug}`), {
@@ -63,6 +75,8 @@ class ProductApi {
         })
         return { data, ...data }
     }
+
+
     // create unic id 
     makeid = (length) => {
         var result = '';

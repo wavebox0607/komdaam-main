@@ -15,8 +15,11 @@ const ProductCard = ({ item }) => {
     return (
         <div className='bg-white rounded-lg hover:bg-green-200 shadow-md group transition-all duration-300 ease-linear !-z-10 h-full flex flex-col'>
             <Link to={'/product/' + item?.slug}>
-                <div className="w-full h-[145px] md:h-[273px] p-2">
+                <div className="w-full h-[145px] md:h-[273px] relative p-2">
                     <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
+                    {parseInt(item?.discount_amount) && <div className="absolute top-2 right-2 bg-[#ff576d] px-[7px] py-[2px] w-[65px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
+                        {bangla ? `${parseInt(item?.discount_amount)}% ছাড়` : `${parseInt(item?.discount_amount)}% OFF`}
+                    </div>}
                 </div>
             </Link>
             <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
