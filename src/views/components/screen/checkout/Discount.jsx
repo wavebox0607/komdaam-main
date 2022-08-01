@@ -78,9 +78,9 @@ const Discount = ({ setCupon, setShipping_area }) => {
 
 						</div>
 						<div className="col-span-6 sm:col-span-3">
-							<div className="flex flex-wrap sm:justify-between sm:items-center pb-3 items-start">
-								<label htmlFor="name" className="block text-xl font-semibold text-gray-700">
-									{bangla ? "ছাড়" : "Discount"}
+							<div className="flex flex-wrap sm:justify-end sm:items-center pb-3 items-start">
+								<label htmlFor="name" className="block text-xl font-semibold text-gray-700 pr-6">
+									{bangla ? "ছাড়" : "Discount"}:
 								</label>
 								<form onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap justify-center items-start'>
 									<div className="flex flex-col justify-center">

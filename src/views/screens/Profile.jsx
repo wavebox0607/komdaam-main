@@ -226,7 +226,7 @@ const Profile = () => {
                                             type="submit"
                                             className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#50c878] hover:bg-[#28d361] focus:outline-none focus:ring-0"
                                         >
-                                            Save
+                                            {bangla ? "সংরক্ষণ" : "Save"}
                                         </button>
                                     </div>
                                 </div>

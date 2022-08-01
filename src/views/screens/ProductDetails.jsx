@@ -68,7 +68,7 @@ const ProductDetails = () => {
 
                     {data?.data?.variant &&
                         <div className="flex items-center space-x-2 my-2">
-                            <h4>{"Unit:"}</h4>
+                            <h4>{bangla ? "ইউনিট" : "Unit"}:</h4>
                             {data?.data?.variant?.map((item) => <Unit key={item?.id} item={item} active={unit?.id === item?.id} onClick={() => unit ? setUnit(null) : setUnit(item)} />)}
                         </div>}
 
@@ -79,7 +79,7 @@ const ProductDetails = () => {
 
                     {/* Share Button  */}
                     <div className="my-3 flex items-center space-x-2">
-                        <h2 className='text-black font-semibold'>Share: </h2>
+                        <h2 className='text-black font-semibold'>{bangla ? "ভাগ" : "Share"}: </h2>
                         <FacebookShareButton url={window.location.href}>
                             <FacebookIcon size={32} round={true} />
                         </FacebookShareButton>

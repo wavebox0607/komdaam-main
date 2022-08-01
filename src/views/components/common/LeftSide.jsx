@@ -4,6 +4,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import { HomePage } from '../../../services';
 import { Link, NavLink } from 'react-router-dom'
 import offer from '../../../assets/offer.gif'
+import { bangla } from '../../../constant/language';
 
 const LeftSide = ({ left }) => {
     const [show, setShow] = useState(null)
@@ -16,7 +17,7 @@ const LeftSide = ({ left }) => {
                         <Link to={"/offer"}>
                             <div className="flex-1 flex space-x-1">
                                 <img src={offer} className="h-5 w-5" alt="" />
-                                <p>{"Offer"}</p>
+                                <p>{bangla ? "অফার" : "Offer"}</p>
                             </div>
                         </Link>
                     </div>
@@ -91,7 +92,7 @@ const SingleCat2 = ({ item }) => {
 
 
 const SingleSub2 = ({ item }) => {
-    
+
     return (
         <Link to={'/subcategory/' + item?.slug} className='!z-50 overflow-hidden' >
             <div className="px-2 flex space-x-2">

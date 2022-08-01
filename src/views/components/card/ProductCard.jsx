@@ -13,7 +13,7 @@ import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
 const ProductCard = ({ item }) => {
 
     return (
-        <div className='bg-white rounded-lg hover:bg-green-200 shadow-md group transition-all duration-300 ease-linear !-z-10 h-full flex flex-col'>
+        <div className='bg-white rounded-lg hover:bg-green-200 shadow-md group transition-all duration-300 ease-linear h-full flex flex-col'>
             <Link to={'/product/' + item?.slug}>
                 <div className="w-full h-[145px] md:h-[273px] relative p-2">
                     <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
