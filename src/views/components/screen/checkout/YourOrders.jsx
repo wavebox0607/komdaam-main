@@ -10,23 +10,24 @@ import { bangla } from '../../../../constant/language';
 import { addToCartList, clearCartList, decrementQty, removeToCartList } from '../../../../redux/slice/cart';
 import { HomePage, httpReq } from '../../../../services';
 import { Taka } from '../../utils';
+import { getCupon } from '../../utils/getPrice';
 
 
 const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) => {
-	const cartList = useSelector((state) => state.cart.cartList)
-	const { user } = useSelector((state) => state.auth)
-	const { data } = HomePage.GetSettings()
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
+	const { cartList } = useSelector((state) => state.cart)
+	const { user } = useSelector((state) => state.auth)
+	const { data } = HomePage.GetSettings()
 	const priceList = cartList?.map(p => p.qty * p.price)
 	const total = priceList.reduce(
 		(previousValue, currentValue) => previousValue + currentValue,
 		0
 	);
+	const applycupon = cuponDis?.id ? getCupon(total, cuponDis?.discount_amount, cuponDis?.discount_type) : 0
+	console.log(applycupon);
 	const tax = (parseFloat(data?.settings?.tax).toFixed(2) / 100) * parseFloat(total).toFixed(2)
 
-	// const alert = useAlert()
-	console.log(data?.settings?.tax);
 	const handleCheckout = () => {
 
 		const cart = cartList.map(item => ({
@@ -48,10 +49,10 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			phone: selectAddress?.phone,
 			payment_type: selectPayment,
 			address: selectAddress?.address,
-			subtotal: total,
+			subtotal: applycupon ? total - applycupon : total,
 			shipping: parseInt(shipping_area),
-			total: (total + tax + parseInt(shipping_area)) - cuponDis,
-			discount: cuponDis ? cuponDis : 0,
+			total: (total + tax + parseInt(shipping_area)) - applycupon,
+			discount: applycupon,
 			product: cart,
 			tax: 0,
 			cupon: 'khakfdhksf'
@@ -136,23 +137,23 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			<div className="my-5 text-gray-500 " style={{ fontWeight: 500 }}>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "উপ মোট" : "Sub Total"}</p>
-					<p><Taka tk={parseInt(total)} /></p>
+					<Taka tk={parseInt(total - applycupon)} />
 				</div>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "ছাড়" : "Discount"}</p>
-					<p><Taka tk={cuponDis ? cuponDis : 0} /></p>
+					<Taka tk={applycupon} />
 				</div>
 				<div className="flex justify-between items-center">
-					<p>{bangla ? "ছাড়" : "Tax"}{" ( " + data?.settings?.tax + "% )"}</p>
-					<p><Taka tk={parseInt(tax)} /></p>
+					<p>{bangla ? "ট্যাক্স" : "Tax"}{" ( " + data?.settings?.tax + "% )"}</p>
+					<Taka tk={parseInt(tax)} />
 				</div>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "আনুমানিক শিপিং" : "Estimated Shipping"}</p>
-					<p><Taka tk={shipping_area} /></p>
+					<Taka tk={shipping_area} />
 				</div>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "মোট" : "Total"}</p>
-					<p><Taka tk={(parseInt(total + tax) + parseInt(shipping_area)) - cuponDis} /></p>
+					<Taka tk={(parseInt(total + tax) + parseInt(shipping_area)) - applycupon} />
 				</div>
 			</div>
 
@@ -181,9 +182,9 @@ const Single = ({ item }) => {
 			<img className='w-14 h-14 ' src={productImg + item?.images[0]} alt="" />
 
 		</div>
-		<div className="flex flex-col gap-x-2 gap-y-1 pl-2">
+		<div className="flex flex-col gap-x-2 gap-y-1 pl-2 text-sm">
 			<h3 className='text-black text-md  font-normal'><NavLink to={`/product/${item.id}`}>{item?.name?.slice(0, 30)}</NavLink></h3>
-			<p className='text-sm'><Taka tk={parseInt(item?.price)} /> </p>
+			<Taka tk={parseInt(item?.price)} />
 		</div>
 		<div className="flex flex-col gap-1 justify-center items-center">
 			<MdOutlineKeyboardArrowUp onClick={() => dispatch(addToCartList({ ...item }))} />

@@ -1,30 +1,16 @@
 
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form'
 import { HomePage, httpReq } from '../../../../services';
-import { getDiscount } from './getDiscount';
-import { getPrice } from '../../utils/getPric';
 import { bangla } from '../../../../constant/language';
 
 const Discount = ({ setCupon, setShipping_area }) => {
-	const styless = `
-    option:hover{
-        background-color:'yellow'
-    }
-    `
+
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const { data } = HomePage.GetSettings()
-	const cartList = useSelector((state) => state.cart.cartList)
-	const get_discout = (res) => {
-		const priceList = cartList?.map(p => p.qty * getPrice(p.regular_price, p.discount_price, p.discount_type))
-		const total = priceList.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
-
-		const result = getDiscount(total, res?.discount_amount)
-		const dis = total - result
-		return parseInt(dis)
-	}
+	
 	const onSubmit = data => {
 
 		// declare the async data fetching function
@@ -35,9 +21,11 @@ const Discount = ({ setCupon, setShipping_area }) => {
 				setCupon(0)
 				return alert(res?.error)
 			}
-			if (res.id) {
-				const result = get_discout(res)
-				setCupon(result)
+			if (res?.id) {
+				setCupon(res)
+				toast(`Your Coupon Apply successfully!`, {
+					type: "success"
+				});
 			}
 		}
 
@@ -54,7 +42,7 @@ const Discount = ({ setCupon, setShipping_area }) => {
 		<>
 			<div className="shadow sm:rounded-md sm:overflow-hidden my-5">
 				<div className="px-4 py-5 bg-white space-y-6 sm:p-6">
-					<style>{styless}</style>
+					
 					<div className="grid grid-cols-6 gap-6">
 
 						<div className="col-span-6 sm:col-span-3">

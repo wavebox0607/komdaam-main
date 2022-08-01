@@ -25,6 +25,7 @@ const FeatureProduct = () => {
             <Slider
                 prevEl={prev}
                 nextEl={next}
+               
                 breakpoints={{
                     75: {
                         slidesPerView: 1,
@@ -47,6 +48,7 @@ const FeatureProduct = () => {
                         spaceBetween: 20,
                     },
                 }}
+
                 className="mySwiper !-z-10"
             >
 

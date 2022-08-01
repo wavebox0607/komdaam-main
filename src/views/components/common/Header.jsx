@@ -10,6 +10,7 @@ import { logout } from '../../../redux/slice/auth';
 import { toggleCart } from '../../../redux/slice/cart';
 import Options from '../dropdown/Options';
 import { bangla, handleLanguage } from '../../../constant/language';
+import { HomePage } from '../../../services';
 
 
 
@@ -87,7 +88,7 @@ const HeaderDown = ({ handleLeft }) => {
 const HeaderTop = () => {
     const [lan, setLan] = useState(null)
     const { user } = useSelector((state) => state.auth)
-
+    const { data } = HomePage.GetSettings()
     useEffect(() => {
         const result = localStorage.getItem('lan')
         setLan(result)
@@ -117,7 +118,7 @@ const HeaderTop = () => {
                 {/* phone */}
                 <div className="flex items-center space-x-1 group">
                     <PhoneIcon className='h-4 w-4 stroke-white stroke-2 group-hover:stroke-red-600 text-white group-hover:text-red-600 transition-all duration-300 ease-linear' />
-                    <p className='text-white group-hover:text-red-600'>01991666031</p>
+                    <p className='text-white group-hover:text-red-600'>{data?.settings?.phone}</p>
                 </div>
                 {/* login */}
                 {!user?.verify && <div className="">

@@ -20,7 +20,7 @@ const Slider = ({ nextEl, prevEl, children, breakpoints }) => {
             loop={true}
 
             autoplay={{
-                delay: 3000
+                delay: 5000
             }}
             modules={[Autoplay, A11y, EffectFade, Navigation, Controller]}
             breakpoints={breakpoints}

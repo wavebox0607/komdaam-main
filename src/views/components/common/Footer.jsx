@@ -6,6 +6,7 @@ import { FaFacebookF } from 'react-icons/fa'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import payment from '../../../assets/payment.webp'
 import { bangla } from '../../../constant/language';
+import { HomePage } from '../../../services';
 const Footer = () => {
     return (
         <>
@@ -17,6 +18,8 @@ const Footer = () => {
 
 export default Footer;
 const FooterTop = () => {
+    const { data } = HomePage.GetSettings()
+
     return <footer className="text-gray-600 bg-green-100">
         <div className="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
 
@@ -65,7 +68,7 @@ const FooterTop = () => {
                             <div className="rounded-full border border-gray-700 p-1">
                                 <IoCallOutline className="text-sm" />
                             </div>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">(+88) 09611 84 84 84</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800">{data?.settings?.phone}</a>
                         </li>
                         <li className='flex justify-start items-center gap-x-4 text-sm leading-6'>
                             <div className="rounded-full border border-gray-700 p-1">

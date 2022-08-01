@@ -15,7 +15,10 @@ import { useEffect } from 'react';
 const queryClient = new QueryClient()
 function App() {
   useEffect(() => {
-    localStorage.setItem('lan', 'bn')
+    const lan = localStorage.getItem('lan')
+    if (!lan) {
+      localStorage.setItem('lan', 'bn')
+    }
   }, [])
 
   return (

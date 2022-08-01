@@ -25,7 +25,7 @@ const Hero = () => {
                     clickable: true
                 }}
                 autoplay={{
-                    delay: 1000
+                    delay: 5000
                 }}
                 modules={[Pagination, Autoplay]}
                 className="mySwiper"

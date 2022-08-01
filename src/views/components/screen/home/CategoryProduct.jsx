@@ -25,6 +25,9 @@ const CategoryProduct = () => {
             <Slider
                 prevEl={prev}
                 nextEl={next}
+                autoplay={{
+                    delay: 5000
+                }}
                 breakpoints={{
                     75: {
                         slidesPerView: 1,
