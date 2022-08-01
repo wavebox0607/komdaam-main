@@ -44,7 +44,7 @@ const Layout = () => {
                         <Footer />
                     </footer>
                 </div>
-                <div className={`${right ? "w-[200px] visible" : "w-[0px] invisible"} h-auto  relative transition-all duration-100 ease-linear`}>
+                <div className={`${right ? "w-[200px] visible" : "w-[0px] invisible"} h-auto hidden lg:block  relative transition-all duration-100 ease-linear`}>
                     <RightSide right={right} />
                 </div>
             </div>

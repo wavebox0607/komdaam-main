@@ -85,22 +85,24 @@ const AddToCart = ({ item }) => {
             <div className='text-[13px]'>
                 <Taka tk={item?.discount_price ? item?.discount_price : item?.regular_price} className={`text-[#50c878]`} size={23} />
             </div>
-            <div className="rounded-full border border-[#50c878] hover:bg-[#50c878] px-2 stroke-[#50c878] text-[#50c878] hover:text-white hover:stroke-white transition-all duration-300 ease-linear">
+            <div className="rounded-full border border-[#50c878] hover:bg-[#50c878] stroke-[#50c878] text-[#50c878] hover:text-white hover:stroke-white transition-all duration-300 ease-linear">
 
                 {already?.cartId ?
-                    <div className="flex items-center gap-2 cursor-pointer h-[20px] divide-x divide-[#50c878] justify-between">
-                        <div onClick={() => dispatch(decrementQty(already?.cartId))} className="h-full flex justify-center items-center">
+                    <div className="flex items-center cursor-pointer h-[22px] w-[94px] justify-between">
+                        <div onClick={() => dispatch(decrementQty(already?.cartId))} className="max-w-[18px] w-full border-r border-[#50c878] h-full flex justify-center items-center">
                             <MinusIcon className='h-2 w-2  stroke-1 ' />
                         </div>
-                        <p className='font-semibold  text-xs pl-1 h-full'>{already?.qty} {bangla ? "" : "in cart"}</p>
-                        <div onClick={() => dispatch(incrementQty(already?.cartId))} className="pl-1 h-full flex justify-center items-center">
+                        <div className="flex flex-1  h-full justify-center items-center">
+                            <p className='font-semibold  text-xs '>{already?.qty}{"  "} {bangla ? "কার্টে" : "in cart"}</p>
+                        </div>
+                        <div onClick={() => dispatch(incrementQty(already?.cartId))} className="max-w-[18px] w-full h-full border-l border-[#50c878] flex justify-center items-center">
                             <PlusIcon className='h-2 w-2  stroke-1 ' />
                         </div>
                     </div>
                     :
-                    <div onClick={() => handleCart()} className="flex items-center gap-2 cursor-pointer ">
+                    <div onClick={() => handleCart()} className="flex items-center gap-2 cursor-pointer px-2">
                         <ShoppingBagIcon className='h-4 w-4  stroke-2 ' />
-                        <p className='font-semibold  text-sm'>Cart</p>
+                        <p className='font-semibold  text-sm'>{bangla ? "কার্ট" : "Cart"}</p>
                     </div>
                 }
             </div>

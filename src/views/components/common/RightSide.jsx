@@ -34,10 +34,10 @@ const RightSide = ({ right }) => {
                     }
                 </div>
                 <div className=" w-full mb-3">
-                    <div className="flex mx-6 rounded-lg text-white overflow-hidden">
-                        <NavLink to='/checkout' className="flex justify-center items-center bg-[#ff9eab] font-semibold flex-1 py-2">{bangla ? "অর্ডার করুন" : "Checkout"}</NavLink>
+                    <NavLink to='/checkout' className="flex mx-6 rounded-lg text-white overflow-hidden">
+                        <div className="flex justify-center items-center bg-[#ff9eab] font-semibold flex-1 py-2">{bangla ? "অর্ডার করুন" : "Checkout"}</div>
                         <div className="flex justify-center items-center bg-[#ff7358] flex-1 py-2"><Taka tk={total} /></div>
-                    </div>
+                    </NavLink>
                 </div>
             </div>
         </div>
