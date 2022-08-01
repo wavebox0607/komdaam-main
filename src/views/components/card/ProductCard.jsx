@@ -17,7 +17,7 @@ const ProductCard = ({ item }) => {
             <Link to={'/product/' + item?.slug}>
                 <div className="w-full h-[145px] md:h-[273px] relative p-2">
                     <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
-                    {parseInt(item?.discount_amount) && <div className="absolute top-2 right-2 bg-[#ff576d] px-[7px] py-[2px] w-[65px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
+                    {parseInt(item?.discount_amount) !== 0 && <div className="absolute top-2 right-2 bg-[#ff576d] px-[7px] py-[2px] w-[65px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
                         {bangla ? `${parseInt(item?.discount_amount)}% ছাড়` : `${parseInt(item?.discount_amount)}% OFF`}
                     </div>}
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { SwiperSlide } from 'swiper/react';
+import { bangla } from '../../../../constant/language';
 import { Product } from '../../../../services';
 import ProductCard from '../../card/ProductCard';
 import { SectionHeading } from '../../utils';
@@ -19,8 +20,8 @@ const FeatureProduct = () => {
     return (
 
         <div className="mx-4 sm:px-0 py-12 ">
-           
-            <SectionHeading text={"Feature Product"} />
+
+            <SectionHeading text={bangla ? "বিশেষ পণ্য" : "Feature Product"} />
             <Slider
                 prevEl={prev}
                 nextEl={next}

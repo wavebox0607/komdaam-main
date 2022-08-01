@@ -2,6 +2,7 @@ import React from 'react';
 import { HomePage } from '../../../../services';
 import { SectionHeading } from '../../utils';
 import { bannerImg } from '../../../../constant/imgUri';
+import { bangla } from '../../../../constant/language';
 
 const Banner = () => {
     const { data } = HomePage.GetBanner()
@@ -10,7 +11,7 @@ const Banner = () => {
             <div className=''>
 
                 <div className="mt-10 ">
-                    <SectionHeading text={"Banner"} />
+                    <SectionHeading text={bangla ? "ব্যানার" : "Banner"} />
                 </div>
 
                 <div className="shadow-lg rounded-md p-8 m-4 flex justify-between items-center ">

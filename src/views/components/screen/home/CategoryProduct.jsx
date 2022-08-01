@@ -1,5 +1,6 @@
 import React from 'react';
 import { SwiperSlide } from 'swiper/react';
+import { bangla } from '../../../../constant/language';
 import { Product } from '../../../../services';
 import ProductCard from '../../card/ProductCard';
 import { SectionHeading } from '../../utils';
@@ -20,7 +21,7 @@ const CategoryProduct = () => {
 
         <div className="mx-4 sm:px-0 py-12 ">
 
-            <SectionHeading text={"Personal Care"} />
+            <SectionHeading text={bangla ? "ব্যক্তিগত যত্ন" : "Personal Care"} />
             <Slider
                 prevEl={prev}
                 nextEl={next}

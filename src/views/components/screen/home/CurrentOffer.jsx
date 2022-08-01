@@ -11,13 +11,14 @@ import { HomePage } from '../../../../services';
 import { bannerImg } from '../../../../constant/imgUri';
 import { ChevronRightIcon } from '@heroicons/react/outline';
 import { ChevronLeftIcon } from '@heroicons/react/solid';
+import { bangla } from '../../../../constant/language';
 
 const CurrentOffer = () => {
     const { data } = HomePage.GetBanner()
     return (
         <div className=' py-5'>
             <div className="pt-10">
-                <SectionHeading text={"Current Offer"} />
+                <SectionHeading text={bangla ? "বর্তমান অফার" : "Current Offer"} />
             </div>
             <div className="relative">
                 <div className="px-4 shadow-lg rounded-md py-5 mt-6">
