@@ -9,7 +9,7 @@ import logo from '../../../assets/logo1.png';
 import { logout } from '../../../redux/slice/auth';
 import { toggleCart } from '../../../redux/slice/cart';
 import Options from '../dropdown/Options';
-import { handleLanguage } from '../../../constant/language';
+import { bangla, handleLanguage } from '../../../constant/language';
 
 
 
@@ -66,10 +66,10 @@ const HeaderDown = ({ handleLeft }) => {
 
             <div className="hidden 2md:flex justify-end col-span-4 2md:col-span-3 space-x-2">
                 <NavLink to='/offer' className="">
-                    <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Offer</p>
+                    <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>{bangla ? "অফার" : "Offer"}</p>
                 </NavLink>
                 <div className="">
-                    <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>Need help</p>
+                    <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>{bangla ? "সাহায্য দরকার" : "Need help"}</p>
                 </div>
                 <div className="flex items-center px-2">
                     <div className="cursor-pointer relative" onClick={() => dispatch(toggleCart())}>
@@ -121,7 +121,7 @@ const HeaderTop = () => {
                 </div>
                 {/* login */}
                 {!user?.verify && <div className="">
-                    <NavLink to='/login' className='text-white hover:text-red-600'>Login</NavLink>
+                    <NavLink to='/login' className='text-white hover:text-red-600'>{bangla ? "প্রবেশ করুন" : "Login"}</NavLink>
                 </div>}
                 {/* Signup */}
                 {!user?.verify && <div className="">
@@ -129,10 +129,10 @@ const HeaderTop = () => {
                 </div>}
 
                 {user?.verify && <NavLink to="/profile" className="">
-                    <p className='text-white hover:text-red-600'>Profile</p>
+                    <p className='text-white hover:text-red-600'>{bangla ? "প্রোফাইল" : "Profile"}</p>
                 </NavLink>}
                 {user?.verify && <div onClick={() => dispatch(logout())} className="cursor-pointer">
-                    <p className='text-white hover:text-red-600'>Logout</p>
+                    <p className='text-white hover:text-red-600'>{bangla ? "প্রস্থান" : "Logout"}</p>
                 </div>}
 
             </div>

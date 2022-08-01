@@ -1,6 +1,7 @@
 import React from 'react';
 import { GiShoppingBag } from 'react-icons/gi'
 import { useDispatch, useSelector } from 'react-redux';
+import { bangla } from '../../../constant/language';
 import { toggleCart } from '../../../redux/slice/cart';
 import Taka from '../utils/Taka';
 
@@ -21,7 +22,7 @@ const CartPopUp = ({ right }) => {
                     <div className="flex justify-center py-1 gap-x-1 items-center ">
                         <GiShoppingBag className='font-semibold ' color='white' />
                         <div className="flex flex-col leading ">
-                            <span className=' font-semibold text-white text-sm'>{cartList?.length} item
+                            <span className=' font-semibold text-white text-sm'>{cartList?.length} {bangla ? "আইটেম" : "item"}
                             </span>
 
                         </div>
