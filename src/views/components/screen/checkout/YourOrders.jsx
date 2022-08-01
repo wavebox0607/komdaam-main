@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { productImg } from '../../../../constant/imgUri';
+import { bangla } from '../../../../constant/language';
 import { addToCartList, clearCartList, decrementQty, removeToCartList } from '../../../../redux/slice/cart';
 import { HomePage, httpReq } from '../../../../services';
 import { Taka } from '../../utils';
@@ -106,7 +107,7 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 		<div>
 			{/* {error && <SnackBar open={true} msg={error} />} */}
 
-			<h3 className='text-center font-semibold text-lg text-black'>Your Items</h3>
+			<h3 className='text-center font-semibold text-lg text-black'>{bangla ? "আপনার আইটেম" : "Your Items"}</h3>
 			{cartList ? <>
 
 				<div className="my-1">
@@ -134,33 +135,33 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			<hr className='my-5' />
 			<div className="my-5 text-gray-500 " style={{ fontWeight: 500 }}>
 				<div className="flex justify-between items-center">
-					<p>Sub Total</p>
+					<p>{bangla ? "উপ মোট" : "Sub Total"}</p>
 					<p><Taka tk={parseInt(total)} /></p>
 				</div>
 				<div className="flex justify-between items-center">
-					<p>Discount</p>
+					<p>{bangla ? "ছাড়" : "Discount"}</p>
 					<p><Taka tk={cuponDis ? cuponDis : 0} /></p>
 				</div>
 				<div className="flex justify-between items-center">
-					<p>Tax{" ( " + data?.settings?.tax + "% )"}</p>
+					<p>{bangla ? "ছাড়" : "Tax"}{" ( " + data?.settings?.tax + "% )"}</p>
 					<p><Taka tk={parseInt(tax)} /></p>
 				</div>
 				<div className="flex justify-between items-center">
-					<p>Estimated Shipping</p>
+					<p>{bangla ? "আনুমানিক শিপিং" : "Estimated Shipping"}</p>
 					<p><Taka tk={shipping_area} /></p>
 				</div>
 				<div className="flex justify-between items-center">
-					<p>Total</p>
+					<p>{bangla ? "মোট" : "Total"}</p>
 					<p><Taka tk={(parseInt(total + tax) + parseInt(shipping_area)) - cuponDis} /></p>
 				</div>
 			</div>
 
 			<button
 				className={`font-semibold tracking-wider my-1 border border-gray-300 w-full py-3  text-white transition-all duration-200 ease-linear bg-[#50c878] hover:bg-[#26ad53] hover:text-gray-100 hover:shadow-lg rounded-md`}
-	
+
 				onClick={() => handleCheckout()}
 			>
-				Place Order
+				{bangla ? "অর্ডার করুন" : "Place Order"}
 			</button>
 		</div>
 	);

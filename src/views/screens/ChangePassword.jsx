@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline';
 import { httpReq } from '../../services';
+import { bangla } from '../../constant/language';
 
 
 const ChangePassword = () => {
@@ -40,7 +41,7 @@ const ChangePassword = () => {
             <div className="md:grid md:grid-cols-3 md:gap-6">
                 <div className="md:col-span-3">
                     <div className="px-4 sm:px-0">
-                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9  text-gray-800">Change Your Password</h3>
+                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9  text-gray-800">{bangla ? "পাসওয়ার্ড পরিবর্তন করুন" : "Change Your Password"}</h3>
 
                     </div>
                 </div>
@@ -57,11 +58,11 @@ const ChangePassword = () => {
 
 
                                     <div className="col-span-5 sm:col-span-3 ">
-                                        <SinglePassword label={"New Password"} register={register} registerName={'password'} />
+                                        <SinglePassword label={bangla ? "নতুন পাসওয়ার্ড" : "New Password"} register={register} registerName={'password'} />
                                     </div>
 
                                     <div className="col-span-5 sm:col-span-3 ">
-                                        <SinglePassword label={"Re-Type New Password"} register={register} registerName={'confirm_password'} />
+                                        <SinglePassword label={bangla ? "পুনরায় টাইপ করুন" : "Re-Type New Password"} register={register} registerName={'confirm_password'} />
                                     </div>
 
 
@@ -75,9 +76,9 @@ const ChangePassword = () => {
                             <div className="px-4 py-3 bg-gray-50 text-left sm:px-6">
                                 <button
                                     type="submit"
-                                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#AD171A] hover:bg-[#AD173A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#AD171A]"
+                                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#50c878] hover:bg-[#39a85e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#AD171A]"
                                 >
-                                    Update Password
+                                    {bangla ? "হালনাগাদ" : "Update Password"}
                                 </button>
                             </div>
                         </div>

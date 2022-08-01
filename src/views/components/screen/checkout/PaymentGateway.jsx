@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { bangla } from '../../../../constant/language';
 
 
 const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
@@ -21,7 +22,7 @@ const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
 					<div className="col-span-6 sm:col-span-4">
 						<div className="flex justify-between items-center pb-3">
 							<label htmlFor="email-address" className="block text-xl font-semibold text-gray-700">
-								Payment Method
+								{bangla ? "মূল্যপরিশোধ পদ্ধতি" : "Payment Method"}
 							</label>
 
 						</div>
@@ -32,7 +33,7 @@ const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
 
 							<label className={`${selectPayment === "online" ? `bg-[#50c878] text-white` : "bg-gray-300"} p-5 rounded space-y-2 w-full transition-colors duration-300 relative flex justify-between `}>
 								<div className="flex justify-between cursor-pointer">
-									<h3 className='font-semibold tracking-wider capitalize'>{"Pay with Credit/Debit Card (SSL Commarce)"}</h3>
+									<h3 className='font-semibold tracking-wider capitalize'>{bangla ? "ক্রেডিট/ডেবিট কার্ড দিয়ে অর্থ প্রদান (SSL কমার্স)" : "Pay with Credit/Debit Card (SSL Commarce)"}</h3>
 
 								</div>
 								<input
@@ -47,7 +48,7 @@ const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
 
 							<label className={`${selectPayment === "cod" ? `bg-[#50c878] text-white` : "bg-gray-300"}  p-5 rounded space-y-2 w-full transition-colors duration-300 relative flex justify-between `}>
 								<div className="flex justify-between cursor-pointer">
-									<h3 className='font-semibold tracking-wider'>{"Cash On Delivery (Only Dhaka)"}</h3>
+									<h3 className='font-semibold tracking-wider'>{bangla ? "ক্যাশ অন ডেলিভারি (শুধু ঢাকা)" : "Cash On Delivery (Only Dhaka)"}</h3>
 
 								</div>
 
@@ -64,13 +65,13 @@ const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
 
 					</div>
 
-					<p className=' font-semibold'>I have read and agree with the website's
-						<NavLink to={'terms-condition'} className=" text-indigo-400 underline ml-1">Terms & Conditions</NavLink>,
+					<p className=' font-semibold'>{bangla ? "আমি ওয়েবসাইটের সাথে পড়েছি এবং একমত" : "I have read and agree with the website's"}
+						<NavLink to={'terms-condition'} className=" text-indigo-400 underline ml-1">{bangla ? "শর্তাবলী" : "Terms & Conditions"}</NavLink>,
 
-						<NavLink to={'privacy-policy'} className=" text-indigo-400 underline">  Privacy Policy </NavLink>
-						and
+						<NavLink to={'privacy-policy'} className=" text-indigo-400 underline">  {bangla ? "গোপনীয়তা নীতি" : "Privacy Policy"} </NavLink>
+						{bangla ? "এবং" : "and"}
 
-						<NavLink to={'refund-policy'} className=" text-indigo-400 underline ml-1">Refund Policy</NavLink>
+						<NavLink to={'refund-policy'} className=" text-indigo-400 underline ml-1">{bangla ? "প্রত্যর্পণ নীতি" : "Refund Policy"}</NavLink>
 					</p>
 				</div>
 

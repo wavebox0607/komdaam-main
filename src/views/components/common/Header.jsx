@@ -109,9 +109,9 @@ const HeaderTop = () => {
             {/* </div> */}
             <div className="space-x-4 flex pr-2 text-sm items-center font-medium text-white">
                 {/* language  */}
-                <div className="divide-x-2 flex space-x-2 ">
-                    <p onClick={() => handleLanguage('en')} className={`${lan === "en" ? 'bg-green-700' : 'bg-none'} cursor-pointer  hover:text-red-600`}>EN</p>
-                    <p onClick={() => handleLanguage('bn')} className={`${lan === "bn" ? 'bg-green-700' : 'bg-none'} cursor-pointer pl-2  hover:text-red-600`}>BN</p>
+                <div className="flex ">
+                    <p onClick={() => handleLanguage('en')} className={`${lan === "en" ? 'bg-green-700' : 'bg-none'} cursor-pointer px-2 hover:text-red-600 border-r-2 border-[#fff]`}>EN</p>
+                    <p onClick={() => handleLanguage('bn')} className={`${lan === "bn" ? 'bg-green-700' : 'bg-none'} cursor-pointer px-2 hover:text-red-600`}>BN</p>
                 </div>
 
                 {/* phone */}
@@ -125,7 +125,7 @@ const HeaderTop = () => {
                 </div>}
                 {/* Signup */}
                 {!user?.verify && <div className="">
-                    <NavLink to={'/sign-up'} className='text-white hover:text-red-600'>Sign Up</NavLink>
+                    <NavLink to={'/sign-up'} className='text-white hover:text-red-600'>{bangla ? "নিবন্ধন করুন" : "Sign Up"}</NavLink>
                 </div>}
 
                 {user?.verify && <NavLink to="/profile" className="">

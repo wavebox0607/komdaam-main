@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { profileImg } from '../../constant/imgUri';
 import { HomePage, httpReq } from '../../services';
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { bangla } from '../../constant/language';
 
 const Profile = () => {
     const { user } = useSelector((state) => state.auth)
@@ -87,7 +88,7 @@ const Profile = () => {
                 // }
                 // )
             },
-            
+
             onSettled: () => {
                 queryClient.invalidateQueries('getuser')
             }
@@ -135,7 +136,7 @@ const Profile = () => {
 
 
                                             <div className="col-span-6 ">
-                                                <label className="block text-sm font-medium text-gray-700">Photo</label>
+                                                <label className="block text-sm font-medium text-gray-700">{bangla ? "মুখছবি" : "Photo"}</label>
                                                 <div className="mt-1 flex items-center">
                                                     <span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
                                                         {data.image ? <img src={profileImg + data?.image} alt='' className='object-fit' /> : <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
@@ -147,7 +148,7 @@ const Profile = () => {
                                                         className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none hover:ring-2 focus:ring-offset-2 hover:ring-indigo-500  cursor-pointer"
                                                     >
 
-                                                        <span>Change</span>
+                                                        <span>{bangla ? "পূরণ করুন" : "Change"}</span>
                                                         <input {...register("image")} id="image" name="image" type="file" className="sr-only" />
 
                                                     </label>
@@ -157,7 +158,7 @@ const Profile = () => {
 
                                             <div className="col-span-6 ">
                                                 <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
-                                                    Full name
+                                                    {bangla ? "পুরো নাম" : "Full name"}
                                                 </label>
                                                 <input
                                                     defaultValue={data?.name}
@@ -171,7 +172,7 @@ const Profile = () => {
 
                                             <div className="col-span-6 ">
                                                 <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">
-                                                    Email address
+                                                    {bangla ? "ইমেইল" : "Email address"}
                                                 </label>
                                                 <input
 
@@ -185,7 +186,7 @@ const Profile = () => {
 
                                             <div className="col-span-6 ">
                                                 <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
-                                                    Mobile Number
+                                                    {bangla ? "ফোন" : "Mobile Number"}
                                                 </label>
                                                 <input
                                                     defaultValue={data?.phone}
@@ -199,7 +200,7 @@ const Profile = () => {
 
                                             <div className="col-span-6 ">
                                                 <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
-                                                    Address
+                                                    {bangla ? "ঠিকানা" : "Address"}
                                                 </label>
                                                 <div className="mt-1">
                                                     <textarea

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { HomePage, httpReq } from '../../../../services';
 import { getDiscount } from './getDiscount';
 import { getPrice } from '../../utils/getPric';
+import { bangla } from '../../../../constant/language';
 
 const Discount = ({ setCupon, setShipping_area }) => {
 	const styless = `
@@ -59,13 +60,14 @@ const Discount = ({ setCupon, setShipping_area }) => {
 						<div className="col-span-6 sm:col-span-3">
 							<div className="flex justify-start gap-4 items-center pb-3">
 								<label htmlFor="name" className="block text-xl font-semibold text-gray-700">
-									Shipping Method
+
+									{bangla ? "পরিবহণ মাধ্যম" : "Shipping Method"}
 								</label>
 								<div>
 
 									<select onChange={(e) => setShipping_area(e.target.value)} id="country" name="country" autoComplete="country-name"
 										className="mt-1 block w-full py-2 text-lg font-semibold border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#AD171A] focus:border-[#AD171A] sm:text-sm">
-										<option value={0} className="text-center">Select Method</option>
+										<option value={0} className="text-center">{bangla ? "পদ্ধতি নির্বাচন করুন" : "Select Method"}</option>
 										{data?.settings?.shipping_area_1_cost && <option className="text-center option" value={parseInt(data?.settings?.shipping_area_1_cost)}>{data?.settings?.shipping_area_1}</option>}
 										{data?.settings?.shipping_area_2_cost && <option className="text-center" value={parseInt(data?.settings?.shipping_area_2_cost)}>{data?.settings?.shipping_area_2}</option>}
 										{data?.settings?.shipping_area_3_cost && <option className="text-center" value={parseInt(data?.settings?.shipping_area_3_cost)}>{data?.settings?.shipping_area_3}</option>}
@@ -78,14 +80,14 @@ const Discount = ({ setCupon, setShipping_area }) => {
 						<div className="col-span-6 sm:col-span-3">
 							<div className="flex flex-wrap sm:justify-between sm:items-center pb-3 items-start">
 								<label htmlFor="name" className="block text-xl font-semibold text-gray-700">
-									Discount
+									{bangla ? "ছাড়" : "Discount"}
 								</label>
 								<form onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap justify-center items-start'>
 									<div className="flex flex-col justify-center">
 										<input {...register("code", { required: true })} type={'text'} className="border border-gray-400 py-2 px-2 rounded-sm" />
 										{errors.code && <span className='text-red-500'>Field is empty</span>}
 									</div>
-									<input type={'submit'} value={'Apply'} htmlFor='discount' className={`px-4 py-2 ml-2 font-semibold rounded-sm text-lg bg-[#50c878] hover:bg-[#3bbd66] hover:text-gray-100 text-white`} />
+									<input type={'submit'} value={bangla ? "আবেদন" : 'Apply'} htmlFor='discount' className={`px-4 py-2 ml-2 font-semibold rounded-sm text-lg bg-[#50c878] hover:bg-[#3bbd66] hover:text-gray-100 text-white`} />
 								</form>
 							</div>
 

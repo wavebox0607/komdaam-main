@@ -6,6 +6,7 @@ import { PencilAltIcon, TrashIcon } from '@heroicons/react/outline';
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 import { httpReq } from '../../../../services';
+import { bangla } from '../../../../constant/language';
 
 const Address = ({ selectAddress, setSelectAddress }) => {
 	const [address, setAddress] = useState(null)
@@ -32,7 +33,7 @@ const Address = ({ selectAddress, setSelectAddress }) => {
 					<div className="col-span-6 sm:col-span-4">
 						<div className="flex justify-between items-center pb-3">
 							<label htmlFor="name" className="block text-xl font-semibold text-gray-700">
-								Addresses
+								{bangla ? "ঠিকানা" : "Addresses"}
 							</label>
 							<span className='text-[#50c878]-600 font-semibold tracking-wider cursor-pointer' onClick={() => setOpen(true)}> + Add</span>
 						</div>

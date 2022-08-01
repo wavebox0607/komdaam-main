@@ -3,6 +3,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { bangla } from '../../constant/language';
 import { httpReq } from '../../services';
 
 const Order = () => {
@@ -103,13 +104,14 @@ const Order = () => {
     }
 
     const ar = ["All", "Pending", "Shipping", "Processing", "Delivered", "Returned", "Cancel", "Failed"]
+    const arb = ["সব", "বিচারাধীন", "শিপিং", "প্রসেসিং", "ডেলিভার করা", "ফেরত", "বাতিল", "ব্যর্থ"]
     return (
         <>
             <div>
                 <div className="sm:px-6 w-full">
                     <div className="px-4 md:px-10 py-2 md:py-4">
                         <div className="flex items-center justify-between">
-                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Your Orders</p>
+                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">{bangla ? "অর্ডারসমূহ" : "Your Orders"}</p>
 
                         </div>
                     </div>
@@ -119,7 +121,7 @@ const Order = () => {
                                 {ar?.map((i, id) =>
                                     <div key={id} onClick={() => get_filter(i)}>
                                         <div className={`${btn === i ? "bg-indigo-100 text-[#AD173A]" : null} py-2 px-4 sm:px-8 font-medium bg-gray-100 text-gray-700 rounded-full text-xs sm:text-base`}>
-                                            <p>{i}</p>
+                                            <p>{bangla ? arb[id] : i}</p>
                                         </div>
                                     </div>
                                 )}
@@ -137,19 +139,19 @@ const Order = () => {
                                     <thead className="border-b">
                                         <tr>
                                             <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4">
-                                                Order#
+                                                {bangla ? "অর্ডার" : "Order"}#
                                             </th>
                                             <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4">
-                                                Purchased On
+                                                {bangla ? "ক্রয় করা হয়েছে" : "Purchased On"}
                                             </th>
                                             <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4">
-                                                Amount
+                                                {bangla ? "পরিমাণ" : "Amount"}
                                             </th>
                                             <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4">
-                                                Status
+                                                {bangla ? "স্ট্যাটাস" : "Status"}
                                             </th>
                                             <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4">
-                                                Action
+                                                {bangla ? "কর্ম" : "Action"}
                                             </th>
                                         </tr>
                                     </thead>
@@ -228,12 +230,12 @@ const OrderItem = ({ item, cancel_request }) => {
                 <NavLink
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-pink-400 hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                     to={"/profile/order/" + item?.id}>
-                    {"View"}
+                    {bangla ? "দেখুন" : "View"}
                 </NavLink>
                 {item?.status !== "Cancel" ? <button
                     onClick={() => cancel_request(item?.id)}
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    {"Cancel Request"}
+                    {bangla ? "বাতিল অনুরোধ" : "Cancel Request"}
                 </button> : null}
             </td>
         </tr>
