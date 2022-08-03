@@ -5,7 +5,7 @@ import { PhoneIcon, SearchIcon } from '@heroicons/react/solid';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import logo from '../../../assets/logo1.png';
+import logo from '../../../assets/logo.png';
 import { logout } from '../../../redux/slice/auth';
 import { toggleCart } from '../../../redux/slice/cart';
 import Options from '../dropdown/Options';
