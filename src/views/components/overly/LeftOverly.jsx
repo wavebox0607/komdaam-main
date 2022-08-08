@@ -40,13 +40,13 @@ export default function Left({ setOpen, open }) {
                                 <Dialog.Panel className="pointer-events-auto w-screen">
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                             <div className=" w-full overflow-y-scroll example">
-                                                <div className="flex justify-between bg-[#50c878] px-2 h-[40px] items-center">
+                                                <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
                                                     <div className="flex items-center text-[15px] font-bold text-white gap-2">
                                                         <ViewListIcon className='h-5 w-5 ' color='white' />
                                                         <p>All Category</p>
                                                     </div>
                                                     <div className="">
-                                                        <button onClick={() => setOpen(false)} className='border border-white px-4 hover:text-[#50c878] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
+                                                        <button onClick={() => setOpen(false)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
                                                     </div>
                                                 </div>
 
@@ -91,7 +91,7 @@ export default function Left({ setOpen, open }) {
 const SingleCat = ({ item, show, setShow }) => {
 
     return <>
-        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-1 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all duration-200 ease-linear'>
+        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-1 px-[2px]  hover:bg-[#4c9a2a] hover:text-white transition-all duration-200 ease-linear'>
             <Link to={"/category/" + item?.slug}>
                 <div className="flex-1 flex space-x-[6px]">
                     <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />

@@ -5,12 +5,13 @@ import { PhoneIcon, SearchIcon } from '@heroicons/react/solid';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import logo from '../../../assets/logo.png';
 import { logout } from '../../../redux/slice/auth';
 import { toggleCart } from '../../../redux/slice/cart';
 import Options from '../dropdown/Options';
 import { bangla, handleLanguage } from '../../../constant/language';
 import { HomePage } from '../../../services';
+import { settingImg } from '../../../constant/imgUri';
+import { Taka } from '../utils';
 
 
 
@@ -33,7 +34,12 @@ const HeaderDown = ({ handleLeft }) => {
     const { cartList } = useSelector((state) => state.cart)
     const dispatch = useDispatch()
     let navigate = useNavigate();
-
+    const { data } = HomePage.GetSettings()
+    const priceList = cartList?.map(p => p.qty * p.price)
+    const total = priceList.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0
+    );
     return (
         <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
             {/* menu and logo section  */}
@@ -44,17 +50,19 @@ const HeaderDown = ({ handleLeft }) => {
                     </div>
                 </div>
                 <Link to='/'>
-                    <div className="w-[80px] md:w-[100px] h-full flex items-center">
-                        <img src={logo} className="w-full h-[27px] md:h-full object-fit" alt="" />
+                    <div className="w-[80px] md:w-full  h-[37px] flex items-center">
+                        <img src={settingImg + data?.settings?.logo} className="w-full h-[27px] md:h-full object-fit" alt="" />
                     </div>
                 </Link>
             </div>
 
             {/* search section  */}
             <div className="col-span-8 2md:col-span-6 max-h-[30px] relative">
-                <input onChange={(e) => navigate(`/search/${e.target.value}`)} className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc]' type="text" />
-                <div className="absu absolute right-2 top-0 bottom-0 flex items-center  ">
-                    <div className="rounded-full p-1 bg-[#50c878] text-white">
+                <input
+                    placeholder={bangla ? 'একটি পণ্য অনুসন্ধান করুন...' : "Search a product..."}
+                    onChange={(e) => navigate(`/search/${e.target.value}`)} className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc] text-xs flex items-center' type="text" />
+                <div className="absolute right-2 top-0 bottom-0 flex items-center">
+                    <div className="rounded-full p-1 bg-[#4c9a2a] text-white">
                         <SearchIcon className='h-4 w-4 stroke-2 stroke-white' />
                     </div>
                 </div>
@@ -66,17 +74,13 @@ const HeaderDown = ({ handleLeft }) => {
             </div>
 
             <div className="hidden 2md:flex justify-end col-span-4 2md:col-span-3 space-x-2">
-                <NavLink to='/offer' className="">
-                    <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>{bangla ? "অফার" : "Offer"}</p>
-                </NavLink>
-                <div className="">
-                    <p className='font-semibold text-md font-sans text-white px-6 py-1 rounded-lg bg-[#50c878]'>{bangla ? "সাহায্য দরকার" : "Need help"}</p>
-                </div>
-                <div className="flex items-center px-2">
+
+                <div className="flex items-center px-2 space-x-2">
                     <div className="cursor-pointer relative" onClick={() => dispatch(toggleCart())}>
-                        <div className="rounded-full absolute -top-2 -right-2 bg-[#50c878] text-white "><p className='text-xs px-1'>{cartList?.length}</p></div>
+                        <div className="rounded-full absolute -top-2 -right-2 bg-[#4c9a2a] text-white "><p className='text-xs px-1'>{cartList?.length}</p></div>
                         <ShoppingCartIcon className='h-6 w-6 ' />
                     </div>
+                    <Taka tk={total} size={24} className="font-bold text-lg" />
                 </div>
             </div>
 
@@ -98,7 +102,7 @@ const HeaderTop = () => {
 
     const dispatch = useDispatch()
     return (
-        <div className={`w-full hidden 2md:flex justify-between bg-[#50c878] h-6`}>
+        <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
             <div className='flex items-center space-x-1 pl-2'>

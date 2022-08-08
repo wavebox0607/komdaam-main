@@ -76,7 +76,7 @@ const ChangePassword = () => {
                             <div className="px-4 py-3 bg-gray-50 text-left sm:px-6">
                                 <button
                                     type="submit"
-                                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#50c878] hover:bg-[#39a85e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#AD171A]"
+                                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#4c9a2a] hover:bg-[#39a85e] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#AD171A]"
                                 >
                                     {bangla ? "হালনাগাদ" : "Update Password"}
                                 </button>

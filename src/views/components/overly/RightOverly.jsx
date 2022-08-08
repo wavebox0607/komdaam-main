@@ -47,13 +47,13 @@ export default function Right({ setOpen, open }) {
                                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md pl-10">
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                         <div className="flex-1 w-full overflow-y-scroll example">
-                                            <div className="flex justify-between bg-[#50c878] px-2 h-[40px] items-center">
+                                            <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
                                                 <div className="flex items-center text-[15px] font-bold text-white gap-2">
                                                     <ShoppingCartIcon className='h-5 w-5 ' color='white' />
                                                     <p>{cartList.length + " "}ITEMS</p>
                                                 </div>
                                                 <div className="">
-                                                    <button onClick={() => setOpen(!open)} className='border border-white px-4 hover:text-[#50c878] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
+                                                    <button onClick={() => setOpen(!open)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
                                                 </div>
                                             </div>
                                             <h3 className='bg-gray-50 font-semibold py-1'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>

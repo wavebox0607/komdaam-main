@@ -19,7 +19,7 @@ const CartPopUp = ({ right }) => {
     return (
         <div className={`${location?.pathname === "/checkout" && "hidden"}`}>
             <div className={`${right ? "hidden" : "hidden 2md:block"} `}>
-                <div onClick={() => dispatch(toggleCart())} className='fixed z-20 p-2  right-0 top-1/2  shadow-lg rounded-l-md cursor-pointer md:block bg-[#50c878]'>
+                <div onClick={() => dispatch(toggleCart())} className='fixed z-20 p-2  right-0 top-1/2  shadow-lg rounded-l-md cursor-pointer md:block bg-[#4c9a2a]'>
                     <div className="flex flex-col items-center space-y-2 p-1">
                         <div className="flex justify-center py-1 gap-x-1 items-center ">
                             <GiShoppingBag className='font-semibold ' color='white' />

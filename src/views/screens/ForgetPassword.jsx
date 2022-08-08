@@ -105,9 +105,9 @@ const Finding = ({ setPage, setUser }) => {
             {errors.phone?.type === 'required' && <p className='text-red-300 font-sans font-semibold mt-0'>The field is required!</p>}
 
             {loading ?
-                <h1 className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#50c878] text-white hover:bg-[#43b368] hover:text-gray-200`}>Loading....</h1>
+                <h1 className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#4c9a2a] text-white hover:bg-[#43b368] hover:text-gray-200`}>Loading....</h1>
                 :
-                <input type="submit" value="Find" className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#50c878] text-white hover:bg-[#43af67] hover:text-gray-100`}  />
+                <input type="submit" value="Find" className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#4c9a2a] text-white hover:bg-[#43af67] hover:text-gray-100`}  />
             }
         </form>
     )
@@ -156,11 +156,11 @@ const Verifying = ({ setPage, setUser, user }) => {
 
        
             {loading ?
-                <h1 className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#50c878] text-white hover:bg-[#43b368] hover:text-gray-200`}>Loading....</h1>
+                <h1 className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#4c9a2a] text-white hover:bg-[#43b368] hover:text-gray-200`}>Loading....</h1>
                 :
 
 
-                <input type="submit" value="Verify" className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#50c878] text-white hover:bg-[#43b368] hover:text-gray-200`}  />
+                <input type="submit" value="Verify" className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#4c9a2a] text-white hover:bg-[#43b368] hover:text-gray-200`}  />
             }
       
     </form>
@@ -234,11 +234,11 @@ const Changeing = ({ setPage, setUser, user }) => {
 
 
                 {loading ?
-                    <h1 className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#50c878] text-white hover:bg-[#43b368] hover:text-gray-200`}>Loading....</h1>
+                    <h1 className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#4c9a2a] text-white hover:bg-[#43b368] hover:text-gray-200`}>Loading....</h1>
                     :
 
 
-                    <input type="submit" value="Submit" className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#50c878] text-white hover:bg-[#43b368] hover:text-gray-200`}  />
+                    <input type="submit" value="Submit" className={`text-center py-2 px-8 rounded-md  font-sans font-bold tracking-wider bg-[#4c9a2a] text-white hover:bg-[#43b368] hover:text-gray-200`}  />
                 }
           
         </form>

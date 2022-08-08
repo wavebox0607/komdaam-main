@@ -1,21 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { bangla } from '../../../../constant/language';
+import { HomePage } from '../../../../services';
 
 
 const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
+	const { data } = HomePage.GetSettings()
 
 	return (
 		<>
 			<div className="shadow sm:rounded-md sm:overflow-hidden my-5">
 				<div className="px-4 py-5 bg-white space-y-6 sm:p-6">
 
-
-
-					{/* 
-                <p className="block text-xl font-semibold text-gray-700">
-                Terms & Conditions
-                            </p> */}
 
 
 
@@ -27,11 +23,11 @@ const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
 
 						</div>
 
-						<div className="flex gap-2 flex-wrap sm:flex-nowrap">
+						<div className="flex gap-2 flex-wrap sm:flex-nowrap justify-between">
 
 
 
-							<label className={`${selectPayment === "online" ? `bg-[#50c878] text-white` : "bg-gray-300"} p-5 rounded space-y-2 w-full transition-colors duration-300 relative flex justify-between `}>
+							{data?.settings?.online === 'active' ? <label className={`${selectPayment === "online" ? `bg-[#4c9a2a] text-white` : "bg-gray-300"} p-5 rounded space-y-2 w-[45%] transition-colors duration-300 relative flex justify-between `}>
 								<div className="flex justify-between cursor-pointer">
 									<h3 className='font-semibold tracking-wider capitalize'>{bangla ? "ক্রেডিট/ডেবিট কার্ড দিয়ে অর্থ প্রদান (SSL কমার্স)" : "Pay with Credit/Debit Card (SSL Commarce)"}</h3>
 
@@ -44,9 +40,9 @@ const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
 									onChange={(e) => setSelectPayment(e.target.value)}
 
 								/>
-							</label>
+							</label> : null}
 
-							<label className={`${selectPayment === "cod" ? `bg-[#50c878] text-white` : "bg-gray-300"}  p-5 rounded space-y-2 w-full transition-colors duration-300 relative flex justify-between `}>
+							{data?.settings?.cod === 'active' ? <label className={`${selectPayment === "cod" ? `bg-[#4c9a2a] text-white` : "bg-gray-300"}  p-5 rounded space-y-2 w-[45%] transition-colors duration-300 relative flex justify-between `}>
 								<div className="flex justify-between cursor-pointer">
 									<h3 className='font-semibold tracking-wider'>{bangla ? "ক্যাশ অন ডেলিভারি (শুধু ঢাকা)" : "Cash On Delivery (Only Dhaka)"}</h3>
 
@@ -60,7 +56,7 @@ const PaymentGateway = ({ selectPayment, setSelectPayment }) => {
 									onChange={(e) => setSelectPayment(e.target.value)}
 
 								/>
-							</label>
+							</label> : null}
 						</div>
 
 					</div>

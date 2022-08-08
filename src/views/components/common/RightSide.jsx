@@ -19,13 +19,13 @@ const RightSide = ({ right }) => {
         <div className={`hidden 2md:block fixed right-0 top-[70px] bottom-0    ${right ? "w-[330px]" : "w-[0px]"} transition-all duration-100 ease-linear`}>
             <div className="flex flex-col justify-between h-full ">
                 <div className="flex-1 w-full overflow-y-scroll example">
-                    <div className="flex justify-between bg-[#50c878] px-2 h-[40px] items-center">
+                    <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
                         <div className="flex items-center text-[15px] font-bold text-white gap-2">
                             <ShoppingCartIcon className='h-5 w-5 ' color='white' />
                             <p>{cartList.length + " "}{bangla ? "আইটেম" : "ITEMS"}</p>
                         </div>
                         <div className="">
-                            <button onClick={() => dispatch(toggleCart())} className='border border-white px-4 hover:text-[#50c878] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>{bangla ? "বন্ধ" : "close"}</button>
+                            <button onClick={() => dispatch(toggleCart())} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>{bangla ? "বন্ধ" : "close"}</button>
                         </div>
                     </div>
                     <h3 className='bg-gray-50 font-semibold py-1'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>

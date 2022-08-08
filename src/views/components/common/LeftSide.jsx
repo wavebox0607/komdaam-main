@@ -3,30 +3,25 @@ import { categoryImg } from '../../../constant/imgUri';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
 import { HomePage } from '../../../services';
 import { Link, NavLink } from 'react-router-dom'
-import offer from '../../../assets/offer.gif'
-import { bangla } from '../../../constant/language';
 
 const LeftSide = ({ left }) => {
     const [show, setShow] = useState(null)
     const { data } = HomePage.GetCategory()
+    const result = data?.data?.filter(res => res?.slug === 'offer' || res?.slug === 'popular' || res?.slug === 'corporate-deal')
+    const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
+
     return (
-        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[100]`}>
-            <div className="flex flex-col space-y-[6px] px-2 text-[14px]">
-                {left ?
-                    <div className='flex items-center'>
-                        <Link to={"/offer"}>
-                            <div className="flex-1 flex space-x-1">
-                                <img src={offer} className="h-5 w-5" alt="" />
-                                <p>{bangla ? "অফার" : "Offer"}</p>
-                            </div>
-                        </Link>
-                    </div>
-                    :
-                    <NavLink to="/offer" className="flex justify-center">
-                        <img src={offer} className="h-5 w-5" alt="" />
-                    </NavLink>}
+        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10]`}>
+            <div className="flex flex-col space-y-[0px] px-2 text-[14px] bg-[#ccf8cc] pb-0 font-semibold">
+
                 {
-                    data?.data?.map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
+                    result?.reverse().map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
+                }
+            </div>
+            <div className="flex flex-col space-y-[0px] px-2 text-[14px]">
+
+                {
+                    result1?.map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
                 }
             </div>
         </div>
@@ -39,27 +34,35 @@ export default LeftSide;
 const SingleCat = ({ item, show, setShow }) => {
 
     return <>
-        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-1 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all duration-200 ease-linear'>
+        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-0 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all duration-200 ease-linear'>
             <Link to={"/category/" + item?.slug}>
                 <div className="flex-1 flex space-x-[8px]">
                     <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />
                     <p>{item.name}</p>
-                </div></Link>
+                </div>
+            </Link>
             {item?.subcategory ? <div className="">
                 {show === item.slug ? <ChevronUpIcon className='h-4 w-4' /> :
                     <ChevronDownIcon className='h-4 w-4' />}
             </div> : null}
         </div>
-        {show === item.slug ? item?.subcategory?.map((item) => <SingleSub item={item} />) : null}
+        <div className='flex'>
+            <div className="w-[1px] max-h-max bg-[#4c9a2a] ml-3 mb-[14px]"></div>
+            <div className="flex-1">
+                {show === item.slug ? item?.subcategory?.map((item) => <SingleSub item={item} />) : null}
+            </div>
+
+        </div>
     </>
 }
 
 const SingleSub = ({ item }) => {
     return (
-        <div className='flex ml-4 hover:text-[#50c878] text-[14px]'>
+        <div className='flex items-center space-x-1 hover:text-[#50c878] text-[14px] '>
+            <div className="h-[1px] w-3 bg-[#4c9a2a]"></div>
             <Link to={'/subcategory/' + item?.slug}>
                 <div className="flex-1 flex space-x-3 py-1">
-                    <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
+                    <img src={categoryImg + item?.icon} className="h-4 w-4" alt="" />
                     <p>{item?.name}</p>
                 </div>
             </Link>
@@ -73,7 +76,7 @@ const SingleCat2 = ({ item }) => {
     const [show, setShow] = useState(null)
 
     return <>
-        <div className='relative w-full flex justify-center text-[14px]'>
+        <div className='relative w-full flex justify-center text-[14px] py-1'>
             <NavLink to={'/category/' + item?.slug}
                 onMouseEnter={() => setShow(item?.subcategory ? item?.slug : null)}
                 onMouseLeave={() => setShow(null)}

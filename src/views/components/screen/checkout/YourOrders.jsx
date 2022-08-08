@@ -158,7 +158,7 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			</div>
 
 			<button
-				className={`font-semibold tracking-wider my-1 border border-gray-300 w-full py-3  text-white transition-all duration-200 ease-linear bg-[#50c878] hover:bg-[#26ad53] hover:text-gray-100 hover:shadow-lg rounded-md`}
+				className={`font-semibold tracking-wider my-1 border border-gray-300 w-full py-3  text-white transition-all duration-200 ease-linear bg-[#4c9a2a] hover:bg-[#26ad53] hover:text-gray-100 hover:shadow-lg rounded-md`}
 
 				onClick={() => handleCheckout()}
 			>

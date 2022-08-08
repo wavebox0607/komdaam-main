@@ -58,8 +58,8 @@ export default function Options() {
                         </Menu.Item>
                     </div>
                     <div className="py-1 flex justify-center gap-2">
-                        <div onClick={() => handleLanguage('bn')} className={`${bangla ? 'bg-[#50c878] text-white' : 'bg-gray-300 text-black'} p-1 px-2 `}>BN</div>
-                        <div onClick={() => handleLanguage('en')} className={`${!bangla ? 'bg-[#50c878] text-white' : 'bg-gray-50 text-black'} p-1 px-2 `}>EN</div>
+                        <div onClick={() => handleLanguage('bn')} className={`${bangla ? 'bg-[#4c9a2a] text-white' : 'bg-gray-300 text-black'} p-1 px-2 `}>BN</div>
+                        <div onClick={() => handleLanguage('en')} className={`${!bangla ? 'bg-[#4c9a2a] text-white' : 'bg-gray-50 text-black'} p-1 px-2 `}>EN</div>
                     </div>
                 </Menu.Items>
             </Transition>

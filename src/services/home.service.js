@@ -1,10 +1,12 @@
+
 import { useQuery } from "@tanstack/react-query";
 import httpReq from "./http.service";
 class HomeApi {
     // get user
     GetUser = () => {
         const data = useQuery(['getuser'], () => httpReq.get('getuser'), {
-            cacheTime: 0
+            refetchOnMount: true,
+            refetchOnWindowFocus: true
         })
         return data
     }
@@ -25,11 +27,14 @@ class HomeApi {
         return data
     }
 
-    // get banner
-    GetBanner = () => useQuery(['getbanner'], () => httpReq.get('getbanner'), {
+    // get banner 
+    GetBanner = () => {
+        const data = useQuery(['getbanner'], () => httpReq.get('getbanner'), {
             refetchOnMount: true,
             refetchOnWindowFocus: true
         })
+        return data
+    }
 
     // get category & subcategory
     GetCategory = () => {

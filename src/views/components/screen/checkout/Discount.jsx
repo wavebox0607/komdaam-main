@@ -75,7 +75,7 @@ const Discount = ({ setCupon, setShipping_area }) => {
 										<input {...register("code", { required: true })} type={'text'} className="border border-gray-400 py-2 px-2 rounded-sm" />
 										{errors.code && <span className='text-red-500'>Field is empty</span>}
 									</div>
-									<input type={'submit'} value={bangla ? "আবেদন" : 'Apply'} htmlFor='discount' className={`px-4 py-2 ml-2 font-semibold rounded-sm text-lg bg-[#50c878] hover:bg-[#3bbd66] hover:text-gray-100 text-white`} />
+									<input type={'submit'} value={bangla ? "আবেদন" : 'Apply'} htmlFor='discount' className={`px-4 py-2 ml-2 font-semibold rounded-sm text-lg bg-[#4c9a2a] hover:bg-[#3bbd66] hover:text-gray-100 text-white`} />
 								</form>
 							</div>
 

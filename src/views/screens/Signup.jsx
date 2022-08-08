@@ -83,9 +83,9 @@ const Signup = () => {
 
                 <div className="">
                     {loading ?
-                        <p className='text-left py-3 px-8 w-28 rounded-md text-gray-400 bg-[#50c878]'  >Loading</p>
+                        <p className='text-left py-3 px-8 w-28 rounded-md text-gray-400 bg-[#4c9a2a]'  >Loading</p>
                         :
-                        <input type="submit" value="Register" className='text-left py-3 px-8 rounded-md text-white bg-[#50c878]' />
+                        <input type="submit" value="Register" className='text-left py-3 px-8 rounded-md text-white bg-[#4c9a2a]' />
                     }
                 </div>
 

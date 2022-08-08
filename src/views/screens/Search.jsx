@@ -17,7 +17,7 @@ const Search = () => {
     return (
         <>
             <div className="mt-16 mb-3">
-                <h2 className='text-[#1d1d1d] text-[20px]'>{bangla ? "অনুসন্ধান এর ফলাফল" : "Search Results for"} <span className='font-bold text-[#50c878]'>{` "${params.src}"`}</span></h2>
+                <h2 className='text-[#1d1d1d] text-[20px]'>{bangla ? "অনুসন্ধান এর ফলাফল" : "Search Results for"} <span className='font-bold text-[#4c9a2a]'>{` "${params.src}"`}</span></h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2md:grid-cols-4 lg:grid-cols-5 gap-4 ">
                 {

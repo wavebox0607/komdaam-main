@@ -75,7 +75,7 @@ const CurrentOffer = () => {
     );
 };
 
-// bg-[#50c878]
+// bg-[#4c9a2a]
 
 export default CurrentOffer;
 

@@ -64,30 +64,30 @@ const AddToCart = ({ product, unit, already }) => {
 
     return (<div className="flex mt-6 space-x-2">
         <div className="rounded-full flex items-center border border-black  hover:stroke-white  divide-x divide-black h-[36px] overflow-hidden">
-            <div onClick={() => handleDecrementCartItem()} className="h-full flex items-center hover:bg-[#000] px-2 hover:stroke-[#fff]  stroke-[#50c878] text-[#50c878] hover:text-white transition-all duration-300 ease-linear">
+            <div onClick={() => handleDecrementCartItem()} className="h-full flex items-center hover:bg-[#000] px-2 hover:stroke-[#fff]  stroke-[#4c9a2a] text-[#4c9a2a] hover:text-white transition-all duration-300 ease-linear">
                 <MinusIcon className='h-4 w-4' />
             </div>
             <div className="flex items-center gap-2 h-full px-4">
                 <p>{alreadyCart?.qty ? alreadyCart?.qty : 0}</p>
                 <p>{bangla ? "কার্টে" : 'in cart'}</p>
             </div>
-            <div onClick={() => handleAddToCart()} className="hover:bg-[#000] px-2 hover:stroke-[#fff] stroke-[#50c878] text-[#50c878] hover:text-white h-full flex items-center transition-all duration-300 ease-linear">
+            <div onClick={() => handleAddToCart()} className="hover:bg-[#000] px-2 hover:stroke-[#fff] stroke-[#4c9a2a] text-[#4c9a2a] hover:text-white h-full flex items-center transition-all duration-300 ease-linear">
                 <PlusIcon className='h-4 w-4' />
             </div>
         </div>
 
 
         {alreadyCart?.cartId ?
-            <div onClick={() => dispatch(toggleCart())} className="rounded-full flex items-center border border-[#50c878] text-[#50c878] hover:text-white hover:bg-[#50c878] h-[36px] overflow-hidden transition-all duration-300 ease-linear cursor-pointer">
+            <div onClick={() => dispatch(toggleCart())} className="rounded-full flex items-center border border-[#4c9a2a] text-[#4c9a2a] hover:text-white hover:bg-[#4c9a2a] h-[36px] overflow-hidden transition-all duration-300 ease-linear cursor-pointer">
 
-                <h4 className="px-6  font-semibold"> Buy Now</h4>
+                <h4 className="px-6  font-semibold"> {bangla ? "এখন কিনুন" : "Buy Now"}</h4>
             </div>
             :
-            <div className="rounded-full flex items-center border border-[#50c878]  hover:stroke-white h-[36px] overflow-hidden ">
+            <div className="rounded-full flex items-center border border-[#4c9a2a]  hover:stroke-white h-[36px] overflow-hidden ">
 
-                <div onClick={() => handleAddToCart()} className="hover:bg-[#50c878]  hover:stroke-[#fff] stroke-[#50c878] text-[#50c878] hover:text-white h-full flex items-center transition-all duration-300 ease-linear space-x-2 px-4 cursor-pointer">
+                <div onClick={() => handleAddToCart()} className="hover:bg-[#4c9a2a]  hover:stroke-[#fff] stroke-[#4c9a2a] text-[#4c9a2a] hover:text-white h-full flex items-center transition-all duration-300 ease-linear space-x-2 px-4 cursor-pointer">
                     <ShoppingBagIcon className='h-5 w-5' />
-                    <p className=" font-bold text-[14px] ">Add To Cart</p>
+                    <p className=" font-bold text-[14px] ">{bangla ? "কার্টে যোগ করুন" : "Add To Cart"}</p>
                 </div>
             </div>}
     </div>

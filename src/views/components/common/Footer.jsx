@@ -121,7 +121,7 @@ const FooterBottom = () => {
                                 <input type="text" placeholder={bangla ? "সর্বশেষ খবর পান" : "Receive the latest news"} className="input border-none outline-0  focus:border-0 focus:outline-0 w-full" />
                             </div>
                             <div className="sm:col-span-2 text-xs">
-                                <button className=" border-0 bg-[#50c878] hover:bg-[#1aa749] text-white font-semibold capitalize lg:px-2  px-1 w-full min-h-[35px] h-full">{bangla ? "নিবন্ধন করুন" : "Sign Up"}</button>
+                                <button className=" border-0 bg-[#4c9a2a] hover:bg-[#1aa749] text-white font-semibold capitalize lg:px-2  px-1 w-full min-h-[35px] h-full">{bangla ? "নিবন্ধন করুন" : "Sign Up"}</button>
                             </div>
                         </div>
                     </div>

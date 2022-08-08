@@ -7,8 +7,7 @@ import { Pagination } from '../components/utils';
 const Offer = () => {
     const [page, setPage] = useState('?page=1')
     const { data } = Product.GetOffer(page)
-    console.log(data);
-    // setPage('?page=1')
+
     return (
         <div className='my-16 mx-auto px-4'>
             <h3 className='text-[#1d1d1d] text-[20px] font-medium my-6 pb-2 border-b border-[#dac9c9]'>{bangla ? "হট অফার এবং ডিসকাউন্ট" : "Hot Offers & Discounts"}</h3>

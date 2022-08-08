@@ -17,9 +17,28 @@ import {
 } from "react-share";
 
 const ProductDetails = () => {
-    const [unit, setUnit] = useState(null)
-    // const [already, setAlready] = useState(false)
     let { slug } = useParams();
+    const { data } = Product.GetSingle(slug)
+    return (
+        <div className='px-4 py-6 my-12'>
+            <Details slug={slug} />
+
+            <Description desc={data?.data?.description} />
+
+            <div className=" py-5">
+                <RelatedProducts slug={data?.data?.slug} />
+            </div>
+        </div>
+    )
+}
+
+
+
+export default ProductDetails;
+
+export const Details = ({ slug }) => {
+
+    const [unit, setUnit] = useState(null)
     const { data, isLoading } = Product.GetSingle(slug)
 
     const { cartList } = useSelector((state) => state.cart)
@@ -32,79 +51,73 @@ const ProductDetails = () => {
 
 
     if (isLoading) {
-        return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
+        return <div className='w-full h-full flex justify-center items-center'>Loading...</div>
     }
 
 
     return (
-        <div className='px-4 py-6 my-12'>
-            <div className="grid md:grid-cols-8 grid-cols-1 md:gap-4 ">
 
-                <div className="md:col-span-3 h-[400px] w-full">
-                    {data?.data?.images?.slice(0, 1).map((item, id) =>
-                        <Zoom
-                            key={id}
-                            img={productImg + item}
-                            zoomScale={3}
-                            width={100}
-                            height={100}
-                            transitionTime={0.5}
-                        />
-                    )}
-                </div>
-                <div className="md:col-span-4 md:px-2">
-                    <div className="flex items-center text-[#111111] text-[14px]">
-                        <Link to={"/"} ><p>{bangla ? "হোম" : "Home"}</p></Link>
-                        <ChevronRightIcon className='h-4 w-4' />
-                        <Link to={"/category/" + data?.data?.category_slug} ><p>{data?.data?.category}</p></Link>
-                        <ChevronRightIcon className='h-4 w-4' />
-                        <Link to={"/subcategory/" + data?.data?.subcategory_slug} ><p>{data?.data?.subcategory}</p></Link>
-                    </div>
-                    <h2 className='text-[25px] font-bold text-[#1d1d1d]'>{data?.data?.name}</h2>
-                    <p className='text-[18px] text-[#888]  font-normal'>{data?.data?.per_unit ? bangla ? "প্রতি একক:" : "Per Unit:" : null} <span className='font-bold text-[#777]'>{data?.data?.per_unit}</span> </p>
+        <div className="grid md:grid-cols-8 grid-cols-1 md:gap-4 ">
 
-
-                    <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={'text-[#4aa02c] font-bold text-[28px] -m-2 mt-4'} size={40} />
-
-                    {data?.data?.variant &&
-                        <div className="flex items-center space-x-2 my-2">
-                            <h4>{bangla ? "ইউনিট" : "Unit"}:</h4>
-                            {data?.data?.variant?.map((item) => <Unit key={item?.id} item={item} active={unit?.id === item?.id} onClick={() => unit ? setUnit(null) : setUnit(item)} />)}
-                        </div>}
-
-                    {/* Add to cart  */}
-                    <AddToCart product={data?.data} unit={unit} already={cartList?.filter(i => i.productId === data?.data?.id)} />
-
-
-
-                    {/* Share Button  */}
-                    <div className="my-3 flex items-center space-x-2">
-                        <h2 className='text-black font-semibold'>{bangla ? "ভাগ" : "Share"}: </h2>
-                        <FacebookShareButton url={window.location.href}>
-                            <FacebookIcon size={32} round={true} />
-                        </FacebookShareButton>
-                        <TwitterShareButton url={window.location.href} >
-                            <TwitterIcon size={32} round={true} />
-                        </TwitterShareButton>
-                    </div>
-
-
-
-                </div>
+            <div className="md:col-span-3 h-[400px] w-full">
+                {data?.data?.images?.slice(0, 1).map((item, id) =>
+                    <Zoom
+                        key={id}
+                        img={productImg + item}
+                        zoomScale={3}
+                        width={100}
+                        height={100}
+                        transitionTime={0.5}
+                    />
+                )}
             </div>
+            <div className="md:col-span-4 md:px-2">
+                <div className="flex items-center text-[#111111] text-[14px]">
+                    <Link to={"/"} ><p>{bangla ? "হোম" : "Home"}</p></Link>
+                    <ChevronRightIcon className='h-4 w-4' />
+                    <Link to={"/category/" + data?.data?.category_slug} ><p>{data?.data?.category}</p></Link>
+                    <ChevronRightIcon className='h-4 w-4' />
+                    <Link to={"/subcategory/" + data?.data?.subcategory_slug} ><p>{data?.data?.subcategory}</p></Link>
+                </div>
+                <h2 className='text-[25px] font-bold text-[#1d1d1d]'>{data?.data?.name}</h2>
+                <p className='text-[18px] text-[#888]  font-normal'>{data?.data?.per_unit ? bangla ? "প্রতি একক:" : "Per Unit:" : null} <span className='font-bold text-[#777]'>{data?.data?.per_unit}</span> </p>
 
-            <Description desc={data?.data?.description} />
 
-            <div className=" py-5">
-                <RelatedProducts slug={data?.data?.slug} />
+                <div className="flex items-end space-x-3 ">
+                    <Taka tk={data?.data?.discount_price} additional={unit && unit?.additional_price} className={'text-[#4aa02c] font-bold text-[28px] -m-2 mt-0'} size={40} />
+                    <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={'text-red-600 line-through font-semibold text-[16px] pt-6'} size={20} />
+                </div>
+
+                {data?.data?.variant &&
+                    <div className="flex items-center space-x-2 my-2">
+                        <h4>{bangla ? "ইউনিট" : "Unit"}:</h4>
+                        {data?.data?.variant?.map((item) => <Unit key={item?.id} item={item} active={unit?.id === item?.id} onClick={() => unit ? setUnit(null) : setUnit(item)} />)}
+                    </div>}
+
+                {/* Add to cart  */}
+                <AddToCart product={data?.data} unit={unit} already={cartList?.filter(i => i.productId === data?.data?.id)} />
+
+
+
+                {/* Share Button  */}
+                <div className="my-3 flex items-center space-x-2">
+                    <h2 className='text-black font-semibold'>{bangla ? "ভাগ" : "Share"}: </h2>
+                    <FacebookShareButton url={window.location.href}>
+                        <FacebookIcon size={32} round={true} />
+                    </FacebookShareButton>
+                    <TwitterShareButton url={window.location.href} >
+                        <TwitterIcon size={32} round={true} />
+                    </TwitterShareButton>
+                </div>
+
+
+
             </div>
         </div>
+
+
     );
 };
-
-export default ProductDetails;
-
-
 
 
 
