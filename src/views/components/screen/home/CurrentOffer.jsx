@@ -16,8 +16,8 @@ import { bangla } from '../../../../constant/language';
 const CurrentOffer = () => {
     const { data } = HomePage.GetBanner()
     return (
-        <div className=' py-5'>
-            <div className="pt-10">
+        <div className=' py-4'>
+            <div className="pt-0">
                 <SectionHeading text={bangla ? "বর্তমান অফার" : "Current Offer"} />
             </div>
             <div className="relative">

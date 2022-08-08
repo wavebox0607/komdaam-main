@@ -50,14 +50,14 @@ const Signup = () => {
                 <input
                     {...register("name", { required: true })}
                     type="text"
-                    placeholder='Name'
+                    placeholder='Name (Optinal)'
                     className='py-3 px-4 border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
                 <p className='text-red-400'> {errors.name?.type === 'required' && "phone name is required"}</p>
 
                 <input
                     {...register("email", { required: true })}
                     type='email'
-                    placeholder='Email'
+                    placeholder='Email (Optinal)'
                     className='py-3 px-4 border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
                 <p className='text-red-400'> {errors.email?.type === 'required' && "phone email is required"}</p>
 

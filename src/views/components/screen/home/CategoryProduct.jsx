@@ -19,7 +19,7 @@ const CategoryProduct = () => {
 
     return (
 
-        <div className="mx-4 sm:px-0 py-12 ">
+        <div className="mx-4 sm:px-0 py-4 ">
 
             <SectionHeading text={bangla ? "ব্যক্তিগত যত্ন" : "Personal Care"} />
             <Slider

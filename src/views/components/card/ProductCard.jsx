@@ -20,7 +20,7 @@ const ProductCard = ({ item }) => {
                     <Link to={'/product/' + item?.slug}>
                         <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
                     </Link>
-                    {parseInt(item?.discount_amount) !== 0 && <div className="absolute top-2 right-2 bg-[#ff576d] px-[7px] py-[2px] w-[65px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
+                    {parseInt(item?.discount_amount) !== 0 && <div className="absolute top-2 right-2 bg-[#ff576d] px-[7px] py-[2px] w-[75px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
                         {bangla ? `${parseInt(item?.discount_amount)}% ছাড়` : `${parseInt(item?.discount_amount)}% OFF`}
                     </div>}
                     <button onClick={() => setOpen(true)} className='absolute -bottom-2 translate-y-6 group-hover:translate-y-0 transition-all duration-300 ease-linear left-0 right-0 mx-auto rounded-t-md px-1 font-semibold text-md pb-2 text-white text-md flex justify-center items-center gap-x-1 shadow-4xl bg-[#4c9a2a]'>Quick View</button>

@@ -51,7 +51,7 @@ export const Details = ({ slug }) => {
 
 
     if (isLoading) {
-        return <div className='w-full h-full flex justify-center items-center'>Loading...</div>
+        return <div className='w-full h-[450px] flex justify-center items-center'>Loading...</div>
     }
 
 

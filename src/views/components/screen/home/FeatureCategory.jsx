@@ -7,7 +7,7 @@ import { bangla } from '../../../../constant/language';
 const FeatureCategory = () => {
     const { data } = HomePage.GetCategory()
     return (
-        <div className='py-10 mx-4'>
+        <div className='py-4 mx-4'>
 
             <SectionHeading text={bangla ? "পণ্যের ধরণ" :"Feature Categories"} />
             <div className="grid md:grid-cols-6 grid-cols-2 gap-4 my-4" >

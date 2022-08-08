@@ -19,7 +19,7 @@ const FeatureProduct = () => {
 
     return (
 
-        <div className="mx-4 sm:px-0 py-12 ">
+        <div className="mx-4 sm:px-0 py-6 ">
 
             <SectionHeading text={bangla ? "বিশেষ পণ্য" : "Feature Product"} />
             <Slider

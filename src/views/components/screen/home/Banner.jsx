@@ -10,7 +10,7 @@ const Banner = () => {
         <>
             <div className=''>
 
-                <div className="mt-10 ">
+                <div className="mt-4 ">
                     <SectionHeading text={bangla ? "ব্যানার" : "Banner"} />
                 </div>
 
