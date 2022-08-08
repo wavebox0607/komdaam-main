@@ -6,12 +6,13 @@ import { bangla } from '../../constant/language';
 import { Product } from '../../services';
 import ProductCard from '../components/card/ProductCard';
 import { Pagination } from '../components/utils';
+import { useSelector } from "react-redux";
 
 const Category = () => {
     const params = useParams()
     const [page, setPage] = useState('?page=1')
     const { data, isLoading } = Product.GetCatProduct(params?.slug, page)
-    // const right = useSelecto((state) => state.cart.cartOpen)
+    const right = useSelector((state) => state.cart.cartOpen)
     // {right ? 'grid grid-cols-1 xs:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4 gap-4 px-4':`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-4`}
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading</div>
@@ -39,7 +40,7 @@ const Category = () => {
             {data?.paginate?.data?.length === 0 ? <div className="flex  justify-center mt-20" style={{ minHeight: '50vh' }}>
                 <h2 className='font-bold text-4xl text-center text-gray-400'>{bangla ? "কোনো পণ্য নেই" : "No Product Available"}</h2>
             </div> : <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-4">
+                <div className={right ? 'grid grid-cols-1 xs:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4 gap-4 px-4':`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-4`}>
                     {data?.paginate?.data?.map((item) => <ProductCard key={item?.id} item={item} />)}
                 </div>
                 <Pagination paginate={data?.paginate} setPage={setPage} />

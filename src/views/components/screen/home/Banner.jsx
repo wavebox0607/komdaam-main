@@ -6,6 +6,8 @@ import { bangla } from '../../../../constant/language';
 
 const Banner = () => {
     const { data } = HomePage.GetBanner()
+   
+    
     return (
         <>
             <div className=''>
