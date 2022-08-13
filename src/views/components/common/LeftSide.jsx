@@ -11,7 +11,7 @@ const LeftSide = ({ left }) => {
     const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
 
     return (
-        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[200px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10]`}>
+        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[240px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10] `}>
             <div className="flex flex-col space-y-[0px] px-2 text-[14px] bg-[#ccf8cc] pb-0 font-semibold">
 
                 {

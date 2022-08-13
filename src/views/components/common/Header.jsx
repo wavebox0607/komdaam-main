@@ -57,7 +57,7 @@ const HeaderDown = ({ handleLeft }) => {
             </div>
 
             {/* search section  */}
-            <div className="col-span-8 2md:col-span-6 max-h-[30px] relative">
+            <div className="col-span-7 2md:col-span-6 max-h-[30px] relative">
                 <input
                     placeholder={bangla ? 'একটি পণ্য অনুসন্ধান করুন...' : "Search a product..."}
                     onChange={(e) => navigate(`/search/${e.target.value}`)} className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc] text-xs flex items-center' type="text" />
@@ -68,21 +68,26 @@ const HeaderDown = ({ handleLeft }) => {
                 </div>
             </div>
 
-            <div className="2md:hidden flex justify-center items-center">
-                {/* <DotsVerticalIcon className='h-5 w-5' /> */}
-                <Options />
-            </div>
-
-            <div className="hidden 2md:flex justify-end col-span-4 2md:col-span-3 space-x-2">
+            <div className=" 2md:flex  justify-end col-span-1 2md:col-span-3 space-x-2">
 
                 <div className="flex items-center px-2 space-x-2">
                     <div className="cursor-pointer relative" onClick={() => dispatch(toggleCart())}>
                         <div className="rounded-full absolute -top-2 -right-2 bg-[#4c9a2a] text-white "><p className='text-xs px-1'>{cartList?.length}</p></div>
                         <ShoppingCartIcon className='h-6 w-6 ' />
                     </div>
-                    <Taka tk={total} size={24} className="font-bold text-lg" />
+                    <div className='hidden'>
+                        <Taka tk={total} size={24} className="font-bold text-lg hidden" />
+                    </div>
                 </div>
             </div>
+
+
+            <div className="2md:hidden order-last flex justify-center items-center">
+                {/* <DotsVerticalIcon className='h-5 w-5' /> */}
+                <Options />
+            </div>
+
+
 
         </div>
     )
