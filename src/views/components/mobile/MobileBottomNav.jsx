@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ShoppingBagIcon } from '@heroicons/react/solid';
 import { PhoneIcon,HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
-import { HomePage } from '../../../services';
+
 
 const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
-    const { data } = HomePage.GetSettings()
+ 
     const handleCart = () => {
         setCart(!cart)
     }
