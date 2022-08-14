@@ -15,15 +15,18 @@ const Layout = () => {
     const [cart, setCart] = useState(false)
     const right = useSelector((state) => state.cart.cartOpen)
 
+    
     useEffect(() => {
         if (window.screen.width < 768) {
             setLeft(false)
         }
+        console.log('hlww')
+        
     }, [])
 
 
 
-    console.log(category);
+  
     return (
         <>
             <header className=''>
@@ -33,10 +36,10 @@ const Layout = () => {
                 />
             </header>
             <div className="flex items-start mt-[60px]">
-                <div className={`${left ? "w-[200px]" : "w-[60px]"} h-auto hidden lg:block  relative transition-all duration-300 ease-linear`}>
+                <div className={`${left ? "w-[240px]" : "w-[60px]"} h-auto hidden lg:block  relative transition-all duration-300 ease-linear`}>
                     <LeftSide left={left} />
                 </div>
-                <div className={`${(left && right) ? "w-full 2md:w-[calc(100%-540px)]" : (left && !right) ? "w-full 2md:w-[calc(100%-210px)]" : (!left && right) ? "w-full 2md:w-[calc(100%-400px)]" : "w-full 2md:w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
+                <div className={`${(left && right) ? "w-full 2md:w-[calc(100%-580px)]" : (left && !right) ? "w-full 2md:w-[calc(100%-240px)]" : (!left && right) ? "w-full 2md:w-[calc(100%-400px)]" : "w-full 2md:w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
                     <main className=''>
                         <Main />
                     </main>

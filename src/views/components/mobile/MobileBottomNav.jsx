@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { MenuIcon, ShoppingBagIcon } from '@heroicons/react/solid';
+import { ShoppingBagIcon } from '@heroicons/react/solid';
 import { PhoneIcon,HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
 import { HomePage } from '../../../services';
 
@@ -12,7 +12,7 @@ const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
     const handleCategory = () => {
         setCategory(!category)
     }
-    console.log(data);
+  
     return (
         <>
             <div className='fixed bottom-0 left-0 w-full px-8 py-2 bg-white shadow-lg 2md:hidden block !z-[100]'>

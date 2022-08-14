@@ -11,14 +11,14 @@ const LeftSide = ({ left }) => {
     const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
 
     return (
-        <div className={`fixed left-0 top-[80px] bottom-0 h-auto  example  ${left ? "w-[240px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10] `}>
-            <div className="flex flex-col space-y-[0px] px-2 text-[14px] bg-[#ccf8cc] pb-0 font-semibold">
+        <div className={`fixed left-0 top-[68px] bottom-0 h-auto  example  ${left ? "w-[240px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10] shadow-lg`} >
+            <div className="flex flex-col space-y-[1px] px-2 text-[14px] bg-[#ccf8cc] pb-0 font-semibold pt-3">
 
                 {
                     result?.reverse().map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
                 }
             </div>
-            <div className="flex flex-col space-y-[0px] px-2 text-[14px]">
+            <div className="flex flex-col space-y-[0px] px-2 text-[14px] pt-2">
 
                 {
                     result1?.map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)

@@ -10,7 +10,7 @@ function classNames(...classes) {
 
 export default function Options() {
     return (
-        <Menu as="div" className="relative inline-block text-left">
+        <Menu as="div" className="relative inline-block text-left ">
             <div>
                 <Menu.Button className="">
 

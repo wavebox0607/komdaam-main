@@ -82,7 +82,7 @@ const HeaderDown = ({ handleLeft }) => {
             </div>
 
 
-            <div className="2md:hidden order-last flex justify-center items-center">
+            <div className="2md:hidden order-last flex justify-center items-center " >
                 {/* <DotsVerticalIcon className='h-5 w-5' /> */}
                 <Options />
             </div>

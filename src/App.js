@@ -9,18 +9,14 @@ import { Provider } from 'react-redux'
 import store from './redux/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect } from 'react';
+
 
 // Create a client
 const queryClient = new QueryClient()
-function App() {
-  useEffect(() => {
-    const lan = localStorage.getItem('lan')
-    if (!lan) {
-      localStorage.setItem('lan', 'bn')
-    }
-  }, [])
 
+function App() {
+
+  
   return (
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>

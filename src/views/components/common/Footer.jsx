@@ -21,6 +21,7 @@ export default Footer;
 
 const FooterBottom = () => {
     const { data } = HomePage.GetSettings()
+   
     return <footer className="text-gray-600  bg-green-300">
         <div className="container px-5 py-10 mx-auto">
             <div className="flex flex-wrap md:text-left text-center order-first">
@@ -31,7 +32,7 @@ const FooterBottom = () => {
                             <div className="rounded-full border border-gray-700 p-1">
                                 <GoLocation className="text-sm" />
                             </div>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">{bangla ? "137 তেজগাঁও শিল্প এলাকা, তেজগাঁও। ঢাকা-1208" : "137 Tejgaon Industrial Area, Tejgaon. Dhaka-1208"}.</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800">{bangla ? data?.settings?.bn_address : data?.settings?.address}.</a>
                         </li>
                         <li className='flex justify-start items-center gap-x-4 text-sm leading-6'>
 

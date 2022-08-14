@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronUpIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/solid';
+ import { ChevronDownIcon, ChevronUpIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/solid';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
@@ -16,7 +16,7 @@ const RightSide = ({ right }) => {
         0
     );
     return (
-        <div className={`hidden 2md:block fixed right-0 top-[70px] bottom-0    ${right ? "w-[330px]" : "w-[0px]"} transition-all duration-100 ease-linear`}>
+        <div className={`hidden 2md:block fixed right-0 top-[70px] bottom-0    ${right ? "w-[330px]" : "w-[0px]"} transition-all duration-100 ease-linear !z-[10] shadow-lg`}>
             <div className="flex flex-col justify-between h-full ">
                 <div className="flex-1 w-full overflow-y-scroll example">
                     <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
