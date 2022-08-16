@@ -12,9 +12,10 @@ import { bangla, handleLanguage } from '../../../constant/language';
 import { HomePage } from '../../../services';
 import { settingImg } from '../../../constant/imgUri';
 import { Taka } from '../utils';
-
-
-
+import { FaFacebookF } from 'react-icons/fa';
+import { AiOutlineInstagram } from 'react-icons/ai'
+import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { AiOutlineYoutube } from 'react-icons/ai'
 const Header = ({ left, setLeft }) => {
     const handleLeft = () => {
         setLeft(!left)
@@ -83,9 +84,9 @@ const HeaderDown = ({ handleLeft }) => {
 
 
 
-            
 
-            
+
+
             <div className="2md:hidden order-last flex justify-center items-center " >
 
 
@@ -116,11 +117,24 @@ const HeaderTop = () => {
         <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
-            <div className='flex items-center space-x-1 pl-2'>
+            <div className='flex items-center space-x-1 pl-2 '>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <FaFacebookF className=" fill-[#4c9a2a] text-[10px]" />
+                </div>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <AiOutlineInstagram className=" fill-[#4c9a2a]  text-[10px]" />
+                </div>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <AiOutlineWhatsApp className=" fill-[#4c9a2a]  text-[10px]" />
+                </div>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <AiOutlineYoutube className=" fill-[#4c9a2a] text-[10px]" />
+                </div>
+
+                {/* <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                 <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                 <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
+                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" /> */}
             </div>
             {/* </div> */}
             <div className="space-x-4 flex pr-2 text-sm items-center font-medium text-white">
@@ -131,7 +145,7 @@ const HeaderTop = () => {
                 </div>
 
                 {/* phone */}
-                <div className="flex items-center space-x-1 group">
+                <div className="flex items-center space-x-1 group ">
                     <PhoneIcon className='h-4 w-4 stroke-white stroke-2 group-hover:stroke-red-600 text-white group-hover:text-red-600 transition-all duration-300 ease-linear' />
                     <p className='text-white group-hover:text-red-600'>{data?.settings?.phone}</p>
                 </div>
