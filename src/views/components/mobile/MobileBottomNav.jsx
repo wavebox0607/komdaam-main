@@ -50,3 +50,4 @@ const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
 };
 
 export default MobileBottomNav;
+//check
