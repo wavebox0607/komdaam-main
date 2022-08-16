@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { MenuIcon, ShoppingBagIcon } from '@heroicons/react/solid';
-import { PhoneIcon,HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
+import { ShoppingBagIcon } from '@heroicons/react/solid';
+import { MenuIcon, PhoneIcon,HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
+
+
+
 
 
 const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
@@ -52,4 +55,6 @@ const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
     );
 };
 
+
 export default MobileBottomNav;
+
