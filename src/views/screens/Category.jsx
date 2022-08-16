@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import { categoryImg } from '../../constant/imgUri';
 import { bangla } from '../../constant/language';
 import { Product } from '../../services';
-import ProductCard from '../components/card/ProductCard';
+// import ProductCard from '../components/card/ProductCard';
 import { Pagination } from '../components/utils';
 import { useSelector } from "react-redux";
+import SubProduct from '../components/card/subProduct/SubProduct';
 
 const Category = () => {
     const params = useParams()
@@ -41,9 +42,11 @@ const Category = () => {
                 <h2 className='font-bold text-4xl text-center text-gray-400'>{bangla ? "কোনো পণ্য নেই" : "No Product Available"}</h2>
             </div> : <>
                 <div className={right ? 'grid grid-cols-1 xs:grid-cols-2 2md:grid-cols-3 xl:grid-cols-4 gap-4 px-2':`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-4`}>
-                    {data?.paginate?.data?.map((item) => <ProductCard key={item?.id} item={item} />)}
+                    {data?.paginate?.data?.map((item) => <SubProduct key={item?.id} item={item} />)}
                 </div>
-                <Pagination paginate={data?.paginate} setPage={setPage} />
+               <div className='mt-8'>
+               <Pagination paginate={data?.paginate} setPage={setPage} />
+               </div>
             </>
             }
         </div >
