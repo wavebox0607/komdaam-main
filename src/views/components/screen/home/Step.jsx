@@ -9,7 +9,9 @@ const Step = () => {
     return (
         <>
             <div className="">
+
                 <div className=" bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:py-12 py-10 px-2">
+
                     {/* Delivery grid Card */}
                     <div className='flex justify-center items-center'>
                         <img className=' w-11 h-16' src={orderStep0} alt="" />
@@ -20,7 +22,9 @@ const Step = () => {
 
                     {/* customer Grid Card */}
 
+
                     <div className='flex justify-start items-center border-b border-yellow-200 pb-4 px-2'>
+
 
 
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">1</h3>
@@ -35,7 +39,10 @@ const Step = () => {
 
                     {/* Recycle Grid Card */}
 
+
                     <div className='flex justify-start items-center border-b border-yellow-200 pb-4 px-2'>
+
+                   
 
 
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">2</h3>
@@ -48,7 +55,9 @@ const Step = () => {
 
                     {/* Secure Payment Card */}
 
+
                     <div className='flex justify-start items-center border-b border-yellow-200 pb-4 px-2'>
+
 
 
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">3</h3>

@@ -30,7 +30,9 @@ const CategoryProduct = () => {
                 }}
                 breakpoints={{
                     75: {
+
                         slidesPerView: 2,
+
                         spaceBetween: 20,
                     },
                     600: {

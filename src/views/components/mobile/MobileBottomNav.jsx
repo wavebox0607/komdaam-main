@@ -1,17 +1,23 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import { ShoppingBagIcon } from '@heroicons/react/solid';
 import { MenuIcon, PhoneIcon,HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
 
 
+
+
+
 const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
  
+
     const handleCart = () => {
         setCart(!cart)
     }
     const handleCategory = () => {
         setCategory(!category)
     }
+
   
     return (
         <>
@@ -49,4 +55,6 @@ const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
     );
 };
 
+
 export default MobileBottomNav;
+
