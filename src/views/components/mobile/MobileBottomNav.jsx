@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ShoppingBagIcon } from '@heroicons/react/solid';
-import { PhoneIcon,HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
+import { MenuIcon, PhoneIcon,HomeIcon, MenuIcon as MenuOutline, ShoppingBagIcon as ShoppingOutline, UserIcon } from '@heroicons/react/outline';
 
 
 const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
@@ -20,7 +20,7 @@ const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
                     {category ? <div className="text-black font-semibold text-lg">
                         <MenuOutline className='w-7 h-7' />
                     </div> : <div onClick={handleCategory} className="text-black font-semibold text-lg">
-                        {/* <MenuIcon className='w-7 h-7' /> */}
+                        <MenuIcon className='w-7 h-7' />
                     </div>}
                     <NavLink to='/'>
                         <div className="text-black font-semibold text-lg">
