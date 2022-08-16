@@ -16,6 +16,8 @@ const LeftSide = ({ left }) => {
             <div className="flex flex-col space-y-[1px] px-2 text-[14px] bg-[#ccf8cc] pb-0 font-semibold pt-3">
 
 
+
+    
                 {
                     result?.reverse().map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
                 }
