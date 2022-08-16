@@ -46,7 +46,7 @@ export default function Right({ setOpen, open }) {
                             >
                                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md pl-10">
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                                        <div className="flex-1 w-full overflow-y-scroll example">
+                                        <div className="flex-1 w-full overflow-y-scroll example ">
                                             <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
                                                 <div className="flex items-center text-[15px] font-bold text-white gap-2">
                                                     <ShoppingCartIcon className='h-5 w-5 ' color='white' />
@@ -83,9 +83,9 @@ export default function Right({ setOpen, open }) {
 const SingleCart = ({ item }) => {
     const dispatch = useDispatch()
     return (
-        <div className="flex justify-between items-center py-3 border-b border-gray-300 last:border-0">
+        <div className="flex justify-between items-center py-3 border-b border-gray-300 last:border-0  ml-2">
             <div className="flex flex-col space-y-2 items-center w-[10px] h-full">
-                <div onClick={() => dispatch(incrementQty(item?.cartId))} className=""><ChevronUpIcon className='h-4 w-4' /></div>
+                <div onClick={() => dispatch(incrementQty(item?.cartId))} className=""><ChevronUpIcon className='h-4 w-4 ' /></div>
                 <div className="text-xs">{item?.qty}</div>
                 <div onClick={() => dispatch(decrementQty(item?.cartId))} className=""><ChevronDownIcon className='h-4 w-4' /></div>
             </div>

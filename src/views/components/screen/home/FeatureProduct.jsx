@@ -47,7 +47,7 @@ const FeatureProduct = () => {
                         spaceBetween: 20,
                     },
                     1440: {
-                        slidesPerView: right?4:5,
+                        slidesPerView: 5,
                         spaceBetween: 20,
                     },
                 }}
