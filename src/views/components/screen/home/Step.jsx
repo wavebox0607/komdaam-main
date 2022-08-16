@@ -9,7 +9,7 @@ const Step = () => {
     return (
         <>
             <div className="">
-                <div className=" bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:py-12 py-10">
+                <div className="p-4 bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:py-12 py-5">
                     {/* Delivery grid Card */}
                     <div className='flex justify-center items-center'>
                         <img className=' w-11 h-16' src={orderStep0} alt="" />
@@ -20,7 +20,7 @@ const Step = () => {
 
                     {/* customer Grid Card */}
 
-                    <div className='flex justify-start items-center border-b border-yellow-200 pb-4'>
+                    <div className='flex justify-start items-center border-b border-yellow-200 pb-1'>
 
 
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">1</h3>
