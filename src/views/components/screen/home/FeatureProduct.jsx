@@ -5,11 +5,11 @@ import { Product } from '../../../../services';
 import ProductCard from '../../card/ProductCard';
 import { SectionHeading } from '../../utils';
 import Slider from '../../utils/Slider';
-import { useSelector } from 'react-redux';
+
 
 const FeatureProduct = () => {
     const { data, isLoading } = Product.GetAll()
-    const right = useSelector((state) => state.cart.cartOpen)
+  
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
     }
