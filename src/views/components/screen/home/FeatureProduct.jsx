@@ -1,66 +1,38 @@
 import React from 'react';
-import { SwiperSlide } from 'swiper/react';
+
 import { bangla } from '../../../../constant/language';
 import { Product } from '../../../../services';
 import ProductCard from '../../card/ProductCard';
 import { SectionHeading } from '../../utils';
-import Slider from '../../utils/Slider';
 
+import { useSelector } from "react-redux";
 
 const FeatureProduct = () => {
     const { data, isLoading } = Product.GetAll()
-  
+    const right = useSelector((state) => state.cart.cartOpen)
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
     }
   
-    const prev = 'newArrrival_productThirteen_prev'
-    const next = 'newArrrival_productThirteen_next'
 
+    const filterDataSize=10
+    const updateFilterData=data?.data?.slice(0, filterDataSize)
+ 
     return (
 
         <div className="mx-4 sm:px-0 py-6 ">
 
-            <SectionHeading text={bangla ? "বিশেষ পণ্য" : "Feature Product"} />
+             <SectionHeading text={bangla ? "বিশেষ পণ্য" : "Trading"} />
           
-            <Slider
-                prevEl={prev}
-                nextEl={next}
-               
-                breakpoints={{
-                    75: {
-
-                        slidesPerView: 2,
-
-                        spaceBetween: 20,
-                    },
-                    600: {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 10,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 20,
-                    },
-                    1440: {
-                        slidesPerView: 5,
-                        spaceBetween: 20,
-                    },
-                }}
-
-                className="mySwiper !-z-10"
-            >
-
-                {data?.data?.map((item) =>
-                    <SwiperSlide key={item?.id}>
-                        <ProductCard item={item} />
-                    </SwiperSlide>
+          
+             <div className={right ? 'grid grid-cols-1 xs:grid-cols-2 2md:grid-cols-3 xl:grid-cols-5 gap-4 px-2':`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 px-4`}>
+             {updateFilterData?.map((item) =>
+                   
+                        <ProductCard item={item} key={item?.id}/>
+                   
                 )}
-            </Slider>
+                
+</div>
         </div>
     );
 };

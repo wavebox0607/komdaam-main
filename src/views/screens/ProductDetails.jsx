@@ -129,7 +129,7 @@ export const Details = ({ slug }) => {
 
 
 const Unit = ({ item, onClick, active }) => {
-    return (<div onClick={onClick} className={`border border-gray-100 rounded-md p-1 flex cursor-pointer ${active ? "bg-pink-400 text-white" : "bg-gray-50 text-black"} hover:bg-pink-400 hover:text-white transition-all duration-300 ease-linear`}>
+    return (<div onClick={onClick} className={`border border-gray-100 rounded-md p-1 flex cursor-pointer ${active ? "bg-gray-50 text-black": "bg-pink-400 text-white" } hover:bg-pink-400 hover:text-white transition-all duration-300 ease-linear`}>
         <p>{item?.volume}</p>
         <p>{item?.unit}</p>
     </div>)

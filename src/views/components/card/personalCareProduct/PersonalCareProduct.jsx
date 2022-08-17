@@ -1,22 +1,22 @@
 import { ShoppingBagIcon } from '@heroicons/react/outline';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { productImg } from '../../../constant/imgUri';
-import { bangla } from '../../../constant/language';
+import { productImg } from '../../../../constant/imgUri';
+import { bangla } from '../../../../constant/language';
 // import Taka from '../utils/Taka';
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCartList, decrementQty, incrementQty } from '../../../redux/slice/cart';
-import { Product } from '../../../services';
+import { addToCartList, decrementQty, incrementQty } from '../../../../redux/slice/cart';
+import { Product } from '../../../../services';
 import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
-import QuickView from '../overly/QuickView';
-import './ProductCard.css'
-const ProductCard = ({ item }) => {
+import QuickView from '../../overly/QuickView';
+import './PersonalCareProduct.css'
+const PersonalCareProduct = ({ item }) => {
     const [open, setOpen] = useState(false)
-
+  
     return (
         <>
-            <div className='bg-white rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-5 ml-1 mr-1 '>
+            <div className='bg-white rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-5 ml-1 mr-2 xl:mr-2 lg:mr-5 md:mr-5  mb-5 '>
                 <div className="w-full h-[145px] md:h-[200px] relative p-2 overflow-hidden">
                     <Link to={'/product/' + item?.slug}>
                         <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
@@ -31,7 +31,7 @@ const ProductCard = ({ item }) => {
                     <Link to={'/product/' + item?.slug}><h4 className='text-center font-semibold text-[15px] hover:text-[#4c9a2a]'>{item?.name}</h4></Link>
                     <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক:" : "Per Unit:" : null}{item?.per_unit}</p>
                 </div>
-                <div className="h-[50px] flex flex-col justify-end">
+                <div className="h-[50px] flex flex-col justify-end pb-2">
                     {item?.discount_price && <div className="text-[12px] px-2 line-through">
                            
                            <p className={`text-[#d4463c] font-bold`}>৳ {item?.regular_price}</p>
@@ -49,7 +49,7 @@ const ProductCard = ({ item }) => {
     );
 };
 
-export default ProductCard;
+export default PersonalCareProduct;
 
 
 const AddToCart = ({ item }) => {
