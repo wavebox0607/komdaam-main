@@ -45,6 +45,7 @@ const SingleCat = ({ item, show, setShow }) => {
                     <p>{item.name}</p>
                 </div>
             </Link>
+            
             {item?.subcategory ? <div className="">
                 {show === item.slug ? <ChevronUpIcon className='h-4 w-4' /> :
                     <ChevronDownIcon className='h-4 w-4' />}

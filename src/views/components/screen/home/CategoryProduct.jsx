@@ -19,7 +19,7 @@ const CategoryProduct = () => {
     //     return <div className='w-full h-screen flex justify-center items-center'>Fatching...</div> 
     // }
     const settings = {
-        dots: true,
+        
         infinite: false,
         speed: 500,
         slidesToShow: right?5:6,
@@ -33,7 +33,7 @@ const CategoryProduct = () => {
               slidesToShow: 2,
               slidesToScroll: 3,
               infinite: true,
-              dots: true
+              dots: false
             }
           },
           {
