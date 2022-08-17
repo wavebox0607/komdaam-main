@@ -67,8 +67,8 @@ const CurrentOffer = () => {
                     </Swiper>
                 </div>
                 <div className=" absolute inset-0 flex justify-between items-center">
-                    <div className={`rounded-full bg-white shadow-lg p-[6px] z-10 offer_prev`}> <ChevronLeftIcon className='h-4 w-4' /></div>
-                    <div className={`rounded-full bg-white shadow-lg p-[6px] z-10 offer_next`}> <ChevronRightIcon className='h-4 w-4' /></div>
+                    <div className={`rounded-full bg-white shadow-lg p-[6px] z-[8] offer_prev`}> <ChevronLeftIcon className='h-4 w-4' /></div>
+                    <div className={`rounded-full bg-white shadow-lg p-[6px] z-[8] offer_next`}> <ChevronRightIcon className='h-4 w-4' /></div>
                 </div>
             </div>
         </div>
