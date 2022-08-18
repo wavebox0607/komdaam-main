@@ -20,12 +20,12 @@ const FeatureProduct = () => {
  
     return (
 
-        <div className="mx-4 sm:px-0 py-6 ">
+        <div className="mx-4 sm:px-0 py-1 ">
 
              <SectionHeading text={bangla ? "বিশেষ পণ্য" : "Trading"} />
           
           
-             <div className={right ? 'grid grid-cols-1 xs:grid-cols-2 2md:grid-cols-3 xl:grid-cols-5 gap-4 px-2':`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 px-4`}>
+             <div className={right ? 'grid grid-cols-2 xs:grid-cols-2 2md:grid-cols-3 xl:grid-cols-5 gap-4 px-2':`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-y-4 xl:gap-y-4 lg:gap-y-4 md:gap-4 px-0 xl:px-4 lg:px-4 md:px-4`}>
              {updateFilterData?.map((item) =>
                    
                         <ProductCard item={item} key={item?.id}/>

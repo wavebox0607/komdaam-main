@@ -8,7 +8,7 @@ const Home = () => {
 
 	return (
 		<>
-		<Unit/>
+		    <Unit/>
 			<Hero />
 			<FeatureCategory />
 			<Banner />

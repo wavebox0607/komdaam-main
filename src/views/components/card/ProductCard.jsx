@@ -28,7 +28,7 @@ const ProductCard = ({ item }) => {
                 </div>
                 <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
                 <div className="p-2 h-[80px]">
-                    <Link to={'/product/' + item?.slug}><h4 className='text-center font-semibold text-[15px] hover:text-[#4c9a2a]'>{item?.name}</h4></Link>
+                    <Link to={'/product/' + item?.slug}><h4 className='text-center font-semibold text-[12px] xl:text-[15px] lg:text-[15px] md:text-[12px] hover:text-[#4c9a2a]'>{item?.name}</h4></Link>
                     <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক:" : "Per Unit:" : null}{item?.per_unit}</p>
                 </div>
                 <div className="h-[50px] flex flex-col justify-end">
@@ -95,7 +95,7 @@ const AddToCart = ({ item }) => {
         <div className="flex justify-between items-center px-2 ">
 
             <div className='text-[13px] selection:'>
-                <p className={`text-[#4c9a2a] font-bold text-base`}>৳ {item?.discount_price ? item?.discount_price : item?.regular_price} </p>
+                <p className={`text-[#4c9a2a] font-bold text-sm sm:text-base`}>৳ {item?.discount_price ? item?.discount_price : item?.regular_price} </p>
                 {/* <Taka tk={item?.discount_price ? item?.discount_price : item?.regular_price} className={`text-[#4c9a2a] font-bold`} si
                 e={18} /> */}
             </div>

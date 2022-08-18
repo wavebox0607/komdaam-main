@@ -30,13 +30,11 @@ const Step = () => {
 
 
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">1</h3>
-                        <div className="px-2"><img width={"72"} height={"72"} src={orderStep1} alt="" /></div>
+                        <div className="px-2"><img width={"72"} height={"72"} src={orderStep3} alt="" /></div>
                         <div>
-                        <p className="text-lg font-semibold text-gray-600">{bangla ? "দ্রুত ডেলিভারি" : "Fast Delivery"} !</p>
-                        <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার অর্ডার ১ ঘন্টার মধ্যে পৌঁছে যাবে।" : "Get your ordered delivered within 1 hour."} !</p>
+                            <p className="text-lg font-semibold text-gray-600">{bangla ? "কার্ডে পণ্য যোগ করুন" : "Add Product To Card"} !</p>
+                            <p className="text-sm font-normal text-gray-600">{bangla ? "সর্বদা আমরা আপনার জন্য নিয়োজিত" : "A great support for you as always."} !</p>
                         </div>
-                     
-                        
                     </div>
 
                     {/* Recycle Grid Card */}
@@ -44,31 +42,34 @@ const Step = () => {
 
                     <div className='flex justify-start items-center border-b border-yellow-200 pb-4 px-2'>
 
-                   
+
 
 
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">2</h3>
                         <div className="px-2"><img width={"72"} height={"72"} src={orderStep2} alt="" /></div>
                         <div>
-                        <p className="text-lg font-semibold text-gray-600">{bangla ? "সহজ পেমেন্ট" : "Easy Payment"} !</p>
-                        <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার সুবিধার্থে অর্থ প্রদান করুন যে কোন স্থান থেকে।" : "Pay at you convenience, From where you are."} </p>
+                            <p className="text-lg font-semibold text-gray-600">{bangla ? "সহজে অর্থ প্রদান করুন" : "Make Easy Payment"} !</p>
+                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার সুবিধার্থে অর্থ প্রদান করুন যে কোন স্থান থেকে।" : "Pay at you convenience, From where you are."} </p>
                         </div>
                     </div>
 
                     {/* Secure Payment Card */}
-
 
                     <div className='flex justify-start items-center border-b border-yellow-200 pb-4 px-2'>
 
 
 
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">3</h3>
-                        <div className="px-2"><img width={"72"} height={"72"} src={orderStep3} alt="" /></div>
+                        <div className="px-2"><img width={"72"} height={"72"} src={orderStep1} alt="" /></div>
                         <div>
-                        <p className="text-lg font-semibold text-gray-600">{bangla ? "২৪/৭ অনলাইন সাপোর্ট" : "24/7 Online Support"} !</p>
-                        <p className="text-sm font-normal text-gray-600">{bangla ? "সর্বদা আমরা আপনার জন্য নিয়োজিত" : "A great support for you as always."} !</p>
+                            <p className="text-lg font-semibold text-gray-600">{bangla ? "দ্রুত পণ্য বুঝে নিন" : "Get Fast Delivery"} !</p>
+                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার অর্ডার ১ ঘন্টার মধ্যে পৌঁছে যাবে।" : "Get your ordered delivered within 1 hour."} !</p>
                         </div>
+
+
                     </div>
+
+
 
                 </div>
             </div>
