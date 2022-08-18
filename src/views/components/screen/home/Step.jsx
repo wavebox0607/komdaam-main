@@ -2,7 +2,7 @@ import React from 'react';
 import orderStep0 from '../../../../assets/icon-order-step-0.png'
 import orderStep1 from '../../../../assets/Icon/Fast Delivery 1.png'
 import orderStep2 from '../../../../assets/Icon/Easy Payment.png'
-import orderStep3 from '../../../../assets/Icon/247 Online Support 1.png'
+import orderStep3 from '../../../../assets/Cart 1.png'
 import { bangla } from '../../../../constant/language';
 
 const Step = () => {
