@@ -16,12 +16,20 @@ import { bangla } from '../../../../constant/language';
 const CurrentOffer = () => {
     const { data } = HomePage.GetBanner()
     return (
+<<<<<<< HEAD
         <div className=' py-1'>
+=======
+        <div className='py-1 sm:py-4 '>
+>>>>>>> c7282bd16742683462e72d43738db98ac696b137
             <div className="pt-0">
                 <SectionHeading text={bangla ? "বর্তমান অফার" : "Current Offer"} />
             </div>
             <div className="relative">
+<<<<<<< HEAD
                 <div className="px-4 shadow-lg rounded-md py-2 mt-1">
+=======
+                <div className="px-4 shadow-lg rounded-md py-5 mt-1">
+>>>>>>> c7282bd16742683462e72d43738db98ac696b137
 
                     <Swiper
                         loop={true}

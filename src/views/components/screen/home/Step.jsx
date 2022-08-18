@@ -12,6 +12,7 @@ const Step = () => {
 
                 <div className=" bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:py-12 py-10 px-2">
 
+
                     {/* Delivery grid Card */}
                     <div className='flex justify-center items-center'>
                         <img className=' w-11 h-16' src={orderStep0} alt="" />
