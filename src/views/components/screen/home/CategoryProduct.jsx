@@ -5,9 +5,11 @@ import { Product } from '../../../../services';
 import ProductCard from '../../card/ProductCard';
 import { SectionHeading } from '../../utils';
 import Slider from '../../utils/Slider';
+import { useSelector } from 'react-redux';
 
 const CategoryProduct = () => {
     const { data, isLoading } = Product.GetAll()
+    const right = useSelector((state) => state.cart.cartOpen)
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
     }
@@ -40,15 +42,15 @@ const CategoryProduct = () => {
                         spaceBetween: 10,
                     },
                     768: {
-                        slidesPerView: 3,
+                        slidesPerView: right?2:3,
                         spaceBetween: 10,
                     },
                     1024: {
-                        slidesPerView: 4,
+                        slidesPerView: right?3:4,
                         spaceBetween: 20,
                     },
                     1440: {
-                        slidesPerView: 5,
+                        slidesPerView: right?4:5,
                         spaceBetween: 20,
                     },
                 }}
