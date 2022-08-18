@@ -27,8 +27,6 @@ const Step = () => {
 
                     <div className='flex justify-start items-center border-b border-yellow-200 pb-4 px-2'>
 
-
-
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">1</h3>
                         <div className="px-2"><img width={"72"} height={"72"} src={orderStep3} alt="" /></div>
                         <div>
