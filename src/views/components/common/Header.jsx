@@ -12,9 +12,10 @@ import { bangla, handleLanguage } from '../../../constant/language';
 import { HomePage } from '../../../services';
 import { settingImg } from '../../../constant/imgUri';
 import { Taka } from '../utils';
-
-
-
+import { FaFacebookF } from 'react-icons/fa';
+import { AiOutlineInstagram } from 'react-icons/ai'
+import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { AiOutlineYoutube } from 'react-icons/ai'
 const Header = ({ left, setLeft }) => {
     const handleLeft = () => {
         setLeft(!left)
@@ -83,9 +84,9 @@ const HeaderDown = ({ handleLeft }) => {
 
 
 
-            
 
-            
+
+
             <div className="2md:hidden order-last flex justify-center items-center " >
 
 
@@ -116,11 +117,24 @@ const HeaderTop = () => {
         <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
-            <div className='flex items-center space-x-1 pl-2'>
+            <div className='flex items-center space-x-1 pl-2 '>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <FaFacebookF className=" fill-[#4c9a2a] text-[10px]" />
+                </div>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <AiOutlineInstagram className=" fill-[#4c9a2a]  text-[10px]" />
+                </div>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <AiOutlineWhatsApp className=" fill-[#4c9a2a]  text-[10px]" />
+                </div>
+                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                    <AiOutlineYoutube className=" fill-[#4c9a2a] text-[10px]" />
+                </div>
+
+                {/* <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                 <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                 <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
-                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
+                <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" /> */}
             </div>
             {/* </div> */}
             <div className="space-x-4 flex pr-2 text-sm items-center font-medium text-white">
@@ -131,7 +145,7 @@ const HeaderTop = () => {
                 </div>
 
                 {/* phone */}
-                <div className="flex items-center space-x-1 group">
+                <div className="flex items-center space-x-1 group ">
                     <PhoneIcon className='h-4 w-4 stroke-white stroke-2 group-hover:stroke-red-600 text-white group-hover:text-red-600 transition-all duration-300 ease-linear' />
                     <p className='text-white group-hover:text-red-600'>{data?.settings?.phone}</p>
                 </div>
@@ -164,15 +178,15 @@ const HeaderTop = () => {
 
 
 
-const SvgComponent = (props) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
-        viewBox="0 0 30 30"
+// const SvgComponent = (props) => (
+//     <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         width="1em"
+//         height="1em"
+//         viewBox="0 0 30 30"
 
-        {...props}
-    >
-        <path d="M15 3C8.373 3 3 8.373 3 15c0 6.016 4.432 10.984 10.206 11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475 1.693-5 4.581-5 1.383 0 2.115.103 2.461.149v2.753h-1.97c-1.226 0-1.654 1.163-1.654 2.473v1.724h3.593l-.487 3.154h-3.106v8.697C22.481 26.083 27 21.075 27 15c0-6.627-5.373-12-12-12z" />
-    </svg>
-)
+//         {...props}
+//     >
+//         <path d="M15 3C8.373 3 3 8.373 3 15c0 6.016 4.432 10.984 10.206 11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475 1.693-5 4.581-5 1.383 0 2.115.103 2.461.149v2.753h-1.97c-1.226 0-1.654 1.163-1.654 2.473v1.724h3.593l-.487 3.154h-3.106v8.697C22.481 26.083 27 21.075 27 15c0-6.627-5.373-12-12-12z" />
+//     </svg>
+// )

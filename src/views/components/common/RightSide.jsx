@@ -28,7 +28,7 @@ const RightSide = ({ right }) => {
                             <button onClick={() => dispatch(toggleCart())} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>{bangla ? "বন্ধ" : "close"}</button>
                         </div>
                     </div>
-                    <h3 className='bg-gray-50 font-semibold py-1'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>
+                    <h3 className='bg-gray-50 font-semibold py-1 ml-2'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>
                     {
                         cartList?.map((item) => <SingleCart key={item?.cartId} item={item} />)
                     }
@@ -52,7 +52,7 @@ const SingleCart = ({ item }) => {
     const dispatch = useDispatch()
     return (
         <div className="flex justify-between items-center py-3 border-b border-gray-300 last:border-0">
-            <div className="flex flex-col space-y-2 items-center w-[10px] h-full">
+            <div className="flex flex-col space-y-2 items-center w-[10px] h-full ml-3">
                 <div onClick={() => dispatch(incrementQty(item?.cartId))} className=""><ChevronUpIcon className='h-4 w-4' /></div>
                 <div className="text-xs">{item?.qty}</div>
                 <div onClick={() => dispatch(decrementQty(item?.cartId))} className=""><ChevronDownIcon className='h-4 w-4' /></div>

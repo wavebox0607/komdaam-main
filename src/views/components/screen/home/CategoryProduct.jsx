@@ -1,10 +1,16 @@
 import React from 'react';
-import { SwiperSlide } from 'swiper/react';
+
 import { bangla } from '../../../../constant/language';
 import { Product } from '../../../../services';
-import ProductCard from '../../card/ProductCard';
+
 import { SectionHeading } from '../../utils';
+<<<<<<< HEAD
 import Slider from '../../utils/Slider';
+=======
+// import Slider from '../../utils/Slider';
+import Slider from "react-slick";
+import PersonalCareProduct from './../../card/personalCareProduct/PersonalCareProduct';
+>>>>>>> e1427d63c9d14d5a221693442d6801eaf7b90486
 import { useSelector } from 'react-redux';
 
 const CategoryProduct = () => {
@@ -16,13 +22,47 @@ const CategoryProduct = () => {
     // if (isFetching) {
     //     return <div className='w-full h-screen flex justify-center items-center'>Fatching...</div> 
     // }
-    const prev = 'CategoryProductPrev'
-    const next = 'CategoryProductNext'
+    const settings = {
+        
+        infinite: false,
+        speed: 500,
+        slidesToShow: right?5:6,
+        slidesToScroll: right?5:6,
+        initialSlide: 0,
+        dots: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: false
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      };
 
     return (
 
         <div className="mx-4 sm:px-0 py-4 ">
 
+<<<<<<< HEAD
             <SectionHeading text={bangla ? "ব্যক্তিগত যত্ন" : "Personal Care"} />
             <Slider
                 prevEl={prev}
@@ -61,8 +101,18 @@ const CategoryProduct = () => {
                     <SwiperSlide className="!-z-10" key={item?.id}>
                         <ProductCard item={item} />
                     </SwiperSlide>
+=======
+            <SectionHeading text={bangla ? "চলমান পণ্য" : "Running Product"} />
+           
+ <Slider {...settings} style={{paddingBottom:"10px"}}>
+ {data?.data?.map((item) =>
+                  
+                        <PersonalCareProduct item={item}  key={item?.id}/>
+                 
+>>>>>>> e1427d63c9d14d5a221693442d6801eaf7b90486
                 )}
-            </Slider>
+        </Slider>
+   
         </div>
     );
 };

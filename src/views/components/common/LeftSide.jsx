@@ -7,7 +7,7 @@ import { Link, NavLink } from 'react-router-dom'
 const LeftSide = ({ left }) => {
     const [show, setShow] = useState(null)
     const { data } = HomePage.GetCategory()
-    const result = data?.data?.filter(res => res?.slug === 'offer' || res?.slug === 'popular' || res?.slug === 'corporate-deal')
+    const result = data?.data?.filter(res => res?.slug === 'popular' || res?.slug === 'corporate-deal' || res?.slug === 'offer-whole-sale' )
     const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
 
     return (
@@ -19,7 +19,7 @@ const LeftSide = ({ left }) => {
 
     
                 {
-                    result?.reverse().map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
+                    result?.map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
                 }
             </div>
             <div className="flex flex-col space-y-[0px] px-2 text-[14px] pt-2">
@@ -45,6 +45,7 @@ const SingleCat = ({ item, show, setShow }) => {
                     <p>{item.name}</p>
                 </div>
             </Link>
+            
             {item?.subcategory ? <div className="">
                 {show === item.slug ? <ChevronUpIcon className='h-4 w-4' /> :
                     <ChevronDownIcon className='h-4 w-4' />}
