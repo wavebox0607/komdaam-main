@@ -17,6 +17,7 @@ export default function Right({ setOpen, open }) {
         (previousValue, currentValue) => previousValue + currentValue,
         0
     );
+ 
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -81,6 +82,7 @@ export default function Right({ setOpen, open }) {
 
 
 const SingleCart = ({ item }) => {
+   
     const dispatch = useDispatch()
     return (
         <div className="flex justify-between items-center py-3 border-b border-gray-300 last:border-0  ml-2">

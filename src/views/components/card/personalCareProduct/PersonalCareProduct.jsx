@@ -29,14 +29,20 @@ const PersonalCareProduct = ({ item }) => {
                 <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
                 <div className="p-2 h-[80px]">
                     <Link to={'/product/' + item?.slug}><h4 className='text-center font-semibold text-[12px] xl:text-[15px] lg:text-[15px] md:text-[12px] hover:text-[#4c9a2a]'>{item?.name}</h4></Link>
-                    <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক:" : "Per Unit:" : null}{item?.per_unit}</p>
+                    <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক : " : "Per Unit : " : null} {item?.per_unit}</p>
                 </div>
                 <div className="h-[50px] flex flex-col justify-end pb-2">
-                    {item?.discount_price && <div className="text-[12px] px-2 line-through">
-                           
-                           <p className={`text-[#d4463c] font-bold`}>৳ {item?.regular_price}</p>
-                        {/* <Taka tk={item?.regular_price}  size={17} /> */}
-                    </div>}
+                {
+                        item?.discount_amount==='0.00' ? <>     {item?.discount_price && <div className="text-[12px] px-2">
+
+                            <p className={`text-[#d4463c] font-bold`}>৳ {item?.regular_price}</p>
+                            {/* <Taka tk={item?.regular_price}  size={17} /> */}
+                        </div>}</> : <>     {item?.discount_price && <div className="text-[12px] px-2 line-through">
+
+                            <p className={`text-[#d4463c] font-bold`}>৳ {item?.regular_price}</p>
+                            {/* <Taka tk={item?.regular_price}  size={17} /> */}
+                        </div>}</>
+                    }
                     <div className="">
                         <AddToCart item={item} />
                     </div>

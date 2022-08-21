@@ -87,14 +87,16 @@ export const Details = ({ slug }) => {
                     {
                        data?.data?.discount_type==='no_discount' ?<Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={'text-[#4aa02c] font-bold text-[28px] -m-2 mt-0'} size={40} />: <Taka tk={data?.data?.discount_price} additional={unit && unit?.additional_price} className={'text-[#4aa02c] font-bold text-[28px] -m-2 mt-0'} size={40} />
                     }
+                      {
+                        data?.data?.discount_amount==='0.00'? <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={ 'text-red-600  font-semibold text-[16px] pt-6'} size={20} />: <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={ 'text-red-600 line-through font-semibold text-[16px] pt-6'} size={20} />
+                      }
                    
-                    <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={'text-red-600 line-through font-semibold text-[16px] pt-6'} size={20} />
                 </div>
 
                 {data?.data?.variant &&
                     <div className="flex items-center space-x-2 my-2">
                         <h4>{bangla ? "ইউনিট" : "Unit"}:</h4>
-                        {data?.data?.variant?.map((item) => <Unit key={item?.id} item={item} active={unit?.id === item?.id} onClick={() => unit ? setUnit(null) : setUnit(item)} />)}
+                        {data?.data?.variant?.map((item) => <Unit key={item?.id} item={item} active={unit?.id === item?.id} onClick={() => unit ?  setUnit(item) : setUnit(null) }/>)}
                     </div>}
 
                 {/* Add to cart  */}
@@ -129,7 +131,8 @@ export const Details = ({ slug }) => {
 
 
 const Unit = ({ item, onClick, active }) => {
-    return (<div onClick={onClick} className={`border border-gray-100 rounded-md p-1 flex cursor-pointer ${active ? "bg-gray-50 text-black": "bg-pink-400 text-white" } hover:bg-pink-400 hover:text-white transition-all duration-300 ease-linear`}>
+   
+    return (<div onClick={onClick} className={`border border-gray-100 rounded-md p-1 flex cursor-pointer ${active ?"bg-pink-400 text-white" : "bg-gray-50 text-black" }transition-all duration-300 ease-linear`}>
         <p>{item?.volume}</p>
         <p>{item?.unit}</p>
     </div>)

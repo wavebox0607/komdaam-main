@@ -14,16 +14,19 @@ module.exports = {
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
-      '2md': '991px',
+      '2md': '1000px',
       // => @media (min-width: 768px) { ... }
 
-      'lg': '1024px',
+      'lg': '1000px',
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
+      'xl': '1300px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+      '2xl': '1500px',
+      // => @media (min-width: 1536px) { ... }
+
+      '3xl': '2200px',
       // => @media (min-width: 1536px) { ... }
     }
   },

@@ -32,20 +32,20 @@ const FooterBottom = () => {
                             <div className="rounded-full border border-gray-700 p-1">
                                 <GoLocation className="text-sm" />
                             </div>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">{bangla ? data?.settings?.bn_address : data?.settings?.address}.</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? data?.settings?.bn_address : data?.settings?.address}.</a>
                         </li>
                         <li className='flex justify-start items-center gap-x-4 text-sm leading-6'>
 
                             <div className="rounded-full border border-gray-700 p-1">
                                 <IoCallOutline className="text-sm" />
                             </div>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">{data?.settings?.phone}</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{data?.settings?.phone}</a>
                         </li>
                         <li className='flex justify-start items-center gap-x-4 text-sm leading-6'>
                             <div className="rounded-full border border-gray-700 p-1">
                                 <AiOutlineMail className="text-sm" />
                             </div>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">support@ghorebazar.com</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">support@ghorebazar.com</a>
                         </li>
 
                     </nav>
@@ -55,19 +55,19 @@ const FooterBottom = () => {
                     <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-3 ">{bangla ? "গ্রাহক সেবা" : "Customer service"}</h2>
                     <nav className="list-none mb-10">
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">{bangla ? "আমাদের সম্পর্কে" : "About us"}</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "আমাদের সম্পর্কে" : "About us"}</a>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800"> {bangla ? "এফএকিউ" : "FAQ"}</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base"> {bangla ? "এফএকিউ" : "FAQ"}</a>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">{bangla ? "গোপনীয়তা নীতি" : "Privacy Policy"}</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "গোপনীয়তা নীতি" : "Privacy Policy"}</a>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">{bangla ? "ব্যবহারের শর্তাবলী" : "Terms of use"}</a>
+                            <a href='/'className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "ব্যবহারের শর্তাবলী" : "Terms of use"}</a>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800">{bangla ? "রিটার্ন/বাতিল নীতি" : "Return/Cancel Policy"}</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "রিটার্ন/বাতিল নীতি" : "Return/Cancel Policy"}</a>
                         </li>
                     </nav>
                 </div>

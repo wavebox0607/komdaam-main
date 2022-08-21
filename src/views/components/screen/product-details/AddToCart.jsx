@@ -30,12 +30,14 @@ const AddToCart = ({ product, unit, already }) => {
         price: unit ? parseFloat(product?.regular_price) + parseFloat(unit?.additional_price) : parseFloat(product?.regular_price).toFixed(2)
     }
 
-
+  
     // New Added or Already added item increment quantity 
     const handleAddToCart = () => {
 
         if (product?.variant && unit) {
+
             dispatch(addToCartList(data))
+           
         }
         if (product?.variant && !unit) {
             alert('please select variant')
@@ -43,6 +45,7 @@ const AddToCart = ({ product, unit, already }) => {
 
         if (!product?.variant) {
             dispatch(addToCartList(data))
+           
         }
 
     }
