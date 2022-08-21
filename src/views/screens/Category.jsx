@@ -8,9 +8,11 @@ import { Product } from '../../services';
 import { Pagination } from '../components/utils';
 import { useSelector } from "react-redux";
 import SubProduct from '../components/card/subProduct/SubProduct';
+import HomePage from './../../services/home.service';
 
 const Category = () => {
     const params = useParams()
+    const { dataSub } = HomePage.GetCategory()
     const [page, setPage] = useState('?page=1')
     const { data, isLoading } = Product.GetCatProduct(params?.slug, page)
     const right = useSelector((state) => state.cart.cartOpen)
