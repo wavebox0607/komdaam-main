@@ -20,7 +20,10 @@ const Category = () => {
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading</div>
     }
+
+    // const dataSubItem=
 console.log(data,'data')
+console.log(dataSub,'datasub')
     return (
 
 

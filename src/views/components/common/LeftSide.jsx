@@ -9,7 +9,7 @@ const LeftSide = ({ left }) => {
     const { data } = HomePage.GetCategory()
     const result = data?.data?.filter(res => res?.slug === 'popular' || res?.slug === 'corporate-deal' || res?.slug === 'offer-whole-sale' )
     const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
-
+   
     return (
 
         <div className={`fixed left-0 top-[68px] bottom-0 h-auto  example  ${left ? "w-[240px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10] shadow-lg`} >
