@@ -18,7 +18,7 @@ const Category = () => {
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading</div>
     }
-
+console.log(data,'data')
     return (
 
 

@@ -33,12 +33,12 @@ const MobileBottomNav = ({ cart, setCart, setCategory, category }) => {
                             <HomeIcon className='w-7 h-7' />
                         </div>
                     </NavLink>
-                    <NavLink to='/' className=' '>
+                    <a href='tel:+8801677515579' onClick='console.log("The link was clicked."); return false' >
                         <div className="text-black font-semibold text-lg p-3 rounded-full border absolute bottom-6 left-[46%] -translate-x-[20%]  bg-[#4c9a2a]">
                             <PhoneIcon className='w-7 h-7 text-white' />
                            
                         </div>
-                    </NavLink>
+                    </a>
                     {cart ? <div className=" items-center text-black font-semibold text-lg">
                         <ShoppingOutline className='  w-7 h-7' />
                     </div> :

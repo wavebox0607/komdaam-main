@@ -61,7 +61,7 @@ const SingleCart = ({ item }) => {
                 <img src={productImg + item?.images[0]} alt="" />
             </div>
             <div className="flex flex-col w-[120px] ">
-                <Link to={'/product/' + item?.slug}><div className="text-[13px] text-[#1d1d1d] text-justify w-full">{item?.name.slice(0, 30)}</div></Link>
+                <Link to={'/product/' + item?.slug}><div className="text-[13px] text-[#1d1d1d] text-justify w-full" style={{ height: '30px', overflow: 'hidden', whiteSpace: 'nowrap', width: '130px', textOverflow: 'ellipsis' }}>{item?.name.slice(0, 30)}</div></Link>
                 <Taka className={"text-[10px]"} tk={item?.price} />
             </div>
             <div className="flex flex-col justify-center w-[63px]">
