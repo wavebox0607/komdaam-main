@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { bangla } from "../../../../constant/language"
 import { addToCartList, decrementQty, toggleCart } from "../../../../redux/slice/cart"
-import { Product } from "../../../../services"
+// import { Product } from "../../../../services"
 
 const AddToCart = ({ product, unit, already }) => {
     const dispatch = useDispatch()
@@ -20,22 +20,24 @@ const AddToCart = ({ product, unit, already }) => {
 
 
     const data = {
-        cartId: Product.makeid(100),
+        // cartId: Product.makeid(100),
         variantId: unit?.id,
         productId: product?.id,
         qty: 1,
         name: product?.name,
         slug: product?.slug,
         images: product?.images,
-        price: unit ? parseFloat(product?.regular_price) + parseFloat(unit?.additional_price) : parseFloat(product?.regular_price).toFixed(2)
+        price: unit ? product?.discount_price? parseFloat(product?.discount_price) + parseFloat(unit?.additional_price): parseFloat(product?.regular_price) + parseFloat(unit?.additional_price) : parseFloat(product?.regular_price).toFixed(2)
     }
 
   
     // New Added or Already added item increment quantity 
     const handleAddToCart = () => {
-
+       
+      
+     
         if (product?.variant && unit) {
-
+            
             dispatch(addToCartList(data))
            
         }
@@ -44,6 +46,7 @@ const AddToCart = ({ product, unit, already }) => {
         }
 
         if (!product?.variant) {
+            console.log('data2',data);
             dispatch(addToCartList(data))
            
         }

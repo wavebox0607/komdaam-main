@@ -10,14 +10,16 @@ import { Link, NavLink } from 'react-router-dom'
 import { Taka } from '../utils'
 import { bangla } from '../../../constant/language'
 
+
 export default function Right({ setOpen, open }) {
+   
     const { cartList } = useSelector((state) => state.cart)
     const priceList = cartList?.map(p => p.qty * p.price)
     const total = priceList.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
         0
     );
- 
+
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>

@@ -6,15 +6,18 @@ import { productImg } from '../../../constant/imgUri';
 import { bangla } from '../../../constant/language';
 import { decrementQty, incrementQty, removeToCartList, toggleCart } from '../../../redux/slice/cart';
 import { Taka } from '../utils';
+import HomePage from './../../../services/home.service';
 
 const RightSide = ({ right }) => {
     const dispatch = useDispatch()
+    const { data } = HomePage.GetSettings()
     const { cartList } = useSelector((state) => state.cart)
     const priceList = cartList?.map(p => p.qty * p.price)
     const total = priceList.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
         0
     );
+   
     return (
         <div className={`hidden 2md:block fixed right-0 top-[70px] bottom-0    ${right ? "w-[330px]" : "w-[0px]"} transition-all duration-100 ease-linear !z-[10] shadow-lg`}>
             <div className="flex flex-col justify-between h-full ">
@@ -38,6 +41,9 @@ const RightSide = ({ right }) => {
                         <div className="flex justify-center items-center bg-[#ff9eab] font-semibold flex-1 py-2">{bangla ? "অর্ডার করুন" : "Checkout"}</div>
                         <div className="flex justify-center items-center bg-[#ff7358] flex-1 py-2"><Taka tk={total} /></div>
                     </NavLink>
+                </div>
+                <div className=' mx-6 text-lg text-[#4aa02c] font-bold text-center pb-2'>
+                    Phone : {data?.settings?.phone}
                 </div>
             </div>
         </div>

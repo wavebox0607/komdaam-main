@@ -5,15 +5,17 @@ import PublicRoute from '../../../private/Public';
 import { About, Category, ChangePassword, Checkout, Dashboard, ForgetPassword, Home, Login, NotFound, Offer, Order, OrderDetails, ProductDetails, Profile, Signup, SubCategory, VerifyOtp, Search } from '../../screens';
 
 import ScrollToTop from '../react-router/ScrollToTop';
+import HomePage from './../../../services/home.service';
 
 const Main = () => {
+     const { data } = HomePage.GetCategory()
     return (
         <div className="">
             <ScrollToTop />
             <Routes>
                 <Route path='*' element={<NotFound />} />
                 <Route path="/" element={<Home />} />
-                <Route path="/category/:slug" element={<Category />} />
+                <Route path="/category/:slug" element={<Category dataSub={data}/>} />
                 <Route path="/subcategory/:slug" element={<SubCategory />} />
                 <Route path="/product/:slug" element={<ProductDetails />} />
                 <Route path="/search" element={<Offer />} />

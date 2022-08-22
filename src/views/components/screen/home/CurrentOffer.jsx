@@ -18,7 +18,7 @@ const CurrentOffer = () => {
     return (
 
         <div className='py-1 sm:py-4 '>
-            <div className="pt-0">
+            <div className="pt-2">
                 <SectionHeading text={bangla ? "বর্তমান অফার" : "Current Offer"} />
             </div>
             <div className="relative">

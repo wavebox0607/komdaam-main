@@ -88,7 +88,7 @@ export const Details = ({ slug }) => {
                        data?.data?.discount_type==='no_discount' ?<Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={'text-[#4aa02c] font-bold text-[28px] -m-2 mt-0'} size={40} />: <Taka tk={data?.data?.discount_price} additional={unit && unit?.additional_price} className={'text-[#4aa02c] font-bold text-[28px] -m-2 mt-0'} size={40} />
                     }
                       {
-                        data?.data?.discount_amount==='0.00'? <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={ 'text-red-600  font-semibold text-[16px] pt-6'} size={20} />: <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={ 'text-red-600 line-through font-semibold text-[16px] pt-6'} size={20} />
+                        data?.data?.discount_amount==='0.00'? <></>: <Taka tk={data?.data?.regular_price} additional={unit && unit?.additional_price} className={ 'text-red-600 line-through font-semibold text-[16px] pt-6'} size={20} />
                       }
                    
                 </div>

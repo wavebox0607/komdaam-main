@@ -10,17 +10,20 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCartList: (state, action) => {
-
+      
       const cartItem = state.cartList?.find((item) => item.id === action.payload.id && item.productId === action.payload.productId && item.id === action.payload.id)
-
+      
       if (cartItem) {
+       
         cartItem.qty = action.payload.qty ? cartItem.qty + action.payload.qty : cartItem.qty + 1;
-        toast("Add to cart successfully!", {
+        state.cartList.push({ ...action.payload, qty: action.payload.qty || 1 });
+        toast("Add to cart z2 successfully!", {
           type: 'success'
         })
       } else {
+        console.log('tt',action);
         state.cartList.push({ ...action.payload, qty: action.payload.qty || 1 });
-        toast("Add to cart successfully!", {
+        toast("Add to cart z1 successfully!", {
           type: 'success'
         })
       }
@@ -29,7 +32,7 @@ export const cartSlice = createSlice({
       const cartItem = state.cartList?.find((item) => item.cartId === action.payload);
       if (cartItem) {
         cartItem.qty = cartItem.qty + 1;
-        toast("Add to cart successfully!", {
+        toast("Add to cart z successfully!", {
           type: 'success'
         })
       }

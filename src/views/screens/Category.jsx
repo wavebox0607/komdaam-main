@@ -1,18 +1,18 @@
 import { ChevronRightIcon } from '@heroicons/react/solid';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { categoryImg } from '../../constant/imgUri';
 import { bangla } from '../../constant/language';
 import { Product } from '../../services';
 // import ProductCard from '../components/card/ProductCard';
 import { Pagination } from '../components/utils';
 import { useSelector } from "react-redux";
-import SubProduct from '../components/card/subProduct/SubProduct';
-import HomePage from './../../services/home.service';
 
-const Category = () => {
+
+
+const Category = ({dataSub}) => {
     const params = useParams()
-    const { dataSub } = HomePage.GetCategory()
+   
     const [page, setPage] = useState('?page=1')
     const { data, isLoading } = Product.GetCatProduct(params?.slug, page)
     const right = useSelector((state) => state.cart.cartOpen)
@@ -20,16 +20,17 @@ const Category = () => {
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading</div>
     }
-
+ const subcategoryProduct=dataSub?.data.find(dataSub=>dataSub.id===data?.category.id)
     // const dataSubItem=
 console.log(data,'data')
-console.log(dataSub,'datasub')
+console.log(dataSub?.data,'dataSub');
+console.log('sub',subcategoryProduct);
     return (
 
 
 
 
-        <div className="">
+        <div className="ml-2">
             <div className="mx-auto mt-2 pt-0">
                 <img src={categoryImg + data?.category?.banner} className='w-full h-80' alt="" />
             </div>
@@ -43,11 +44,19 @@ console.log(dataSub,'datasub')
                 <div className="h-[3px] bg-black w-full flex justify-center items-center"><p className='bg-white px-3 text-lg font-bold'>{bangla ? data?.category?.bn_name : data?.category?.name}</p></div>
             </div>
 
-            {data?.paginate?.data?.length === 0 ? <div className="flex  justify-center mt-20" style={{ minHeight: '50vh' }}>
+            {subcategoryProduct?.subcategory?.length === 0 ? <div className="flex  justify-center mt-20" style={{ minHeight: '50vh' }}>
                 <h2 className='font-bold text-4xl text-center text-gray-400'>{bangla ? "কোনো পণ্য নেই" : "No Product Available"}</h2>
             </div> : <>
-                <div className={right ? 'grid grid-cols-1 xs:grid-cols-2 2md:grid-cols-3 xl:grid-cols-5 gap-4 px-2':`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 px-4`}>
-                    {data?.paginate?.data?.map((item) => <SubProduct key={item?.id} item={item} />)}
+                <div className={right ? ' grid grid-cols-1 xs:grid-cols-2 2md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 gap-4 px-2':`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-20 px-4 ml-10`}>
+                    {/* {data?.paginate?.data?.map((item) => <SubProduct key={item?.id} item={item} />)} */}
+                    {subcategoryProduct?.subcategory?.map(data=><Link to={'/subcategory/' + data?.slug}>
+                       <div className='border-b-2 p-6 cursor-pointer'>
+                       <img src={categoryImg + data?.icon} className='w-[100%] h-[160px]' alt=''/>
+                       </div>
+                       <div className='text-center p-2 font-semibold cursor-pointer'>
+                        {data?.name}
+                       </div>
+                    </Link>)}
                 </div>
                <div className='mt-8'>
                <Pagination paginate={data?.paginate} setPage={setPage} />

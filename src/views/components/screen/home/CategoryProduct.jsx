@@ -39,6 +39,54 @@ const CategoryProduct = () => {
         }
       },
       {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow:right? 4:5,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: right? 3:4,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: right? 3:4,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow:right? 2:3,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
