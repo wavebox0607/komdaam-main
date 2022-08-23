@@ -10,7 +10,7 @@ const Step = () => {
         <>
             <div className="">
 
-                <div className=" bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 lg:py-12 py-10 px-2">
+                <div className=" bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 py-4 px-2">
 
 
                     {/* Delivery grid Card */}
@@ -31,7 +31,7 @@ const Step = () => {
                         <div className="px-2"><img width={"72"} height={"72"} src={orderStep3} alt="" /></div>
                         <div>
                             <p className="text-lg font-semibold text-gray-600">{bangla ? "কার্ডে পণ্য যোগ করুন" : "Add Product To Card!"}</p>
-                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার পছন্দের পন্যটি বাছাই করুন এবং কোর্ট -এ যুক্ত করুন" : "Find Your desire product and add to card."} !</p>
+                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার পছন্দের পন্যটি বাছাই করুন এবং কার্ট-এ যুক্ত করুন" : "Find Your desire product and add to card."}</p>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@ const Step = () => {
                         <div className="px-2"><img width={"72"} height={"72"} src={orderStep1} alt="" /></div>
                         <div>
                             <p className="text-lg font-semibold text-gray-600">{bangla ? "দ্রুত পণ্য বুঝে নিন" : "Get Fast Delivery"} !</p>
-                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার অর্ডার ১ ঘন্টার মধ্যে পৌঁছে যাবে।" : "Get your ordered delivered within 1 hour!"} </p>
+                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার অর্ডার স্বল্প সময়ের মধ্যে পৌঁছে যাবে।" : "Get your ordered delivered within shortest possible time!"} </p>
                         </div>
 
 

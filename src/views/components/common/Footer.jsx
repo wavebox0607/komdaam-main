@@ -45,7 +45,7 @@ const FooterBottom = () => {
                             <div className="rounded-full border border-gray-700 p-1">
                                 <AiOutlineMail className="text-sm" />
                             </div>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">support@ghorebazar.com</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base ">support@ komdaam.com</a>
                         </li>
 
                     </nav>

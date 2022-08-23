@@ -18,11 +18,11 @@ const ProductCard = ({ item }) => {
         <>
             <div className='bg-white relative rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-5 ml-1 mr-1 '>
             {item?.quantity==='0.00'&&<div className='absolute top-0 bottom-0 left-0 right-0 bg-white bg-opacity-80 z-[2]'></div>}
-                <div className="w-full h-[145px] md:h-[200px] relative p-2 overflow-hidden">
+                <div className="w-full h-[145px] md:h-[195px] relative p-2 overflow-hidden">
                     <Link to={'/product/' + item?.slug}>
                         <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
                     </Link>
-                    {parseInt(item?.discount_amount) !== 0 && <div className="absolute z-[3] top-2 right-2 bg-[#ff576d] px-[10px] py-[2px] w-[95px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
+                    {parseInt(item?.discount_amount) !== 0 && <div className="absolute z-[3] top-2 right-2 bg-[#ff576d] px-[10px] py-[1px] w-[95px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
                             {parseInt(item?.quantity) === 0 ? <>{bangla ? `স্টক আউট` : 'Out Of Stock'}</> : <> {bangla?`${parseInt(item?.discount_amount)}% ছাড়` : `${parseInt(item?.discount_amount)}% OFF`}</>}
                         </div>}
                         {parseInt(item?.quantity) === 0 && <div className="absolute top-2 z-[3] right-2 bg-[#ff576d] px-[7px] py-[2px] w-[95px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
@@ -31,7 +31,7 @@ const ProductCard = ({ item }) => {
                     <button onClick={() => setOpen(true)} className='absolute -bottom-3 translate-y-6 group-hover:translate-y-0 transition-all duration-300 ease-linear left-0 right-0 mx-auto rounded-t-md px-1 font-semibold text-md pb-2 text-white text-md flex justify-center items-center gap-x-1 shadow-4xl bg-[#4c9a2a]'>Quick View</button>
                 </div>
                 <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
-                <div className="p-2 h-[80px]">
+                <div className="p-1 h-[80px]">
                     <Link to={'/product/' + item?.slug}><h4 className='text-center font-semibold text-[12px] xl:text-[15px] lg:text-[15px] md:text-[12px] hover:text-[#4c9a2a]'>{item?.name}</h4></Link>
                     <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক : " : "Per Unit : " : null} {item?.per_unit}</p>
                 </div>

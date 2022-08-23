@@ -106,18 +106,20 @@ const CategoryProduct = () => {
 
   return (
 
-    <div className="mx-4 sm:px-0 py-4 ">
+    <div className="mx-4 sm:px-0 ">
 
       <SectionHeading text={bangla ? "চলমান পণ্য" : "Running Product"} />
 
 
-      <Slider {...settings} style={{ paddingBottom: "10px" }}>
+      <div className='px-3 '>
+      <Slider {...settings}>
         {data?.data?.map((item) =>
 
           <PersonalCareProduct item={item} key={item?.id} />
 
         )}
       </Slider>
+      </div>
 
     </div>
   );

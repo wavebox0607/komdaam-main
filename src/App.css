@@ -29,6 +29,14 @@ body {
   display: none;
 }
 
+.slick-prev:before {
+  opacity: 1;
+  color: #4c982a;
+}
+.slick-next:before {
+  opacity: 1;
+  color: #4c982a;
+}
 
 /* .swiper {
 
