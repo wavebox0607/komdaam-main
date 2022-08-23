@@ -85,9 +85,9 @@ export default RightSide;
 
 const SingleCart = ({ item }) => {
   const dispatch = useDispatch();
-  const handle = (item) => {
-    console.log("id", item);
-  };
+  // const handle = (item) => {
+  //   console.log("id", item);
+  // };
 
   return (
     <div className="flex justify-between items-center py-3 border-b border-gray-300 last:border-0">
