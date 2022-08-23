@@ -51,7 +51,7 @@ const HeaderDown = ({ handleLeft }) => {
                     </div>
                 </div>
                 <Link to='/'>
-                    <div className="w-[80px] md:w-full  h-[37px] flex items-center  pt-2 pb-2 md:pt-2 md:pb-2 lg:pt-0 lg:pb-0 xl:pt-0 xl:pb-0">
+                    <div className="w-full  h-[37px] flex items-center  pr-2">
                         <img src={settingImg + data?.settings?.logo} className="w-full h-[27px] md:h-full object-fit" alt="" />
                     </div>
                 </Link>
