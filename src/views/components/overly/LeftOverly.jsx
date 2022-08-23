@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Link } from 'react-router-dom'
-import offer from '../../../assets/offer.gif'
 import { HomePage } from '../../../services'
 import { categoryImg } from '../../../constant/imgUri'
 import { ChevronDownIcon, ChevronUpIcon, ViewListIcon } from '@heroicons/react/solid'
@@ -10,6 +9,11 @@ import { ChevronDownIcon, ChevronUpIcon, ViewListIcon } from '@heroicons/react/s
 export default function Left({ setOpen, open }) {
     const [show, setShow] = useState(null)
     const { data } = HomePage.GetCategory()
+
+    // const [show, setShow] = useState(null)
+    // const { data } = HomePage.GetCategory()
+    const result = data?.data?.filter(res => res?.slug === 'popular' || res?.slug === 'corporate-deal' || res?.slug === 'offer-whole-sale')
+    const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -39,31 +43,34 @@ export default function Left({ setOpen, open }) {
                             >
                                 <Dialog.Panel className="pointer-events-auto w-screen">
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                                            <div className=" w-full overflow-y-scroll example">
-                                                <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
-                                                    <div className="flex items-center text-[15px] font-bold text-white gap-2">
-                                                        <ViewListIcon className='h-5 w-5 ' color='white' />
-                                                        <p>All Category</p>
+                                        <div className=" w-full overflow-y-scroll example">
+                                            <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
+                                                <div className="flex items-center text-[15px] font-bold text-white gap-2">
+                                                    <ViewListIcon className='h-5 w-5 ' color='white' />
+                                                    <p>All Category</p>
+                                                </div>
+                                                <div className="">
+                                                    <button onClick={() => setOpen(false)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex flex-col space-y-[6px] ">
+
+                                                <div>
+                                                    <div className="flex flex-col space-y-[1px] text-[14px] bg-[#ccf8cc] pb-0 font-semibold pt-3 px-2">
+
+                                                        {
+                                                            result?.map((item) => <SingleCat key={item?.id} setShow={setShow} show={show} item={item} />)
+                                                        }
                                                     </div>
-                                                    <div className="">
-                                                        <button onClick={() => setOpen(false)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
+                                                    <div className="flex flex-col space-y-[0px] px-2 text-[14px] pt-2">
+
+                                                        {
+                                                            result1?.map((item) => <SingleCat key={item?.id} setShow={setShow} show={show} item={item} />)
+                                                        }
                                                     </div>
                                                 </div>
 
-                                            <div className="flex flex-col space-y-[6px] px-2">
-
-                                                <div className='flex items-center'>
-                                                    <Link to={"/offer"}>
-                                                        <div className="flex-1 flex space-x-1">
-                                                            <img src={offer} className="h-5 w-5" alt="" />
-                                                            <p>{"Offer"}</p>
-                                                        </div>
-                                                    </Link>
-                                                </div>
-
-                                                {
-                                                    data?.data?.map((item) => <SingleCat key={item?.id} setShow={setShow} show={show} item={item} />)
-                                                }
                                             </div>
                                         </div>
 
@@ -80,38 +87,39 @@ export default function Left({ setOpen, open }) {
 }
 
 
-
-
-
-
-
-
-
-
 const SingleCat = ({ item, show, setShow }) => {
 
     return <>
-        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-1 px-[2px]  hover:bg-[#4c9a2a] hover:text-white transition-all duration-200 ease-linear'>
+        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-0  hover:bg-[#50c878] hover:text-white transition-all duration-200 ease-linear'>
             <Link to={"/category/" + item?.slug}>
-                <div className="flex-1 flex space-x-[6px]">
+                <div className="flex-1 flex space-x-[8px]">
                     <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />
                     <p>{item.name}</p>
-                </div></Link>
+                </div>
+            </Link>
+            
             {item?.subcategory ? <div className="">
                 {show === item.slug ? <ChevronUpIcon className='h-4 w-4' /> :
                     <ChevronDownIcon className='h-4 w-4' />}
             </div> : null}
         </div>
-        {show === item.slug ? item?.subcategory?.map((item) => <SingleSub item={item} />) : null}
+        <div className='flex'>
+            <div className="w-[1px] max-h-max bg-[#4c9a2a] ml-3 mb-[14px]"></div>
+            <div className="flex-1">
+                {show === item.slug ? item?.subcategory?.map((item) => <SingleSub item={item} />) : null}
+            </div>
+
+        </div>
     </>
 }
 
 const SingleSub = ({ item }) => {
     return (
-        <div className='flex ml-4'>
+        <div className='flex items-center space-x-1 hover:text-[#50c878] text-[14px] '>
+            <div className="h-[1px] w-3 bg-[#4c9a2a]"></div>
             <Link to={'/subcategory/' + item?.slug}>
-                <div className="flex-1 flex space-x-1">
-                    <img src={categoryImg + item?.icon} className="h-6 w-6" alt="" />
+                <div className="flex-1 flex space-x-3 py-1">
+                    <img src={categoryImg + item?.icon} className="h-4 w-4" alt="" />
                     <p>{item?.name}</p>
                 </div>
             </Link>

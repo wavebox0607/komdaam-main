@@ -30,8 +30,8 @@ const Step = () => {
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">1</h3>
                         <div className="px-2"><img width={"72"} height={"72"} src={orderStep3} alt="" /></div>
                         <div>
-                            <p className="text-lg font-semibold text-gray-600">{bangla ? "কার্ডে পণ্য যোগ করুন" : "Add Product To Card"} !</p>
-                            <p className="text-sm font-normal text-gray-600">{bangla ? "সর্বদা আমরা আপনার জন্য নিয়োজিত" : "A great support for you as always."} !</p>
+                            <p className="text-lg font-semibold text-gray-600">{bangla ? "কার্ডে পণ্য যোগ করুন" : "Add Product To Card!"}</p>
+                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার পছন্দের পন্যটি বাছাই করুন এবং কোর্ট -এ যুক্ত করুন" : "Find Your desire product and add to card."} !</p>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@ const Step = () => {
                         <h3 className=" text-xl font-semibold text-gray-800 rounded-full bg-slate-300 w-9 h-9 flex justify-center items-center">2</h3>
                         <div className="px-2"><img width={"72"} height={"72"} src={orderStep2} alt="" /></div>
                         <div>
-                            <p className="text-lg font-semibold text-gray-600">{bangla ? "সহজে অর্থ প্রদান করুন" : "Make Easy Payment"} !</p>
+                            <p className="text-lg font-semibold text-gray-600">{bangla ? "সহজে অর্থ প্রদান করুন" : "Make Easy Payment!"} </p>
                             <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার সুবিধার্থে অর্থ প্রদান করুন যে কোন স্থান থেকে।" : "Pay at you convenience, From where you are."} </p>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ const Step = () => {
                         <div className="px-2"><img width={"72"} height={"72"} src={orderStep1} alt="" /></div>
                         <div>
                             <p className="text-lg font-semibold text-gray-600">{bangla ? "দ্রুত পণ্য বুঝে নিন" : "Get Fast Delivery"} !</p>
-                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার অর্ডার ১ ঘন্টার মধ্যে পৌঁছে যাবে।" : "Get your ordered delivered within 1 hour."} !</p>
+                            <p className="text-sm font-normal text-gray-600">{bangla ? "আপনার অর্ডার ১ ঘন্টার মধ্যে পৌঁছে যাবে।" : "Get your ordered delivered within 1 hour!"} </p>
                         </div>
 
 

@@ -42,7 +42,7 @@ const HeaderDown = ({ handleLeft }) => {
         0
     );
     return (
-        <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
+        <div className='grid grid-cols-12 py-2 max-h-[45px] shadow-lg bg-white'>
             {/* menu and logo section  */}
             <div className="flex items-center space-x-2 col-span-3 2md:col-span-3 h-[27px] " style={{ zIndex: 100000 }}>
                 <div className="hidden 2md:flex">
