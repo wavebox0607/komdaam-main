@@ -8,7 +8,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { productImg } from "../../../constant/imgUri";
-import { bangla, handleLanguage } from "../../../constant/language";
+import { bangla } from "../../../constant/language";
 import {
   decrementQty,
   incrementQty,
