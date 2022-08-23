@@ -30,18 +30,18 @@ const CategoryProduct = () => {
     dots: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 3000,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: right? 6:7,
           slidesToScroll: 3,
           infinite: true,
           dots: false
         }
       },
       {
-        breakpoint: 1600,
+        breakpoint: 2200,
         settings: {
-          slidesToShow:right? 4:5,
+          slidesToShow:right? 5:6,
           slidesToScroll: 2,
           initialSlide: 2
         }
@@ -49,15 +49,7 @@ const CategoryProduct = () => {
       {
         breakpoint: 1500,
         settings: {
-          slidesToShow: right? 3:4,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: right? 3:4,
+          slidesToShow: right? 4:5,
           slidesToScroll: 2,
           initialSlide: 2
         }
@@ -65,13 +57,21 @@ const CategoryProduct = () => {
       {
         breakpoint: 1300,
         settings: {
-          slidesToShow:right? 2:3,
+          slidesToShow: right? 3:4,
           slidesToScroll: 2,
           initialSlide: 2
         }
       },
       {
         breakpoint: 1000,
+        settings: {
+          slidesToShow:right? 2:3,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
