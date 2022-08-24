@@ -16,7 +16,7 @@ const PersonalCareProduct = ({ item }) => {
   
     return (
         <>
-            <div className='bg-white relative rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-5 ml-1 mr-2 xl:mr-2 lg:mr-5 md:mr-5  mb-5 '>
+            <div className='bg-white relative rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-1 ml-1 mr-2 xl:mr-2 lg:mr-5 md:mr-5  mb-1 '>
             {item?.quantity==='0.00'&&<div className='absolute top-0 bottom-0 left-0 right-0 bg-white bg-opacity-80 z-[2]'></div>}
                 <div className="w-full h-[145px] md:h-[200px] relative p-2 overflow-hidden">
                     <Link to={'/product/' + item?.slug}>

@@ -42,7 +42,7 @@ const HeaderDown = ({ handleLeft }) => {
         0
     );
     return (
-        <div className='grid grid-cols-12 py-2 max-h-[45px] shadow-lg bg-white'>
+        <div className='grid grid-cols-12 py-2 max-h-[45px] shadow-lg bg-white px-2'>
             {/* menu and logo section  */}
             <div className="flex items-center space-x-2 col-span-3 2md:col-span-3 h-[27px] " style={{ zIndex: 100000 }}>
                 <div className="hidden 2md:flex">
@@ -114,22 +114,22 @@ const HeaderTop = () => {
 
     const dispatch = useDispatch()
     return (
-        <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6`}>
+        <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6 px-2`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
             <div className='flex items-center space-x-1 pl-2 '>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                <a href="https://www.facebook.com/komdaam.shop/" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <FaFacebookF className=" fill-[#4c9a2a] text-[10px]" />
-                </div>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                </a>
+                <a href="https://www.instagram.com/komdaam_shop/" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <AiOutlineInstagram className=" fill-[#4c9a2a]  text-[10px]" />
-                </div>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                </a>
+                <a href="https://wa.me/+8801865460756" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <AiOutlineWhatsApp className=" fill-[#4c9a2a]  text-[10px]" />
-                </div>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                </a>
+                <a href="https://www.youtube.com/channel/UCvOFHjeEcwy4qjU02iJjaXQ" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <AiOutlineYoutube className=" fill-[#4c9a2a] text-[10px]" />
-                </div>
+                </a>
 
                 {/* <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                 <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />

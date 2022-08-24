@@ -16,13 +16,13 @@ const ProductCard = ({ item }) => {
 
     return (
         <>
-            <div className='bg-white relative rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-5 ml-1 mr-1 '>
+            <div className='bg-white relative rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-1 ml-1 mr-1 '>
             {item?.quantity==='0.00'&&<div className='absolute top-0 bottom-0 left-0 right-0 bg-white bg-opacity-80 z-[2]'></div>}
-                <div className="w-full h-[145px] md:h-[195px] relative p-2 overflow-hidden">
+                <div className="w-full h-[145px] md:h-[195px] relative px-2 overflow-hidden">
                     <Link to={'/product/' + item?.slug}>
                         <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
                     </Link>
-                    {parseInt(item?.discount_amount) !== 0 && <div className="absolute z-[3] top-2 right-2 bg-[#ff576d] px-[10px] py-[1px] w-[95px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
+                    {parseInt(item?.discount_amount) !== 0 && <div className="absolute z-[3] top-2 right-2 bg-[#ff576d] px-[10px] py-[2px] w-[95px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">
                             {parseInt(item?.quantity) === 0 ? <>{bangla ? `স্টক আউট` : 'Out Of Stock'}</> : <> {bangla?`${parseInt(item?.discount_amount)}% ছাড়` : `${parseInt(item?.discount_amount)}% OFF`}</>}
                         </div>}
                         {parseInt(item?.quantity) === 0 && <div className="absolute top-2 z-[3] right-2 bg-[#ff576d] px-[7px] py-[2px] w-[95px] h-[22px] rounded-md text-white flex justify-center items-center text-xs font-semibold">

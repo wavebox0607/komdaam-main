@@ -10,7 +10,7 @@ const Step = () => {
         <>
             <div className="">
 
-                <div className=" bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 py-4 px-2">
+                <div className=" bg-white grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-12 gap-14 mt-4 py-4 px-2">
 
 
                     {/* Delivery grid Card */}

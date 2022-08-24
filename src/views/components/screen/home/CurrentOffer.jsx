@@ -23,7 +23,7 @@ const CurrentOffer = () => {
             </div>
             <div className="relative">
 
-                <div className="px-4 shadow-lg rounded-md py-2 mt-1">
+                <div className="px-4 shadow-lg rounded-md py-1 mt-1">
 
 
                     <Swiper
