@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 // import { bangla } from '../../constant/language';
-import { Product } from '../../services';
+// import { Product } from '../../services';
 // import ProductCard from '../components/card/ProductCard';
 // import { Pagination } from '../components/utils';
 
 const Offer = () => {
-    const [page, setPage] = useState('?page=1')
-    const { data } = Product.GetOffer(page)
+    // const [page, setPage] = useState('?page=1')
+    // const [page] = useState('?page=1')
+    // const { data } = Product.GetOffer(page)
 
     return (
         <div className='my-16 mx-auto px-4 h-[70vh]'>

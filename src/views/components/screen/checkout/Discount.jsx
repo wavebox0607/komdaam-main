@@ -1,32 +1,33 @@
 
 import React from 'react';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form'
 import { HomePage, httpReq } from '../../../../services';
 import { bangla } from '../../../../constant/language';
-import { getDiscount } from './getDiscount';
-import { getPrice } from './../../utils/getPrice';
+// import { getDiscount } from './getDiscount';
+// import { getPrice } from './../../utils/getPrice';
 import { useSelector } from 'react-redux';
 
 const Discount = ({ setCupon, setShipping_area }) => {
 
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
+	// const { formState: { errors } } = useForm();
 	const { data } = HomePage.GetSettings()
 	
 	
     const cartList = useSelector((state) => state.cart.cartList)
-    const get_discout = (res) => {
-        const priceList = cartList?.map(p => p.qty * getPrice(p.regular_price, p.discount_price, p.discount_type))
-        const total = priceList.reduce(
-            (previousValue, currentValue) => previousValue + currentValue,
-            0
-        );
-        // console.log(total);
-        const result = getDiscount(total, res?.discount_amount)
-        const dis = total - result
-        return parseInt(dis)
-    }
+    // const get_discout = (res) => {
+    //     const priceList = cartList?.map(p => p.qty * getPrice(p.regular_price, p.discount_price, p.discount_type))
+    //     const total = priceList.reduce(
+    //         (previousValue, currentValue) => previousValue + currentValue,
+    //         0
+    //     );
+    //     console.log(total);
+    //     const result = getDiscount(total, res?.discount_amount)
+    //     const dis = total - result
+    //     return parseInt(dis)
+    // }
     const onSubmit = data => {
 
         const priceList = cartList?.map(p => p.qty * p?.price)
@@ -125,5 +126,6 @@ const Discount = ({ setCupon, setShipping_area }) => {
 		</>
 	);
 };
+
 
 export default Discount;

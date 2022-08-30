@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { MdOutlineKeyboardArrowUp, MdKeyboardArrowDown, MdDelete } from 'react-icons/md'
+// import { MdOutlineKeyboardArrowUp, MdKeyboardArrowDown, MdDelete } from 'react-icons/md'
+import { MdDelete } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { NavLink, useNavigate } from 'react-router-dom';
