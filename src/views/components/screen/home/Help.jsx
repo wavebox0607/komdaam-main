@@ -19,7 +19,7 @@ const Help = () => {
                 <div className="flex justify-center mx-auto"><img src={logo} alt="" className='w-full h-8' /></div>
             </div>
             <div className="justify-self-center">
-                <img src={help} alt="" className='h-52' />
+                <img src={help} alt="" className='h-44' />
             </div>
         </div>
     );
