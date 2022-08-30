@@ -9,7 +9,7 @@ const LeftSide = ({ left }) => {
     const { data } = HomePage.GetCategory()
     const result = data?.data?.filter(res => res?.slug === 'popular' || res?.slug === 'corporate-deal' || res?.slug === 'offer-whole-sale' )
     const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
-
+   
     return (
 
         <div className={`fixed left-0 top-[68px] bottom-0 h-auto  example  ${left ? "w-[240px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10] shadow-lg`} >
@@ -38,8 +38,9 @@ export default LeftSide;
 const SingleCat = ({ item, show, setShow }) => {
 
     return <>
-        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-0 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all duration-200 ease-linear'>
-            <Link to={"/category/" + item?.slug}>
+        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-0 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all 
+        duration-200 ease-linear'>
+            <Link to={"/category/" + item?.slug}  className='w-full'>
                 <div className="flex-1 flex space-x-[8px]">
                     <img src={categoryImg + item?.icon} className="h-5 w-5" alt="" />
                     <p>{item.name}</p>

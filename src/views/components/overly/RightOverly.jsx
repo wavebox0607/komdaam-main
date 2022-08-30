@@ -10,13 +10,16 @@ import { Link, NavLink } from 'react-router-dom'
 import { Taka } from '../utils'
 import { bangla } from '../../../constant/language'
 
+
 export default function Right({ setOpen, open }) {
+   
     const { cartList } = useSelector((state) => state.cart)
     const priceList = cartList?.map(p => p.qty * p.price)
     const total = priceList.reduce(
         (previousValue, currentValue) => previousValue + currentValue,
         0
     );
+
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -56,9 +59,9 @@ export default function Right({ setOpen, open }) {
                                                     <button onClick={() => setOpen(!open)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
                                                 </div>
                                             </div>
-                                            <h3 className='bg-gray-50 font-semibold py-1'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>
+                                            <h3 className='bg-gray-50 font-semibold px-2 py-1'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>
                                             {
-                                                cartList?.map((item) => <SingleCart key={item?.cartId} item={item} />)
+                                                cartList?.map((item) => <SingleCart key={item?.cartId} item={item} bangla={bangla}/>)
                                             }
                                         </div>
                                         <div className=" w-full mb-16">
@@ -80,8 +83,10 @@ export default function Right({ setOpen, open }) {
 
 
 
-const SingleCart = ({ item }) => {
+const SingleCart = ({ item ,bangla}) => {
+   
     const dispatch = useDispatch()
+ 
     return (
         <div className="flex justify-between items-center py-3 border-b border-gray-300 last:border-0  ml-2">
             <div className="flex flex-col space-y-2 items-center w-[10px] h-full">
@@ -93,7 +98,7 @@ const SingleCart = ({ item }) => {
                 <img src={productImg + item?.images[0]} alt="" />
             </div>
             <div className="flex flex-col w-[120px] ">
-                <Link to={'/product/' + item?.slug}><div className="text-[13px] text-[#1d1d1d] text-justify w-full">{item?.name.slice(0, 30)}</div></Link>
+                <Link to={'/product/' + item?.slug}><div className="text-[13px] text-[#1d1d1d] text-justify w-full">{bangla?item?.name.slice(0, 30):item?.slug.slice(0, 30)}</div></Link>
                 <Taka className={"text-[10px]"} tk={item?.price} />
             </div>
             <div className="flex flex-col justify-center w-[63px]">
@@ -101,7 +106,7 @@ const SingleCart = ({ item }) => {
                 <Taka tk={item?.price * item?.qty} />
             </div>
             <div className="flex flex-col justify-center items-center w-[10px] mr-4">
-                <div onClick={() => dispatch(removeToCartList(item?.cartId))} className=""><XIcon className='h-4 w-4' /></div>
+                <div onClick={() => dispatch(removeToCartList(item))} className=""><XIcon className='h-4 w-4' /></div>
             </div>
         </div>
     )

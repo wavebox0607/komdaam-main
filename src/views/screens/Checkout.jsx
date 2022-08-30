@@ -8,7 +8,7 @@ import YourOrders from '../components/screen/checkout/YourOrders';
 
 const Checkout = () => {
     const cartList = useSelector((state) => state.cart.cartList)
-    const [cuponDis, setCuponDis] = useState(0)
+    const [cuponDis, setCuponDis] = useState()
     const [shipping_area, setShipping_area] = useState(0)
 
     const [selectPayment, setSelectPayment] = useState(null)

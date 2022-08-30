@@ -3,12 +3,16 @@ import { Menu, Transition } from '@headlessui/react'
 import { DotsVerticalIcon } from '@heroicons/react/solid'
 import { bangla, handleLanguage } from '../../../constant/language'
 import { NavLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../../redux/slice/auth'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function Options() {
+    const { user } = useSelector((state) => state.auth)
+    const dispatch = useDispatch()
     return (
         <Menu as="div" className="relative inline-block text-left ">
             <div>
@@ -28,7 +32,7 @@ export default function Options() {
                 leaveTo="transform opacity-0 scale-95"
             >
                 <Menu.Items className="origin-top-right absolute right-0 mt-2 w-32  shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
-                    <div className="py-1">
+                {!user?.verify && <div className="py-1">
                         <Menu.Item>
                             {({ active }) => (
                                 <NavLink
@@ -56,7 +60,37 @@ export default function Options() {
                                 </NavLink>
                             )}
                         </Menu.Item>
-                    </div>
+                    </div>}
+                {user?.verify && <div className="py-1">
+                        <Menu.Item>
+                            {({ active }) => (
+                                <NavLink
+                                    to="/profile"
+                                    className={classNames(
+                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                        'block px-4 py-2 text-sm'
+                                    )}
+                                >
+                                    {bangla ? "প্রোফাইল" : "Profile"}
+                                </NavLink>
+                            )}
+                        </Menu.Item>
+                        <Menu.Item>
+                            {({ active }) => (
+                                <NavLink
+                                onClick={() => dispatch(logout())}
+                                    to="/login"
+                                    className={classNames(
+                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                        'block px-4 py-2 text-sm'
+                                    )}
+                                >
+
+                                    {bangla ? "প্রস্থান" : "Logout"}
+                                </NavLink>
+                            )}
+                        </Menu.Item>
+                    </div>}
                     <div className="py-1 flex justify-center gap-2">
                         <div onClick={() => handleLanguage('bn')} className={`${bangla ? 'bg-[#4c9a2a] text-white' : 'bg-gray-300 text-black'} p-1 px-2 `}>BN</div>
                         <div onClick={() => handleLanguage('en')} className={`${!bangla ? 'bg-[#4c9a2a] text-white' : 'bg-gray-50 text-black'} p-1 px-2 `}>EN</div>

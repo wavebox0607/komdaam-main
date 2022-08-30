@@ -18,12 +18,12 @@ const CurrentOffer = () => {
     return (
 
         <div className='py-1 sm:py-4 '>
-            <div className="pt-0">
+            <div className="pt-2">
                 <SectionHeading text={bangla ? "বর্তমান অফার" : "Current Offer"} />
             </div>
             <div className="relative">
 
-                <div className="px-4 shadow-lg rounded-md py-2 mt-1">
+                <div className="px-4 shadow-lg rounded-md py-1 mt-1">
 
 
                     <Swiper
@@ -60,7 +60,7 @@ const CurrentOffer = () => {
                         {
                             data?.triple_banner?.map((item) =>
                                 <SwiperSlide className='hiji' key={item.id}>
-                                    <img src={bannerImg + item?.image} alt='' className='h-[255px] w-full rounded-md !-z-10' />
+                                    <img src={bannerImg + item?.image} alt='' className='sm:h-[255px] h-[200px] w-full rounded-md !-z-10' />
                                 </SwiperSlide>
                             )
                         }

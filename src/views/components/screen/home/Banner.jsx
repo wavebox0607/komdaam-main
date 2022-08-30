@@ -17,8 +17,8 @@ const Banner = () => {
                 </div>
 
 
-                <div className="shadow-lg rounded-md px-8 m-4 grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 gap-x-14 ">
-                    {data?.double_banner?.map((b) => <img key={b?.id} className='w-[100%] h-[250px] xl:h-[350px] lg:h-[350px] md:h-[350px]' src={bannerImg + b?.image} alt="" />)}
+                <div className="shadow-lg rounded-md grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 gap-x-3 gap-y-3 px-4">
+                    {data?.double_banner?.map((b) => <img key={b?.id} className='w-[100%] h-[250px] md:h-[400px]' src={bannerImg + b?.image} alt="" />)}
 
                 
 

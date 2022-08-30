@@ -7,7 +7,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { productImg } from '../../../../constant/imgUri';
 import { bangla } from '../../../../constant/language';
-import { addToCartList, clearCartList, decrementQty, removeToCartList } from '../../../../redux/slice/cart';
+import {  clearCartList,  removeToCartList } from '../../../../redux/slice/cart';
 import { HomePage, httpReq } from '../../../../services';
 import { Taka } from '../../utils';
 import { getCupon } from '../../utils/getPrice';
@@ -17,6 +17,7 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const { cartList } = useSelector((state) => state.cart)
+	
 	const { user } = useSelector((state) => state.auth)
 	const { data } = HomePage.GetSettings()
 	const priceList = cartList?.map(p => p.qty * p.price)
@@ -27,11 +28,11 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 	const applycupon = cuponDis?.id ? getCupon(total, cuponDis?.discount_amount, cuponDis?.discount_type) : 0
 	console.log(applycupon);
 	const tax = (parseFloat(data?.settings?.tax).toFixed(2) / 100) * parseFloat(total).toFixed(2)
-
+console.log(cartList);
 	const handleCheckout = () => {
-
+		
 		const cart = cartList.map(item => ({
-			id: item.id,
+			id: item.cartId,
 			quantity: item.qty,
 			discount: item.regular_price - item?.discount_price,
 			price: item.price,
@@ -41,10 +42,9 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			unit: item.unit,
 			volume: item.volume,
 		}))
-
+		console.log('product',cart);
 
 		const data = {
-			uid: user?.id,
 			name: selectAddress?.name,
 			phone: selectAddress?.phone,
 			payment_type: selectPayment,
@@ -57,6 +57,12 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			tax: 0,
 			cupon: 'khakfdhksf'
 		}
+		
+
+const userToken = {
+    headers: { Authorization: `Bearer ${user?.token}` }
+};
+		console.log(data,'cart',cart,user);
 		if (!data.phone) {
 			alert("Please Given The Address")
 			//   AlertWraning("Please Select Delivery Address") 
@@ -67,7 +73,7 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 		}
 		if (data.total && data.payment_type && data.product) {
 
-			httpReq.post(`placeorder`, data)
+			httpReq.post(`placeorder`, data,userToken)
 				.then((response) => {
 					if (response?.order) {
 						toast(`Your #${response?.order?.reference_no} order complete successfully!`, {
@@ -137,7 +143,7 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			<div className="my-5 text-gray-500 " style={{ fontWeight: 500 }}>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "উপ মোট" : "Sub Total"}</p>
-					<Taka tk={parseInt(total - applycupon)} />
+					<Taka tk={parseInt(total )} />
 				</div>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "ছাড়" : "Discount"}</p>
@@ -173,8 +179,11 @@ export default YourOrders;
 
 
 const Single = ({ item }) => {
+	
 	const dispatch = useDispatch()
-
+const cardBtn=(id)=>{
+	console.log('item',id);
+}
 	// const price = getPrice(item.regular_price, item.discount_price, item.discount_type)
 
 	return <div key={item.id} className="flex justify-between space-y-2 space-x-1 items-center last:border-0 border-b border-gray-400 py-2">
@@ -187,13 +196,13 @@ const Single = ({ item }) => {
 			<Taka tk={parseInt(item?.price)} />
 		</div>
 		<div className="flex flex-col gap-1 justify-center items-center">
-			<MdOutlineKeyboardArrowUp onClick={() => dispatch(addToCartList({ ...item }))} />
+			
 			<p>{item.qty}</p>
-			<MdKeyboardArrowDown onClick={() => dispatch(decrementQty(item.cartId))} />
+			
 		</div>
 		<div className="text-md font-semibold"><Taka tk={parseInt(item?.price * item.qty)} /></div>
 		<div className="">
-			<MdDelete onClick={() => dispatch(removeToCartList(item.cartId))} className='text-2xl cursor-pointer' />
+			<MdDelete  onClick={() =>{ dispatch(removeToCartList(item));cardBtn(item?.cartId)}}  className='text-2xl cursor-pointer' />
 		</div>
 	</div>
 }

@@ -23,13 +23,13 @@ const SubCategory = () => {
 
 
         <div className="">
-            <div className="mx-auto mt-16 pt-0">
+            <div className="mx-auto mt-16 pb-0">
                 <img src={categoryImg + data?.category?.banner} className='w-full h-80' alt="" />
             </div>
             <div className=" py-4">
                 <div className="text-md flex items-center space-x-1 my-4 px-4">
 
-                    <div className="font-semibold"> Categores </div>
+                    <div className="font-semibold"> Categories </div>
                     <ChevronRightIcon className='h-4 w-4' />
                     <p>{data?.category?.name}</p>
                 </div>
@@ -39,7 +39,7 @@ const SubCategory = () => {
             {data?.paginate?.data?.length === 0 ? <div className="flex  justify-center mt-20" style={{ minHeight: '50vh' }}>
                 <h2 className='font-bold text-4xl text-center text-gray-400'>No Product Available</h2>
             </div> : <>
-                <div className="grid grid-cols-6 gap-4 px-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 px-4 pb-10">
                     {data?.paginate?.data?.map((item) => <ProductCard key={item?.id} item={item} />)}
                 </div>
                 <Pagination paginate={data?.paginate} setPage={setPage} />

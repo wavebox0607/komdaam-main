@@ -4,6 +4,9 @@ import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form'
 import { HomePage, httpReq } from '../../../../services';
 import { bangla } from '../../../../constant/language';
+import { getDiscount } from './getDiscount';
+import { getPrice } from './../../utils/getPrice';
+import { useSelector } from 'react-redux';
 
 const Discount = ({ setCupon, setShipping_area }) => {
 
@@ -11,33 +14,65 @@ const Discount = ({ setCupon, setShipping_area }) => {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const { data } = HomePage.GetSettings()
 	
-	const onSubmit = data => {
+	
+    const cartList = useSelector((state) => state.cart.cartList)
+    const get_discout = (res) => {
+        const priceList = cartList?.map(p => p.qty * getPrice(p.regular_price, p.discount_price, p.discount_type))
+        const total = priceList.reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            0
+        );
+        // console.log(total);
+        const result = getDiscount(total, res?.discount_amount)
+        const dis = total - result
+        return parseInt(dis)
+    }
+    const onSubmit = data => {
 
-		// declare the async data fetching function
-		const fetchData = async () => {
-			// get the data from the api
-			const res = await httpReq.post('verifycoupon', data)
-			if (res.error) {
-				setCupon(0)
-				return alert(res?.error)
-			}
-			if (res?.id) {
-				setCupon(res)
-				toast(`Your Coupon Apply successfully!`, {
-					type: "success"
-				});
-			}
-		}
+        const priceList = cartList?.map(p => p.qty * p?.price)
+        let total = priceList.reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            0
+        );
+        console.log('total',total)
+        if(total <= data?.min_purchase){
+            alert('discount not available')
+           }else if(   data?.max_purchase < total){
+            alert('discount not available')
+           }else {
 
-		// call the function
-		fetchData()
-			// make sure to catch any error
-			.catch((er) => {
-				// setLoad(false)
-				console.log(er);
-			});
-	}
+            const fetchData = async () => {
+                // get the data from the api
+                const res = await httpReq.post('verifycoupon', data)
+                if (res.error) {
+                    setCupon(0)
+                    return alert(res?.error)
+                }
+                if (res.id) {
+                    
+                    setCupon(res)
+    
+                }
+    
+    
+    
+    
+            }
+    
+            // call the function
+            fetchData()
+                // make sure to catch any error
+                .catch((er) => {
+                    // setLoad(false)
+                    console.log(er);
+                });
 
+           }
+
+
+      
+        
+    }
 	return (
 		<>
 			<div className="shadow sm:rounded-md sm:overflow-hidden my-5">

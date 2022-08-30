@@ -42,7 +42,7 @@ const HeaderDown = ({ handleLeft }) => {
         0
     );
     return (
-        <div className='grid grid-cols-12 py-2 px-2 max-h-[45px] shadow-lg bg-white'>
+        <div className='grid grid-cols-12 py-2 max-h-[45px] shadow-lg bg-white px-2'>
             {/* menu and logo section  */}
             <div className="flex items-center space-x-2 col-span-3 2md:col-span-3 h-[27px] " style={{ zIndex: 100000 }}>
                 <div className="hidden 2md:flex">
@@ -51,7 +51,7 @@ const HeaderDown = ({ handleLeft }) => {
                     </div>
                 </div>
                 <Link to='/'>
-                    <div className="w-[80px] md:w-full  h-[37px] flex items-center">
+                    <div className="w-full  h-[37px] flex items-center  pr-2">
                         <img src={settingImg + data?.settings?.logo} className="w-full h-[27px] md:h-full object-fit" alt="" />
                     </div>
                 </Link>
@@ -76,8 +76,8 @@ const HeaderDown = ({ handleLeft }) => {
                         <div className="rounded-full absolute -top-2 -right-2 bg-[#4c9a2a] text-white "><p className='text-xs px-1'>{cartList?.length}</p></div>
                         <ShoppingCartIcon className='h-6 w-6 ' />
                     </div>
-                    <div className='hidden'>
-                        <Taka tk={total} size={24} className="font-bold text-lg hidden" />
+                    <div className='md:block hidden'>
+                        <Taka tk={total} size={24} className="font-bold text-lg md:block hidden" />
                     </div>
                 </div>
             </div>
@@ -114,22 +114,22 @@ const HeaderTop = () => {
 
     const dispatch = useDispatch()
     return (
-        <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6`}>
+        <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6 px-2`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
             <div className='flex items-center space-x-1 pl-2 '>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                <a href="https://www.facebook.com/komdaam.shop/" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <FaFacebookF className=" fill-[#4c9a2a] text-[10px]" />
-                </div>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                </a>
+                <a href="https://www.instagram.com/komdaam_shop/" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <AiOutlineInstagram className=" fill-[#4c9a2a]  text-[10px]" />
-                </div>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                </a>
+                <a href="https://wa.me/+8801865460756" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <AiOutlineWhatsApp className=" fill-[#4c9a2a]  text-[10px]" />
-                </div>
-                <div className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
+                </a>
+                <a href="https://www.youtube.com/channel/UCvOFHjeEcwy4qjU02iJjaXQ" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <AiOutlineYoutube className=" fill-[#4c9a2a] text-[10px]" />
-                </div>
+                </a>
 
                 {/* <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
                 <SvgComponent className=" fill-white hover:fill-red-500 transition-all duration-300 ease-linear" />
@@ -145,10 +145,10 @@ const HeaderTop = () => {
                 </div>
 
                 {/* phone */}
-                <div className="flex items-center space-x-1 group ">
+                <a href='tel:+8801865460756'><div className="flex items-center space-x-1 group ">
                     <PhoneIcon className='h-4 w-4 stroke-white stroke-2 group-hover:stroke-red-600 text-white group-hover:text-red-600 transition-all duration-300 ease-linear' />
                     <p className='text-white group-hover:text-red-600'>{data?.settings?.phone}</p>
-                </div>
+                </div></a>
                 {/* login */}
                 {!user?.verify && <div className="">
                     <NavLink to='/login' className='text-white hover:text-red-600'>{bangla ? "প্রবেশ করুন" : "Login"}</NavLink>
