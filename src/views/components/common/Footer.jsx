@@ -29,7 +29,7 @@ const FooterBottom = () => {
             <div className="flex flex-wrap md:text-left text-center order-first">
                 <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                     <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-3 ">{bangla ? "যোগাযোগ করুন" : "Contact Us"}</h2>
-                    <nav className="list-none mb-10 space-y-3">
+                    <nav className="list-none md:mb-10 mb-4 space-y-3">
                         <li className='flex justify-start items-center gap-x-4 text-sm leading-6'>
                             <div className="rounded-full border border-gray-700 p-1">
                                 <GoLocation className="text-sm" />
@@ -55,7 +55,7 @@ const FooterBottom = () => {
 
                 <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                     <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-3 ">{bangla ? "গ্রাহক সেবা" : "Customer service"}</h2>
-                    <nav className="list-none mb-10">
+                    <nav className="list-none md:mb-10 mb-4 ">
                         <li>
                             <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "আমাদের সম্পর্কে" : "About us"}</a>
                         </li>
@@ -101,14 +101,14 @@ const FooterBottom = () => {
                     </div>
 
                     <div className="">
-                        <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-3 text-center">{bangla ? "আমাদের সাথে যোগাযোগ করুন" : "Connect with us"}</h2>
-                        <nav className="flex gap-x-2 justify-center">
+                        <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-2 text-center">{bangla ? "আমাদের সাথে যোগাযোগ করুন" : "Connect with us"}</h2>
+                        <nav className="flex gap-x-2 justify-center md:mb-0 mb-5">
 
 
-                            <a href="https://www.facebook.com/komdaam.shop/" target="_blank" rel="noopener noreferrer"  className="rounded-full l border border-black p-2 flex justify-center items-center"><FaFacebookF className=' text-2xl text-blue-600' /></a>
-                            <a href="https://www.instagram.com/komdaam_shop/" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineInstagram className=' text-2xl text-orange-600' /></a>
-                            <a href="https://wa.me/+8801865460756" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineWhatsApp className=' text-2xl text-emerald-600' /></a>
-                            <a a href="https://www.youtube.com/channel/UCvOFHjeEcwy4qjU02iJjaXQ" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineYoutube className=' text-2xl text-red-600' /></a>
+                            <a href="https://www.facebook.com/komdaam.shop/" target="_blank" rel="noopener noreferrer"  className="rounded-full l border border-black p-2 flex justify-center items-center"><FaFacebookF className=' text-lg text-blue-600' /></a>
+                            <a href="https://www.instagram.com/komdaam_shop/" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineInstagram className=' text-lg text-orange-600' /></a>
+                            <a href="https://wa.me/+8801865460756" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineWhatsApp className=' text-lg text-emerald-600' /></a>
+                            <a a href="https://www.youtube.com/channel/UCvOFHjeEcwy4qjU02iJjaXQ" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineYoutube className=' text-lg text-red-600' /></a>
 
 
 

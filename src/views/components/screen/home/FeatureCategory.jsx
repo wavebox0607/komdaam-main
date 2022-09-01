@@ -10,12 +10,12 @@ const FeatureCategory = () => {
         <div className='py-1 mx-4'>
 
             <SectionHeading text={bangla ? "পণ্যের ধরণ" :"Feature Categories"} />
-            <div className="grid md:grid-cols-6 grid-cols-2 gap-4 my-2" >
-                {data?.data?.map((item) => <NavLink to={'/category/' + item?.slug} key={item?.id} className='shadow-lg hover:shadow-4xl hover:bg-gray-300 flex flex-col h-[180px] ease-in-out duration-300 justify-center items-center rounded-md space-y-3'>
+            <div className="grid md:grid-cols-6 grid-cols-3 md:gap-4 gap-2  my-2" >
+                {data?.data?.map((item) => <NavLink to={'/category/' + item?.slug} key={item?.id} className='shadow-lg hover:shadow-4xl hover:bg-gray-300 flex flex-col md:h-[180px] h-[120px] ease-in-out duration-300 justify-center items-center rounded-md space-y-3'>
                     <div className="">
                         <img src={categoryImg + item?.icon} className='w-16 h-16' alt="" />
                     </div>
-                    <span className='text-md font-semibold'>{item?.name}</span>
+                    <span className='md:text-md font-semibold text-xs'>{item?.name}</span>
                 </NavLink>)}
             </div>
         </div>

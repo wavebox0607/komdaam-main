@@ -32,7 +32,7 @@ const Hero = () => {
             >
 
                 {data?.data?.map((item) => <SwiperSlide  key={item?.image}>
-                    <img src={sliderImg + item?.image} className={"w-full h-[150px] xl:h-[350px] lg:h-[350px] md:h-[350px] !-z-10"} alt="" />
+                    <img src={sliderImg + item?.image} className={"w-full h-[150px] object-cover sm:object-fill xl:h-[350px] lg:h-[350px] md:h-[350px] !-z-10"} alt="" />
                 </SwiperSlide>)}
 
 

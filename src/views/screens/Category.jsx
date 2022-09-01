@@ -45,7 +45,7 @@ console.log('sub',subcategoryProduct);
                 <div className="h-[3px] bg-black w-full flex justify-center items-center"><p className='bg-white px-3 text-lg font-bold'>{bangla ? data?.category?.bn_name : data?.category?.name}</p></div>
             </div>
 
-            {subcategoryProduct?.subcategory === null ? <div className={right ? ' grid grid-cols-2 xs:grid-cols-2 2md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 gap-4 px-1 mb-8':`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-10 px-1 ml-10 mb-8`}>
+            {subcategoryProduct?.subcategory === null ? <div className={right ? ' grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 px-4 pb-10':`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 px-4 pb-10`}>
             {data?.paginate?.data?.map(data=><ProductCard item={data} key={data?.id}/>)}
             </div> : <>
                 <div className={right ? ' grid grid-cols-2 xs:grid-cols-2 2md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 gap-4 px-2':`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-20 px-4 ml-10`}>

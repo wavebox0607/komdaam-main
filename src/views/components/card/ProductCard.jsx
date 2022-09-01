@@ -30,11 +30,12 @@ const ProductCard = ({ item }) => {
                         </div>}
                     <button onClick={() => setOpen(true)} className='absolute -bottom-3 translate-y-6 group-hover:translate-y-0 transition-all duration-300 ease-linear left-0 right-0 mx-auto rounded-t-md px-1 font-semibold text-md pb-2 text-white text-md flex justify-center items-center gap-x-1 shadow-4xl bg-[#4c9a2a]'>Quick View</button>
                 </div>
+                <Link to={'/product/' + item?.slug}>
                 <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
                 <div className="p-1 h-[80px]">
-                    <Link to={'/product/' + item?.slug}><h4 className='text-center font-semibold text-[12px] xl:text-[15px] lg:text-[15px] md:text-[12px] hover:text-[#4c9a2a]'>{item?.name}</h4></Link>
+                  <h4 className='text-center font-semibold text-[12px] xl:text-[15px] lg:text-[15px] md:text-[12px] hover:text-[#4c9a2a]'>{item?.name}</h4>
                     <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক : " : "Per Unit : " : null} {item?.per_unit}</p>
-                </div>
+                </div></Link>
                 <div className="h-[50px] flex flex-col justify-end">
                     {
                         item?.discount_amount==='0.00' ? <>     </> : <>     {item?.discount_price && <div className="text-[12px] px-2 line-through">
@@ -75,9 +76,8 @@ const AddToCart = ({ item }) => {
 
     // only without variant product added to cart 
     const handleCart = () => {
-
-        if (!item?.variant) {
-            console.log("ase");
+       
+        if(item?.variant===null){
             dispatch(addToCartList({
                 cartId: Product.makeid(100),
                 variantId: null,
@@ -88,7 +88,25 @@ const AddToCart = ({ item }) => {
                 slug: item.slug,
                 images: item.images
             }))
-        } else {
+        }
+        if ( item?.variant.length===1 ) {
+           
+            dispatch(addToCartList({
+                cartId: Product.makeid(100),
+                variantId: null,
+                productId: item?.id,
+                qty: 1,
+                price: parseFloat(item?.regular_price).toFixed(2),
+                name: item.name,
+                slug: item.slug,
+                images: item.images
+            }))
+        }else if( item?.variant===null ){
+            console.log("ase");
+        }
+        
+        
+        else {
             console.log("nei");
             navigate(`/product/${item?.slug}`)
         }

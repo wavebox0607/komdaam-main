@@ -38,7 +38,7 @@ export default LeftSide;
 const SingleCat = ({ item, show, setShow }) => {
 
     return <>
-        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between py-0 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all 
+        <div onClick={() => show === item?.slug ? setShow(null) : setShow(item?.slug)} className='flex items-center justify-between mt-1 py-0 px-[2px]  hover:bg-[#50c878] hover:text-white transition-all 
         duration-200 ease-linear'>
             <Link to={"/category/" + item?.slug}  className='w-full'>
                 <div className="flex-1 flex space-x-[8px]">
