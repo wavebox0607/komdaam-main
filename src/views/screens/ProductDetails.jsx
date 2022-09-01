@@ -4,7 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { productImg } from '../../constant/imgUri';
 import { bangla } from '../../constant/language';
 import { Product } from '../../services';
-import { Taka, Zoom } from '../components/utils';
+import { Taka } from '../components/utils';
+import ImageZoom from "../components/utils/ImageZoom";
 import { AddToCart, Description } from '../components/screen/product-details';
 import { useSelector } from 'react-redux';
 import RelatedProducts from '../components/screen/product-details/RelatedProducts';
@@ -59,15 +60,12 @@ export const Details = ({ slug }) => {
 
         <div className="grid md:grid-cols-8 grid-cols-1 md:gap-4 ">
 
-            <div className="md:col-span-3 h-[400px] w-full">
+            <div className="md:col-span-3 h-[400px] sm:cursor-zoom-in overflow-hidden ">
                 {data?.data?.images?.slice(0, 1).map((item, id) =>
-                    <Zoom
+                    <ImageZoom
                         key={id}
                         img={productImg + item}
-                        zoomScale={3}
-                        width={100}
-                        height={100}
-                        transitionTime={0.5}
+               
                     />
                 )}
             </div>

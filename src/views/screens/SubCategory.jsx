@@ -5,9 +5,11 @@ import { categoryImg } from '../../constant/imgUri';
 import { Product } from '../../services';
 import ProductCard from '../components/card/ProductCard';
 import { Pagination } from '../components/utils';
+import { useSelector } from 'react-redux';
 
 const SubCategory = () => {
     const params = useParams()
+    const right = useSelector((state) => state.cart.cartOpen)
     const [page, setPage] = useState('?page=1')
     const { data, isLoading } = Product.GetSubCatProduct(params?.slug, page)
 
@@ -39,7 +41,7 @@ const SubCategory = () => {
             {data?.paginate?.data?.length === 0 ? <div className="flex  justify-center mt-20" style={{ minHeight: '50vh' }}>
                 <h2 className='font-bold text-4xl text-center text-gray-400'>No Product Available</h2>
             </div> : <>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 px-4 pb-10">
+                <div className={right? "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-1 gap-y-4  px-2 pb-10":"grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-1 gap-y-4 px-2 pb-10"}>
                     {data?.paginate?.data?.map((item) => <ProductCard key={item?.id} item={item} />)}
                 </div>
                 <Pagination paginate={data?.paginate} setPage={setPage} />
