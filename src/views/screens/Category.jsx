@@ -31,7 +31,7 @@ console.log('sub',subcategoryProduct);
 
 
 
-        <div className="ml-2">
+        <div className="">
             <div className="mx-auto mt-2 pt-0">
                 <img src={categoryImg + data?.category?.banner} className='w-full h-80' alt="" />
             </div>
