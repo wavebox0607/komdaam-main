@@ -32,7 +32,7 @@ console.log('sub',subcategoryProduct);
 
 
         <div className="">
-            <div className="mx-auto mt-[-12px]">
+            <div className="mx-auto md:mt-0 mt-[-12px]">
                 <img src={categoryImg + data?.category?.banner} className='w-full h-[150px] object-cover sm:object-fill xl:h-[350px] lg:h-[350px] md:h-[350px]' alt="" />
             </div>
             <div className=" py-4">
