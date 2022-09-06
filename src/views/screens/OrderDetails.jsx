@@ -163,7 +163,7 @@ export default OrderDetails;
 const SingleItem = ({ item, setCall, call, order }) => {
     const [open, setOpen] = useState(false)
     const [product, setProduct] = useState({})
-    const { data } = HomePage.GetUser()
+    // const { data } = HomePage.GetUser()
     console.log(product,"pro");
     useEffect(() => {
 
