@@ -14,6 +14,8 @@ const Checkout = () => {
     const [selectPayment, setSelectPayment] = useState(null)
     const [selectAddress, setSelectAddress] = useState(null)
 
+    console.log(cartList,"list");
+
     if (!cartList?.length) {
         return (
             <div className='flex justify-center items-center w-full h-screen'>

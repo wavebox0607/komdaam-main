@@ -15,7 +15,7 @@ const FeatureCategory = () => {
                     <div className="">
                         <img src={categoryImg + item?.icon} className='w-16 h-16' alt="" />
                     </div>
-                    <span className='md:text-md font-semibold text-xs'>{item?.name}</span>
+                    <span className='md:text-lg font-semibold text-md'>{item?.name}</span>
                 </NavLink>)}
             </div>
         </div>

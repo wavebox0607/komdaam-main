@@ -25,8 +25,8 @@ const SubCategory = () => {
 
 
         <div className="">
-            <div className="mx-auto mt-16 pb-0">
-                <img src={categoryImg + data?.category?.banner} className='w-full h-80' alt="" />
+            <div className="mx-auto mt-[-12px]">
+                <img src={categoryImg + data?.category?.banner} className='w-full h-[150px] object-cover sm:object-fill xl:h-[350px] lg:h-[350px] md:h-[350px]' alt="" />
             </div>
             <div className=" py-4">
                 <div className="text-md flex items-center space-x-1 my-4 px-4">

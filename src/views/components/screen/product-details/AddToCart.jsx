@@ -12,7 +12,7 @@ import {
 import { Product } from "../../../../services";
 
 const AddToCart = ({ product, unit, already }) => {
-  console.log(unit);
+  console.log(product?.slug,"product");
   const dispatch = useDispatch();
   const { cartList } = useSelector((state) => state.cart);
   const [alreadyCart, setAlreadyCart] = useState(null);

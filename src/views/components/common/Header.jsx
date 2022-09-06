@@ -51,14 +51,14 @@ const HeaderDown = ({ handleLeft }) => {
                     </div>
                 </div>
                 <Link to='/'>
-                    <div className="w-full  h-[37px] flex items-center  pr-2">
-                        <img src={settingImg + data?.settings?.logo} className="w-full h-[27px] md:h-full object-fit" alt="" />
+                    <div className="w-full  h-[37px] flex items-center ">
+                        <img src={settingImg + data?.settings?.logo} className="w-full h-[25px] md:h-full object-fit" alt="" />
                     </div>
                 </Link>
             </div>
 
             {/* search section  */}
-            <div className="col-span-7 2md:col-span-6 max-h-[30px] relative">
+            <div className="ml-2 mr-1 col-span-7 2md:col-span-6 max-h-[30px] relative">
                 <input
                     placeholder={bangla ? 'একটি পণ্য অনুসন্ধান করুন...' : "Search a product..."}
                     onChange={(e) => navigate(`/search/${e.target.value}`)} className='border border-gray-300 rounded-full w-full h-full focus:border focus:ring-0 focus:outline-0 focus:border-[#96fcb8] px-4 transition-all duration-300 ease-linear bg-[#ccf8cc] text-xs flex items-center' type="text" />

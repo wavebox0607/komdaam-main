@@ -1,24 +1,28 @@
 
 import React from 'react';
+import { useState } from 'react';
 // import { MdOutlineKeyboardArrowUp, MdKeyboardArrowDown, MdDelete } from 'react-icons/md'
-import {  MdDelete } from 'react-icons/md'
+import { MdDelete } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { productImg } from '../../../../constant/imgUri';
 import { bangla } from '../../../../constant/language';
-import {  clearCartList,  removeToCartList } from '../../../../redux/slice/cart';
+import { clearCartList, removeToCartList } from '../../../../redux/slice/cart';
 import { HomePage, httpReq } from '../../../../services';
 import { Taka } from '../../utils';
 import { getCupon } from '../../utils/getPrice';
 
 
 const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) => {
+
+	const [loading, setLoading] = useState(false);
+
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const { cartList } = useSelector((state) => state.cart)
-	
+	// console.log(cartList, "cart");
 	const { user } = useSelector((state) => state.auth)
 	const { data } = HomePage.GetSettings()
 	const priceList = cartList?.map(p => p.qty * p.price)
@@ -27,13 +31,13 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 		0
 	);
 	const applycupon = cuponDis?.id ? getCupon(total, cuponDis?.discount_amount, cuponDis?.discount_type) : 0
-	console.log(applycupon);
+	// console.log(applycupon);
 	const tax = (parseFloat(data?.settings?.tax).toFixed(2) / 100) * parseFloat(total).toFixed(2)
-console.log(cartList);
+	// console.log(cartList);
 	const handleCheckout = () => {
-		
+		setLoading(true);
 		const cart = cartList.map(item => ({
-			id: item.cartId,
+			id: item.productId,
 			quantity: item.qty,
 			discount: item.regular_price - item?.discount_price,
 			price: item.price,
@@ -42,8 +46,9 @@ console.log(cartList);
 			additional_price: item.additional_price,
 			unit: item.unit,
 			volume: item.volume,
+			slug: item.slug,
 		}))
-		console.log('product',cart);
+		console.log('product', cart);
 
 		const data = {
 			name: selectAddress?.name,
@@ -58,23 +63,27 @@ console.log(cartList);
 			tax: 0,
 			cupon: 'khakfdhksf'
 		}
-		
 
-const userToken = {
-    headers: { Authorization: `Bearer ${user?.token}` }
-};
-		console.log(data,'cart',cart,user);
-		if (!data.phone) {
-			alert("Please Given The Address")
+
+		const userToken = {
+			headers: { Authorization: `Bearer ${user?.token}` }
+		};
+		console.log(data, 'data');
+		if (!data.address) {
+			alert("Please Select The Address")
+			//   AlertWraning("Please Select Delivery Address") 
+		}
+		if (data.shipping === 0) {
+			alert("Please Select Shipping Method")
 			//   AlertWraning("Please Select Delivery Address") 
 		}
 		if (!data.payment_type) {
 			alert("Please Select Payment Method")
 			//   AlertWraning("Please Select Payment Method") 
 		}
-		if (data.total && data.payment_type && data.product) {
+		if (data.total && data.payment_type && data.product && data.address && data.shipping !== 0) {
 
-			httpReq.post(`placeorder`, data,userToken)
+			httpReq.post(`placeorder`, data, userToken)
 				.then((response) => {
 					if (response?.order) {
 						toast(`Your #${response?.order?.reference_no} order complete successfully!`, {
@@ -106,7 +115,7 @@ const userToken = {
 
 				})
 		} else {
-
+			setLoading(false);
 		}
 	}
 
@@ -144,7 +153,7 @@ const userToken = {
 			<div className="my-5 text-gray-500 " style={{ fontWeight: 500 }}>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "উপ মোট" : "Sub Total"}</p>
-					<Taka tk={parseInt(total )} />
+					<Taka tk={parseInt(total)} />
 				</div>
 				<div className="flex justify-between items-center">
 					<p>{bangla ? "ছাড়" : "Discount"}</p>
@@ -164,12 +173,12 @@ const userToken = {
 				</div>
 			</div>
 
-			<button
-				className={`font-semibold tracking-wider my-1 border border-gray-300 w-full py-3  text-white transition-all duration-200 ease-linear bg-[#4c9a2a] hover:bg-[#26ad53] hover:text-gray-100 hover:shadow-lg rounded-md`}
-
-				onClick={() => handleCheckout()}
-			>
-				{bangla ? "অর্ডার করুন" : "Place Order"}
+			<button className={`font-semibold tracking-wider my-1 border border-gray-300 w-full py-3  text-white transition-all duration-200 ease-linear bg-[#4c9a2a] hover:bg-[#26ad53] hover:text-gray-100 hover:shadow-lg rounded-md`} onClick={() => handleCheckout()}>
+				{loading ?
+					<p>Loading</p>
+					:
+					<p>{bangla ? "অর্ডার করুন" : "Place Order"}</p>
+				}
 			</button>
 		</div>
 	);
@@ -180,11 +189,11 @@ export default YourOrders;
 
 
 const Single = ({ item }) => {
-	
+
 	const dispatch = useDispatch()
-const cardBtn=(id)=>{
-	console.log('item',id);
-}
+	const cardBtn = (id) => {
+		console.log('item', id);
+	}
 	// const price = getPrice(item.regular_price, item.discount_price, item.discount_type)
 
 	return <div key={item.id} className="flex justify-between space-y-2 space-x-1 items-center last:border-0 border-b border-gray-400 py-2">
@@ -197,13 +206,13 @@ const cardBtn=(id)=>{
 			<Taka tk={parseInt(item?.price)} />
 		</div>
 		<div className="flex flex-col gap-1 justify-center items-center">
-			
+
 			<p>{item.qty}</p>
-			
+
 		</div>
 		<div className="text-md font-semibold"><Taka tk={parseInt(item?.price * item.qty)} /></div>
 		<div className="">
-			<MdDelete  onClick={() =>{ dispatch(removeToCartList(item));cardBtn(item?.cartId)}}  className='text-2xl cursor-pointer' />
+			<MdDelete onClick={() => { dispatch(removeToCartList(item)); cardBtn(item?.cartId) }} className='text-2xl cursor-pointer' />
 		</div>
 	</div>
 }

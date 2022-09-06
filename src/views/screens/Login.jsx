@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -10,6 +11,7 @@ const Login = () => {
 
 
     const [loading, setLoading] = useState(false);
+    const [show, setShow] = useState(false)
 
 
 
@@ -26,7 +28,7 @@ const Login = () => {
         dispatch(login(data))
             .unwrap()
             .then(({ verify, error }) => {
-                
+
                 if (error) {
                     toast(error, { type: 'error' })
                 }
@@ -34,13 +36,13 @@ const Login = () => {
                     window.location.replace("/profile");
                 } else {
                     window.location.replace("/verify-otp");
-                    
+
                 }
 
             })
             .catch((er) => {
 
-                toast("Credential Doesn\"t Match", { type: 'error' })
+                toast("Credential Doesn't Match", { type: 'error' })
 
                 setLoading(false);
             });
@@ -60,11 +62,16 @@ const Login = () => {
                 <p className='text-red-400'> {errors.phone?.type === 'required' && "phone Number is required"}</p>
 
 
-                <input
-                    {...register("password", { required: true })}
-                    type='password'
-                    placeholder='Password'
-                    className='py-3 px-4 border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
+                <div className='w-full relative'>
+                    <input
+                        {...register("password", { required: true })}
+                        type={show ? "text" : "password"}
+                        placeholder='Password'
+                        className='py-3 px-4 w-full border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
+                    <div className='absolute right-3 top-1/2 -translate-y-1/2 sm:cursor-pointer text-xl'>
+                        {show ? <IoEyeOutline onClick={()=> setShow(!show)} /> : <IoEyeOffOutline onClick={()=> setShow(!show)} />}
+                    </div>
+                </div>
                 <p className='text-red-400'> {errors.password?.type === 'required' && "Password is required"}</p>
 
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -12,6 +13,8 @@ const Order = () => {
     const [filters, setFilter] = useState([])
     const [btn, setBtn] = useState('All')
     const { user } = useSelector((state) => state.auth);
+
+    // console.log(orders, "orders");
 
     useEffect(() => {
 
@@ -66,6 +69,8 @@ const Order = () => {
         });
 
     }
+
+    
     const get_filter = (key) => {
         setBtn(key)
         if (orders.length) {
@@ -92,9 +97,9 @@ const Order = () => {
                 setFilter([])
                 return setFilter(orders?.filter(i => i.status === "Returned"))
             }
-            if (key === 'Cancel') {
+            if (key === 'Cancelled') {
                 setFilter([])
-                return setFilter(orders?.filter(i => i.status === "Cancel"))
+                return setFilter(orders?.filter(i => i.status === "Cancelled"))
             }
             if (key === 'Failed') {
                 setFilter([])
@@ -103,7 +108,7 @@ const Order = () => {
         }
     }
 
-    const ar = ["All", "Pending", "Shipping", "Processing", "Delivered", "Returned", "Cancel", "Failed"]
+    const ar = ["All", "Pending", "Shipping", "Processing", "Delivered", "Returned", "Cancelled", "Failed"]
     const arb = ["সব", "বিচারাধীন", "শিপিং", "প্রসেসিং", "ডেলিভার করা", "ফেরত", "বাতিল", "ব্যর্থ"]
     return (
         <>
@@ -202,7 +207,7 @@ const OrderItem = ({ item, cancel_request }) => {
                         item?.status === "Processing" ? "bg-indigo-100 border-indigo-200" :
                             item?.status === "Delivered" ? "bg-green-100 border-green-200" :
                                 item?.status === "Returned" ? "bg-yellow-100 border-yellow-200" :
-                                    item?.status === "Cancel" ? "bg-red-200 border-red-200" :
+                                    item?.status === "Cancelled" ? "bg-red-200 border-red-200" :
                                         item?.status === "Failed" ? "bg-pink-300 border-pink-300" :
                                             item?.status === "On Hold" ? "bg-gray-100 border-gray-200" :
                                                 item?.status === "Complete" ? "bg-sky-200 border-sky-300" :
@@ -232,7 +237,7 @@ const OrderItem = ({ item, cancel_request }) => {
                     to={"/profile/order/" + item?.id}>
                     {bangla ? "দেখুন" : "View"}
                 </NavLink>
-                {item?.status !== "Cancel" ? <button
+                {item?.status !== "Cancelled" ? <button
                     onClick={() => cancel_request(item?.id)}
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     {bangla ? "বাতিল অনুরোধ" : "Cancel Request"}

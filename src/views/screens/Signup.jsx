@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -8,6 +9,7 @@ import { clearMessage } from '../../redux/slice/message';
 
 const Signup = () => {
     const [loading, setLoading] = useState(false)
+    const [show, setShow] = useState(false)
     const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
@@ -50,30 +52,35 @@ const Signup = () => {
                 <input
                     {...register("name", { required: true })}
                     type="text"
-                    placeholder='Name (Optinal)'
+                    placeholder='Name'
                     className='py-3 px-4 border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
-                <p className='text-red-400'> {errors.name?.type === 'required' && "phone name is required"}</p>
+                <p className='text-red-400'> {errors.name?.type === 'required' && "Name is required"}</p>
 
                 <input
-                    {...register("email", { required: true })}
+                    {...register("email")}
                     type='email'
-                    placeholder='Email (Optinal)'
+                    placeholder='Email (Optional)'
                     className='py-3 px-4 border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
-                <p className='text-red-400'> {errors.email?.type === 'required' && "phone email is required"}</p>
+                <p className='text-red-400'> {errors.email?.type === 'required' && "Email is required"}</p>
 
                 <input
                     {...register("phone", { required: true })}
                     type="number"
                     placeholder='Your Phone'
                     className='py-3 px-4 border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
-                <p className='text-red-400'> {errors.phone?.type === 'required' && "phone Number is required"}</p>
+                <p className='text-red-400'> {errors.phone?.type === 'required' && "Phone number is required"}</p>
 
-                <input
-                    {...register("password", { required: true })}
-                    type='password'
-                    placeholder='Your Passowrd'
-                    className='py-3 px-4 border border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
-                <p className='text-red-400'> {errors.password?.type === 'required' && "phone password is required"}</p>
+                <div className='w-full relative'>
+                    <input
+                        {...register("password", { required: true })}
+                        type={show ? "text" : "password"}
+                        placeholder='Your Password'
+                        className='py-3 px-4 border w-full border-gray-300 rounded-md placeholder:text-gray-500 text-sm focus:outline-0' />
+                    <div className='absolute right-3 top-1/2 -translate-y-1/2 sm:cursor-pointer text-xl'>
+                        {show ? <IoEyeOutline onClick={() => setShow(!show)} /> : <IoEyeOffOutline onClick={() => setShow(!show)} />}
+                    </div>
+                </div>
+                <p className='text-red-400'> {errors.password?.type === 'required' && "Password is required"}</p>
 
 
 

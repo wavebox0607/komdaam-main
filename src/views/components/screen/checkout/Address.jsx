@@ -142,7 +142,7 @@ export function SaveAddress({ open, setOpen, setCall }) {
 									className="block text-sm font-medium text-gray-700">Name</label>
 								<input {...register("name", { required: true })} type="text" name="name" id="name" autoComplete="address-level1"
 									className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-								{errors.name && <span className='text-red-500'>Phone name is required</span>}
+								{errors.name && <span className='text-red-500'>Name is required</span>}
 							</div>
 							<div className="col-span-6 sm:col-span-3 lg:col-span-2">
 								<label htmlFor="phone"
@@ -162,7 +162,7 @@ export function SaveAddress({ open, setOpen, setCall }) {
 									{...register("address", { required: true })}
 									rows={6} type="text" name="address" id="address" autoComplete="address-level1"
 									className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-								{errors.address && <span className='text-red-500'>Phone address is required</span>}
+								{errors.address && <span className='text-red-500'>Address is required</span>}
 							</div>
 
 						</div>

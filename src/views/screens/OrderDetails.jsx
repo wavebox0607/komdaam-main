@@ -18,14 +18,15 @@ const OrderDetails = () => {
 
     const { data } = HomePage.GetUser()
     const params = useParams()
-
     const [call, setCall] = useState(false)
+
+    // console.log(orderItem, "orders");
 
     useEffect(() => {
         // declare the async data fetching function
         const fetchData = async () => {
             // get the data from the api
-            const { order, orderitem } = await httpReq.post('getorder/details', { id: params.id });
+            const { order, orderitem } = await httpReq.post('getorder/details', { id: params?.order_id });
 
 
             setOrder(order)
@@ -38,7 +39,7 @@ const OrderDetails = () => {
         fetchData()
             // make sure to catch any error
             .catch(console.error);
-    }, [params?.id, user?.id, call])
+    }, [params?.order_id, user?.id, call])
 
     const order_create_time = new Date(order?.created_at).getTime()
 
@@ -131,9 +132,9 @@ const OrderDetails = () => {
                                 <div className="flex justify-center md:justify-start  items-center md:items-start flex-col space-y-4 xl:mt-8">
                                     <p className="text-base font-semibold leading-4 text-center md:text-left text-gray-800">Shipping Address</p>
                                     <div className="w-48 lg:w-full xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">
-                                        <h3 className='font-semibold tracking-wider'>Name: {data?.name}</h3>
-                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Phone:</span> {data?.phone}</p>
-                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Address: </span>{data?.address}
+                                        <h3 className='font-semibold tracking-wider'>Name: {order?.name}</h3>
+                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Phone:</span> {order?.phone}</p>
+                                        <p className='font-normal text-sm tracking-wider'><span className='text-base font-medium'>Address: </span>{order?.address}
                                         </p>
                                     </div>
 
@@ -163,18 +164,18 @@ const SingleItem = ({ item, setCall, call, order }) => {
     const [open, setOpen] = useState(false)
     const [product, setProduct] = useState({})
     const { data } = HomePage.GetUser()
-    console.log(data);
+    console.log(product,"pro");
     useEffect(() => {
 
         // declare the async data fetching function
         const fetchData = async () => {
             // get the data from the api
-            const { product } = await httpReq.post('product-details', {
-                product_id: item?.product_id
+            const product  = await httpReq.post('productsss', {
+                id: item?.product_id
             });
 
 
-            setProduct(product)
+            setProduct(product.data)
 
         }
 
@@ -188,18 +189,21 @@ const SingleItem = ({ item, setCall, call, order }) => {
         <>
             {!product?.id ? <div>Loading..</div> : <div className="mt-4 md:mt-6 flex  flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full ">
                 <div className="pb-4 md:pb-8 w-full md:w-40">
-                    <img className="w-full hidden md:block" src={productImg + product?.image[0]} alt="dress" />
-                    <img className="w-full md:hidden" src={productImg + product?.image[0]} alt="dress" />
+                    <img className="w-full hidden md:block" src={productImg + product?.images[0]} alt="dress" />
+                    <img className="w-full md:hidden" src={productImg + product?.images[0]} alt="dress" />
                 </div>
                 <div className="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full  pb-8 space-y-4 md:space-y-0">
                     <div className="w-full flex flex-col justify-start items-start space-y-8">
                         <h3 className="text-xl xl:text-2xl font-semibold leading-6 text-gray-800"><NavLink to={"/product/" + item?.product_id}>{product?.name}</NavLink></h3>
                         <div className="flex justify-start items-start flex-col space-y-2">
                             {item?.color ? <p className="text-sm leading-none text-gray-800">
-                                <span className="text-gray-300">Color: </span> {item?.color}
+                                <span className="text-gray-500">Color: </span> {item?.color}
                             </p> : null}
                             {item?.size ? <p className="text-sm leading-none text-gray-800">
-                                <span className="text-gray-300">Size: </span> {item?.size}
+                                <span className="text-gray-500">Size: </span> {item?.size}
+                            </p> : null}
+                            {item?.unit ? <p className="text-sm leading-none text-gray-800">
+                                <span className="text-gray-500">Unit: </span> {item?.unit} {item?.volume}
                             </p> : null}
 
                         </div>

@@ -60,7 +60,7 @@ export const Details = ({ slug }) => {
 
         <div className="grid md:grid-cols-8 grid-cols-1 md:gap-4 ">
 
-            <div className="md:col-span-3 h-[400px] sm:cursor-zoom-in overflow-hidden ">
+            <div className="md:col-span-4 h-[400px] sm:cursor-zoom-in overflow-hidden ">
                 {data?.data?.images?.slice(0, 1).map((item, id) =>
                     <ImageZoom
                         key={id}

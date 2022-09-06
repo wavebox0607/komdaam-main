@@ -33,10 +33,10 @@ const ProductCard = ({ item }) => {
                 <Link to={'/product/' + item?.slug}>
                 <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
                 <div className="p-1 h-[80px]">
-                  <h4 className='text-center font-semibold text-[12px] xl:text-[15px] lg:text-[15px] md:text-[12px] hover:text-[#4c9a2a]'>{item?.name}</h4>
+                  <h4 className='text-center font-semibold text-[14px] xl:text-[15px] lg:text-[15px] md:text-[14px] hover:text-[#4c9a2a]'>{item?.name}</h4>
                     <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক : " : "Per Unit : " : null} {item?.per_unit}</p>
                 </div></Link>
-                <div className="h-[50px] flex flex-col justify-end">
+                <div className="h-[30px] flex flex-col justify-end pb-3 px-1">
                     {
                         item?.discount_amount==='0.00' ? <>     </> : <>     {item?.discount_price && <div className="text-[12px] px-2 line-through">
 
