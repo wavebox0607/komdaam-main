@@ -15,7 +15,7 @@ const FeatureProduct = () => {
     }
   
 
-    const filterDataSize=10
+    const filterDataSize=15
     const updateFilterData=data?.data?.slice(0, filterDataSize)
  
     return (

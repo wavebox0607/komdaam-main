@@ -103,7 +103,9 @@ const SingleCart = ({ item ,bangla}) => {
             </div>
             <div className="flex flex-col justify-center w-[63px]">
 
-                <Taka tk={item?.price * item?.qty} />
+                <div className="flex text-xs font-semibold">
+                    <Taka className={"text-[11px] pr-[2px] font-normal"} tk={item?.price}/> <p> / {item?.unit + item?.volume}</p>
+                </div>
             </div>
             <div className="flex flex-col justify-center items-center w-[10px] mr-4">
                 <div onClick={() => dispatch(removeToCartList(item))} className=""><XIcon className='h-4 w-4' /></div>
