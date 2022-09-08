@@ -123,7 +123,10 @@ const test=(test)=>{
             {bangla?item?.name.slice(0, 30):item?.slug.slice(0, 30)}
           </div>
         </Link>
-        <Taka className={"text-[10px]"} tk={item?.price} />
+        <div className="flex text-xs font-semibold">
+        <Taka className={"text-[11px] pr-[2px] font-normal"} tk={item?.price}/> <p> / {item?.unit + item?.volume}</p>
+        </div>
+        
       </div>
       <div className="flex flex-col justify-center w-[63px]">
         <Taka tk={item?.price * item?.qty} />

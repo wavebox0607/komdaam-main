@@ -101,7 +101,6 @@ export const Details = ({ slug }) => {
                 <AddToCart product={data?.data} unit={unit} already={cartList?.filter(i => i.productId === data?.data?.id)} />
 
 
-
                 {/* Share Button  */}
                 <div className="my-3 flex items-center space-x-2">
                     <h2 className='text-black font-semibold'>{bangla ? "ভাগ" : "Share"}: </h2>
@@ -130,7 +129,7 @@ export const Details = ({ slug }) => {
 
 const Unit = ({ item, onClick, active }) => {
    
-    return (<div onClick={onClick} className={`border border-gray-100 rounded-md p-1 flex cursor-pointer ${active ?"bg-pink-400 text-white" : "bg-gray-50 text-black" }transition-all duration-300 ease-linear`}>
+    return (<div onClick={onClick} className={`border border-gray-100 rounded-md p-1 flex cursor-pointer ${active ?"bg-yellow-300 text-white" : "bg-gray-50 text-black" }transition-all duration-300 ease-linear`}>
         <p>{item?.volume}</p>
         <p>{item?.unit}</p>
     </div>)

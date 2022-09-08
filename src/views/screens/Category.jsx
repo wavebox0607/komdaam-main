@@ -35,7 +35,7 @@ console.log('sub',subcategoryProduct);
             <div className="mx-auto md:mt-0 mt-[-12px]">
                 <img src={categoryImg + data?.category?.banner} className='w-full h-[150px] object-cover sm:object-fill xl:h-[350px] lg:h-[350px] md:h-[350px]' alt="" />
             </div>
-            <div className=" py-4">
+            <div className="pt-0 md:pt-4 py-4 ">
                 <div className="text-md flex items-center space-x-1 my-4 px-4">
 
                     <div className="font-semibold"> {bangla ? "ক্যাটাগরি" : "Categories"} </div>
