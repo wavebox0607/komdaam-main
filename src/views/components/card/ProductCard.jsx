@@ -93,7 +93,9 @@ const AddToCart = ({ item }) => {
            
             dispatch(addToCartList({
                 cartId: Product.makeid(100),
-                variantId: null,
+                variantId: item?.variant[0].id,
+                unit: item?.variant[0].volume,
+                volume: item?.variant[0].unit,
                 productId: item?.id,
                 qty: 1,
                 price: parseFloat(item?.regular_price).toFixed(2),
@@ -102,12 +104,12 @@ const AddToCart = ({ item }) => {
                 images: item.images
             }))
         }else if( item?.variant===null ){
-            console.log("ase");
+   
         }
         
         
         else {
-            console.log("nei");
+          
             navigate(`/product/${item?.slug}`)
         }
     }
