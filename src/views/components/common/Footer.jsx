@@ -72,7 +72,7 @@ const FooterBottom = () => {
                             <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "রিটার্ন/বাতিল নীতি" : "Return/Cancel Policy"}</a>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "ডেলিভারি সার্ভিস" : "Delivery Service"}</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "কর্পোরেট ডিল" : "Corporate Deal"}</a>
                         </li>
                     </nav>
                 </div>

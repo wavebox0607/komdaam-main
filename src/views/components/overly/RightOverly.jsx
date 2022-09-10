@@ -99,13 +99,15 @@ const SingleCart = ({ item ,bangla}) => {
             </div>
             <div className="flex flex-col w-[120px] ">
                 <Link to={'/product/' + item?.slug}><div className="text-[13px] text-[#1d1d1d] text-justify w-full">{bangla?item?.name.slice(0, 30):item?.slug.slice(0, 30)}</div></Link>
-                <Taka className={"text-[10px]"} tk={item?.price} />
-            </div>
-            <div className="flex flex-col justify-center w-[63px]">
-
                 <div className="flex text-xs font-semibold">
                     <Taka className={"text-[11px] pr-[2px] font-normal"} tk={item?.price}/> <p> / {item?.unit + item?.volume}</p>
                 </div>
+            </div>
+            <div className="flex flex-col justify-center w-[63px]">
+
+            <div className="flex flex-col justify-center w-[63px]">
+                <Taka tk={item?.price * item?.qty} />
+             </div>
             </div>
             <div className="flex flex-col justify-center items-center w-[10px] mr-4">
                 <div onClick={() => dispatch(removeToCartList(item))} className=""><XIcon className='h-4 w-4' /></div>

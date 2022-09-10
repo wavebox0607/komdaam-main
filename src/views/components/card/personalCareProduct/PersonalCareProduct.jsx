@@ -75,9 +75,8 @@ const AddToCart = ({ item }) => {
 
     // only without variant product added to cart 
     const handleCart = () => {
-
+console.log('item34',item);
         if (!item?.variant) {
-            console.log("ase");
             dispatch(addToCartList({
                 cartId: Product.makeid(100),
                 variantId: null,
@@ -89,7 +88,6 @@ const AddToCart = ({ item }) => {
                 images: item.images
             }))
         } else {
-            console.log("nei");
             navigate(`/product/${item?.slug}`)
         }
     }

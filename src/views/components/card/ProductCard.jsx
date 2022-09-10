@@ -76,7 +76,7 @@ const AddToCart = ({ item }) => {
 
     // only without variant product added to cart 
     const handleCart = () => {
-       
+        
         if(item?.variant===null){
             dispatch(addToCartList({
                 cartId: Product.makeid(100),

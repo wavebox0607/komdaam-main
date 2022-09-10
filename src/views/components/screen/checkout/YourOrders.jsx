@@ -48,7 +48,6 @@ const YourOrders = ({ cuponDis, selectAddress, selectPayment, shipping_area }) =
 			volume: item.volume,
 			slug: item.slug,
 		}))
-		console.log('product', cart);
 
 		const data = {
 			name: selectAddress?.name,

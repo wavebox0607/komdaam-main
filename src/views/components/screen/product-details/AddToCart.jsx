@@ -115,7 +115,7 @@ const  handleIncrementToCart=()=>{
         >
           <MinusIcon className="h-4 w-4" />
         </div>
-        <div className="flex items-center gap-2 h-full px-4">
+        <div className="flex items-center gap-2 h-full px-1.5 md:px-4">
         <p>{alreadyCart?.qty ? alreadyCart?.qty : 0}</p>
           <p>{bangla ? "কার্টে" : "in cart"}</p>
         </div>
@@ -144,7 +144,7 @@ const  handleIncrementToCart=()=>{
             className="hover:bg-[#4c9a2a]  hover:stroke-[#fff] stroke-[#4c9a2a] text-[#4c9a2a] hover:text-white h-full flex items-center transition-all duration-300 ease-linear space-x-2 px-4 cursor-pointer"
           >
             <ShoppingBagIcon className="h-5 w-5" />
-            <p className=" font-bold text-[14px] ">
+            <p className="font-bold text-[12px] md:text-[14px] ">
               {bangla ? "কার্টে যোগ করুন" : "Add To Cart"}
             </p>
           </div>

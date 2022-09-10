@@ -45,7 +45,14 @@ class ProductApi {
         })
         return data
     }
-
+ // feature product product from home page
+    featureProduct = () => {
+            const data = useQuery(['feature_product'], () => httpReq.get(`feature_product`), {
+                refetchOnMount: true,
+                refetchOnWindowFocus: true
+            })
+            return data
+        }
 
     // popular product product
     GetFeatureProduct = (page) => {

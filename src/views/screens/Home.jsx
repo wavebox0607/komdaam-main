@@ -11,10 +11,10 @@ const Home = () => {
 		    <Unit/>
 			<Hero />
 			<FeatureCategory />
-			<Banner />
 			<FeatureProduct />
-			<CurrentOffer />
+			<Banner />
 			<CategoryProduct />
+			<CurrentOffer />
 			<Step />
 			<Help />
 		</>

@@ -8,7 +8,7 @@ import { SectionHeading } from '../../utils';
 import { useSelector } from "react-redux";
 
 const FeatureProduct = () => {
-    const { data, isLoading } = Product.GetAll()
+    const { data, isLoading } = Product.featureProduct()
     const right = useSelector((state) => state.cart.cartOpen)
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading...</div>
