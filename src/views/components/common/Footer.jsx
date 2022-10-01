@@ -24,7 +24,7 @@ export default Footer;
 const FooterBottom = () => {
     const { data } = HomePage.GetSettings()
    
-    return <footer className="text-gray-600  bg-[#96fcb8]">
+    return <footer className="text-gray-600  bg-[#ccf8cc]">
         <div className="container px-5 pt-10 mx-auto">
             <div className="flex flex-wrap md:text-left text-center order-first">
                 <div className="lg:w-1/4 md:w-1/2 w-full px-4">
