@@ -5,7 +5,7 @@ import { categoryImg } from '../../constant/imgUri';
 import { bangla } from '../../constant/language';
 import { Product } from '../../services';
 // import ProductCard from '../components/card/ProductCard';
-import { Pagination } from '../components/utils';
+// import { Pagination } from '../components/utils';
 import { useSelector } from "react-redux";
 import ProductCard from '../components/card/ProductCard';
 
@@ -14,7 +14,8 @@ import ProductCard from '../components/card/ProductCard';
 const Category = ({dataSub}) => {
     const params = useParams()
    
-    const [page, setPage] = useState('?page=1')
+    // const [page, setPage] = useState('?page=1')
+    const [page] = useState('?page=1')
     const { data, isLoading } = Product.GetCatProduct(params?.slug, page)
     console.log(data,"data");
     const right = useSelector((state) => state.cart.cartOpen)
@@ -45,9 +46,9 @@ const Category = ({dataSub}) => {
 
             {subcategoryProduct?.subcategory === null ? <div className={right ? ' grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-1 gap-y-4 px-4 pb-10':`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-1 gap-y-4 px-2 pb-10`}>
             {data?.paginate?.data?.map(data=><ProductCard item={data} key={data?.id}/>)}
-            <div className='mt-8'>
+            {/* <div className='mt-8'>
                <Pagination paginate={data?.paginate} setPage={setPage} />
-               </div>
+               </div> */}
             </div> : <>
                 <div className={right ? ' grid grid-cols-2 xs:grid-cols-2 2md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 gap-x-1 gap-y-4 px-2':`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-20 px-4 ml-0 sm:ml-10`}>
                     {/* {data?.paginate?.data?.map((item) => <SubProduct key={item?.id} item={item} />)} */}
@@ -60,9 +61,9 @@ const Category = ({dataSub}) => {
                        </div>
                     </Link>)}
                 </div>
-               <div className='mt-8'>
+               {/* <div className='mt-8'>
                <Pagination paginate={data?.paginate} setPage={setPage} />
-               </div>
+               </div> */}
             </>
             }
         </div >
