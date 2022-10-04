@@ -50,7 +50,7 @@ const Category = ({dataSub}) => {
                <Pagination paginate={data?.paginate} setPage={setPage} />
                </div> */}
             </div> : <>
-                <div className={right ? ' grid grid-cols-2 xs:grid-cols-2 2md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 gap-x-1 gap-y-4 px-2':`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-20 px-4 ml-0 sm:ml-10`}>
+                <div className={right ? ' grid grid-cols-2 xs:grid-cols-2 2md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 gap-x-1 gap-y-4 px-2':`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-20 gap-y-5 px-4 ml-0 sm:ml-10 pb-5`}>
                     {/* {data?.paginate?.data?.map((item) => <SubProduct key={item?.id} item={item} />)} */}
                     {subcategoryProduct?.subcategory?.map(data=><Link to={'/subcategory/' + data?.slug}>
                        <div className='border-b-2 py-2 cursor-pointer'>
