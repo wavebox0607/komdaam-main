@@ -18,7 +18,7 @@ const ProductCard = ({ item }) => {
         <>
             <div className='bg-white relative rounded-lg hover:bg-green-200 cardShadow group transition-all duration-300 ease-linear h-full flex flex-col mt-1 ml-1 mr-1 '>
             {item?.quantity==='0.00'&&<div className='absolute top-0 bottom-0 left-0 right-0 bg-white bg-opacity-80 z-[2]'></div>}
-                <div className="w-full h-[145px] md:h-[195px] relative px-2 overflow-hidden">
+                <div className="w-full h-[160px] md:h-[195px] relative px-2 overflow-hidden">
                     <Link to={'/product/' + item?.slug}>
                         <img className='w-full h-full bg-white' src={productImg + item?.images[0]} alt="" />
                     </Link>
@@ -32,7 +32,7 @@ const ProductCard = ({ item }) => {
                 </div>
                 <Link to={'/product/' + item?.slug}>
                 <div className="h-[1px] w-full my-2 group-hover:bg-green-200 bg-gray-200 transition-all duration-300 ease-linear"></div>
-                <div className="p-1 h-[80px]">
+                <div className="p-0 md:p-1 h-[80px]">
                   <h4 className='text-center font-semibold text-[14px] xl:text-[15px] lg:text-[15px] md:text-[14px] hover:text-[#4c9a2a]'>{item?.name}</h4>
                     <p className='text-center text-[#888] text-[13px] font-semibold'>{item?.per_unit ? bangla ? "প্রতি একক : " : "Per Unit : " : null} {item?.per_unit}</p>
                 </div></Link>
