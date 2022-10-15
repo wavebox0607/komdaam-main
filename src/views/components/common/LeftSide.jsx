@@ -8,7 +8,7 @@ const LeftSide = ({ left }) => {
     const [show, setShow] = useState(null)
     const { data } = HomePage.GetCategory()
     const result = data?.data?.filter(res => res?.slug === 'popular' || res?.slug === 'corporate' || res?.slug === 'offer-whole-sale' )
-    const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate')
+    const result1 = data?.data?.filter(res => res?.slug !== 'popular' && res?.slug !== 'corporate')
    
     return (
 
