@@ -28,7 +28,7 @@ const Layout = () => {
 
   
     return (
-        <>
+        <div className=''>
             <header className=''>
                 <Header
                     left={left}
@@ -40,7 +40,7 @@ const Layout = () => {
                     <LeftSide left={left} />
                 </div>
                 <div className={`${(left && right) ? "w-full 2md:w-[calc(100%-580px)]" : (left && !right) ? "w-full 2md:w-[calc(100%-240px)]" : (!left && right) ? "w-full 2md:w-[calc(100%-400px)]" : "w-full 2md:w-[calc(100%-80px)]"} transition-all duration-300 ease-linear`}>
-                    <main className=''>
+                    <main className='3xl:w-[2000px] 3xl:mx-auto'>
                         <Main />
                     </main>
                     <footer className=''>
@@ -55,7 +55,7 @@ const Layout = () => {
             <MobileBottomNav setCategory={setCategory} category={category} setCart={setCart} cart={cart} />
             <Left setOpen={setCategory} open={category} />
             <Right setOpen={setCart} open={cart} />
-        </>
+        </div>
     );
 };
 
