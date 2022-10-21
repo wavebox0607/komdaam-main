@@ -1,8 +1,8 @@
 import React from 'react';
 import { HomePage } from '../../../../services';
-import { SectionHeading } from '../../utils';
+// import { SectionHeading } from '../../utils';
 import { bannerImg } from '../../../../constant/imgUri';
-import { bangla } from '../../../../constant/language';
+// import { bangla } from '../../../../constant/language';
 
 const BannerTwo = () => {
     const { data } = HomePage.GetBanner()
