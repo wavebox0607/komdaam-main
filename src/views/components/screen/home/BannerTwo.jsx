@@ -12,13 +12,13 @@ const BannerTwo = () => {
         <>
             <div className=''>
 
-                <div className="mt-0 ">
+                {/* <div className="mt-0 ">
                     <SectionHeading text={bangla ? "ব্যানার" : "Banner"} />
-                </div>
+                </div> */}
 
 
-                <div className="shadow-lg rounded-md grid md:grid-cols-4 grid-cols-2 gap-x-3 gap-y-3 px-4">
-                    {data?.double_banner?.slice(4,8).map((b) => <img key={b?.id} className='w-[100%] h-[190px] md:h-[400px]' src={bannerImg + b?.image} alt="" />)}
+                <div className="mt-3 shadow-lg rounded-md grid md:grid-cols-4 grid-cols-2 gap-x-3 gap-y-3 px-4">
+                    {data?.double_banner?.slice(4,8).map((b) => <img key={b?.id} className='w-[100%] h-[190px] md:h-[300px]' src={bannerImg + b?.image} alt="" />)}
 
                 
 
