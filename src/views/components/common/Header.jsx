@@ -44,7 +44,7 @@ const HeaderDown = ({ handleLeft }) => {
     return (
         <div className='grid grid-cols-12 py-2 max-h-[45px] shadow-lg bg-white px-2'>
             {/* menu and logo section  */}
-            <div className="flex items-center space-x-2 col-span-3 2md:col-span-3 h-[27px] w-auto " style={{ zIndex: 100000 }}>
+            <div className="flex items-center space-x-1 col-span-3 2md:col-span-3 h-[27px] w-auto " style={{ zIndex: 100000 }}>
                 <div className="hidden 2md:flex">
                     <div className="border border-gray-300 p-1 cursor-pointer" onClick={() => handleLeft()}>
                         <MenuIcon className='h-5 w-5' />

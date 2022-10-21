@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { categoryImg } from '../../constant/imgUri';
 import { Product } from '../../services';
 import ProductCard from '../components/card/ProductCard';
+import { bangla } from '../../constant/language';
 import { Pagination } from '../components/utils';
 import { useSelector } from 'react-redux';
 
@@ -31,11 +32,11 @@ const SubCategory = () => {
             <div className=" pt-0 md:pt-4 py-4">
                 <div className="text-md flex items-center space-x-1 my-4 px-4">
 
-                    <div className="font-semibold"> Categories </div>
+                    <div className="font-semibold"> {bangla ? "সাব-ক্যাটাগরি" : "Sub-Categories"} </div>
                     <ChevronRightIcon className='h-4 w-4' />
-                    <p>{data?.category?.name}</p>
+                    <p>{bangla ? data?.category?.bn_name : data?.category?.name}</p>
                 </div>
-                <div className="h-[3px] bg-black w-full flex justify-center items-center"><p className='bg-white px-3 text-lg font-bold'>{data?.category?.name}</p></div>
+                <div className="h-[3px] bg-black w-full flex justify-center items-center"><p className='bg-white px-3 text-lg font-bold'>{bangla ? data?.category?.bn_name : data?.category?.name}</p></div>
             </div>
 
             {data?.paginate?.data?.length === 0 ? <div className="flex  justify-center mt-20" style={{ minHeight: '50vh' }}>

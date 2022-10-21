@@ -12,8 +12,8 @@ export default function Left({ setOpen, open }) {
 
     // const [show, setShow] = useState(null)
     // const { data } = HomePage.GetCategory()
-    const result = data?.data?.filter(res => res?.slug === 'popular' || res?.slug === 'corporate-deal' || res?.slug === 'offer-whole-sale')
-    const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate-deal')
+    const result = data?.data?.filter(res => res?.slug === 'popular' || res?.slug === 'corporate' || res?.slug === 'offer-whole-sale')
+    const result1 = data?.data?.filter(res => res?.slug !== 'offer' && res?.slug !== 'popular' && res?.slug !== 'corporate')
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>
