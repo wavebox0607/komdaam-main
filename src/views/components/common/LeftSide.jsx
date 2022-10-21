@@ -13,13 +13,13 @@ const LeftSide = ({ left }) => {
     return (
 
         <div className={`fixed left-0 top-[68px] bottom-0 h-auto  example  ${left ? "w-[240px]" : "w-[60px]"} transition-all duration-300 ease-linear !z-[10] shadow-lg`} >
-            <div className="flex flex-col space-y-[1px] px-2 text-[14px] bg-[#ccf8cc] pb-0 font-semibold pt-3">
+            <div className="flex flex-col space-y-[1px] px-2 text-[16px] bg-[#ccf8cc] pb-0 font-semibold pt-3">
 
                 {
                     result?.map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
                 }
             </div>
-            <div className="flex flex-col space-y-[0px] px-2 text-[14px] pt-2">
+            <div className="flex flex-col space-y-[0px] px-2 text-[16px] pt-2">
 
                 {
                     result1?.map((item) => left ? <SingleCat key={item?.id} setShow={setShow} show={show} item={item} /> : <SingleCat2 key={item?.id} item={item} />)
@@ -61,7 +61,7 @@ const SingleCat = ({ item, show, setShow }) => {
 
 const SingleSub = ({ item }) => {
     return (
-        <div className='flex items-center space-x-1 hover:text-[#50c878] text-[14px] '>
+        <div className='flex items-center space-x-1 hover:text-[#50c878] text-[15px] '>
             <div className="h-[1px] w-3 bg-[#4c9a2a]"></div>
             <Link to={'/subcategory/' + item?.slug}>
                 <div className="flex-1 flex space-x-3 py-1">
