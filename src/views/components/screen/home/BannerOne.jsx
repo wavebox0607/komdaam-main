@@ -18,7 +18,7 @@ const BannerOne = () => {
 
 
                 <div className=" rounded-md grid md:grid-cols-4 grid-cols-2 gap-x-3 gap-y-3 px-4">
-                    {data?.double_banner?.slice(0,4).map((b) => <img key={b?.id} className='w-[100%] h-[190px] md:h-[280px]' src={bannerImg + b?.image} alt="" />)}
+                    {data?.double_banner?.slice(0,4).map((b) => <img key={b?.id} className='w-[100%] h-[190px] md:h-[260px]' src={bannerImg + b?.image} alt="" />)}
 
                 
 
