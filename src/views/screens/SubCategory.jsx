@@ -8,14 +8,17 @@ import { bangla } from '../../constant/language';
 import { Pagination } from '../components/utils';
 import { useSelector } from 'react-redux';
 
-const SubCategory = () => {
+const SubCategory = ({ dataSub }) => {
+    // console.log(dataSub.data, "dataSub");
     const params = useParams()
     const right = useSelector((state) => state.cart.cartOpen)
     const [page, setPage] = useState('?page=1')
     const { data, isLoading } = Product.GetSubCatProduct(params?.slug, page)
+    // console.log(data, "data");
+    const CategoryName = dataSub?.data.find(dataSub => dataSub?.id === parseInt(data?.category?.parent))
+    // console.log(CategoryName, "CategoryName");
 
-
-    console.log(data);
+    // console.log(data);
     if (isLoading) {
         return <div className='w-full h-screen flex justify-center items-center'>Loading</div>
     }
@@ -34,6 +37,8 @@ const SubCategory = () => {
 
                     <div className="font-semibold"> {bangla ? "সাব-ক্যাটাগরি" : "Sub-Categories"} </div>
                     <ChevronRightIcon className='h-4 w-4' />
+                    <p>{bangla ? CategoryName?.name : CategoryName?.name}</p>
+                    <ChevronRightIcon className='h-4 w-4' />
                     <p>{bangla ? data?.category?.bn_name : data?.category?.name}</p>
                 </div>
                 <div className="h-[3px] bg-black w-full flex justify-center items-center"><p className='bg-white px-3 text-lg font-bold'>{bangla ? data?.category?.bn_name : data?.category?.name}</p></div>
@@ -42,7 +47,7 @@ const SubCategory = () => {
             {data?.paginate?.data?.length === 0 ? <div className="flex  justify-center mt-20" style={{ minHeight: '50vh' }}>
                 <h2 className='font-bold text-4xl text-center text-gray-400'>No Product Available</h2>
             </div> : <>
-                <div className={right? "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-1 gap-y-4  px-2 pb-10":"grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-1 gap-y-4 px-2 pb-10"}>
+                <div className={right ? "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-1 gap-y-4  px-2 pb-10" : "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-1 gap-y-4 px-2 pb-10"}>
                     {data?.paginate?.data?.map((item) => <ProductCard key={item?.id} item={item} />)}
                 </div>
                 <Pagination paginate={data?.paginate} setPage={setPage} />

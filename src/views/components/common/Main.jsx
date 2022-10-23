@@ -16,7 +16,7 @@ const Main = () => {
                 <Route path='*' element={<NotFound />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/category/:slug" element={<Category dataSub={data}/>} />
-                <Route path="/subcategory/:slug" element={<SubCategory />} />
+                <Route path="/subcategory/:slug" element={<SubCategory dataSub={data} />} />
                 <Route path="/product/:slug" element={<ProductDetails />} />
                 <Route path="/search" element={<Offer />} />
                 <Route path="/search/:src" element={<Search />} />
