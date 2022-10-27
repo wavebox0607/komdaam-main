@@ -9,6 +9,7 @@ import { AiOutlineYoutube } from 'react-icons/ai'
 import payment from '../../../assets/payment.webp'
 import { bangla } from '../../../constant/language';
 import { HomePage } from '../../../services';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 const Footer = () => {
     return (
         <>
@@ -23,7 +24,7 @@ export default Footer;
 
 const FooterBottom = () => {
     const { data } = HomePage.GetSettings()
-   
+
     return <footer className="text-gray-600  bg-[#ccf8cc]">
         <div className="container px-5 pt-10 mx-auto">
             <div className="flex flex-wrap md:text-left text-center order-first">
@@ -66,7 +67,7 @@ const FooterBottom = () => {
                             <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "গোপনীয়তা নীতি" : "Privacy Policy"}</a>
                         </li>
                         <li>
-                            <a href='/'className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "ব্যবহারের শর্তাবলী" : "Terms of use"}</a>
+                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "ব্যবহারের শর্তাবলী" : "Terms of use"}</a>
                         </li>
                         <li>
                             <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "রিটার্ন/বাতিল নীতি" : "Return/Cancel Policy"}</a>
@@ -108,7 +109,7 @@ const FooterBottom = () => {
                         <nav className="flex gap-x-2 justify-center md:mb-0 mb-5">
 
 
-                            <a href="https://www.facebook.com/komdaam.shop/" target="_blank" rel="noopener noreferrer"  className="rounded-full l border border-black p-2 flex justify-center items-center"><FaFacebookF className=' text-lg text-blue-600' /></a>
+                            <a href="https://www.facebook.com/komdaam.shop/" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><FaFacebookF className=' text-lg text-blue-600' /></a>
                             <a href="https://www.instagram.com/komdaam_shop/" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineInstagram className=' text-lg text-orange-600' /></a>
                             <a href="https://wa.me/+8801865460756" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineWhatsApp className=' text-lg text-emerald-600' /></a>
                             <a a href="https://www.youtube.com/channel/UCvOFHjeEcwy4qjU02iJjaXQ" target="_blank" rel="noopener noreferrer" className="rounded-full l border border-black p-2 flex justify-center items-center"><AiOutlineYoutube className=' text-lg text-red-600' /></a>
@@ -121,7 +122,13 @@ const FooterBottom = () => {
             </div>
         </div>
         <div className="bg-[#4c9a2a] text-white px-6 py-2">
-            <p className='text-right'>© 2022 | <span className='font-semibold'>KomDaam </span> All Rights Reserved | Developed by <a href="https://wavebox.net/" target="_blank" rel="noopener noreferrer" className='font-semibold'>WAVE BOX </a></p>
+            {/* <p className='text-right'>© 2022 | <span className='font-semibold'>KomDaam </span> All Rights Reserved | Developed by <a href="https://wavebox.net/" target="_blank" rel="noopener noreferrer" className='font-semibold'>WAVE BOX </a></p> */}
+            <p className='text-right'>© 2022 | <span className='font-semibold'>KomDaam </span> All Rights Reserved</p>
         </div>
+        <MessengerCustomerChat
+            pageId="102208812583768"
+            appId="399283462300859"
+            htmlRef="fb-root"
+        />
     </footer>
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create({
-    baseURL: 'https://demo4.wavebox.net/api/v1/',
+    baseURL: 'https://admin.komdaam.com/api/v1/',
     // timeout: 10000
 
 });

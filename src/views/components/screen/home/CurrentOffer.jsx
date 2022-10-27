@@ -60,7 +60,7 @@ const CurrentOffer = () => {
                         {
                             data?.triple_banner?.map((item) =>
                                 <SwiperSlide className='hiji' key={item.id}>
-                                    <img src={bannerImg + item?.image} alt='' className='sm:h-[255px] h-[200px] w-full rounded-md !-z-10' />
+                                    <img src={bannerImg + item?.image} alt='' className='sm:h-[280px] h-[200px] w-full rounded-md !-z-10' />
                                 </SwiperSlide>
                             )
                         }
