@@ -16,6 +16,10 @@ import VerifyOtp from "./VerifyOtp"
 import ForgetPassword from "./ForgetPassword"
 import Offer from "./Offer"
 import Search from './Search'
+import PrivacyPolicy from './PrivacyPolicy'
+import FAQ from './FAQ'
+import TermsConditions from './TermsConditions'
+import ReturnPolicy from './ReturnPolicy'
 
 export {
     NotFound,
@@ -35,5 +39,9 @@ export {
     VerifyOtp,
     ForgetPassword,
     Offer,
-    Search
+    Search,
+    PrivacyPolicy,
+    FAQ,
+    TermsConditions,
+    ReturnPolicy,
 }

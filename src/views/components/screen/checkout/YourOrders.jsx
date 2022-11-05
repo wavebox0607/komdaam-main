@@ -188,10 +188,10 @@ export default YourOrders;
 
 
 const Single = ({ item }) => {
-
+	// console.log('item', item);
 	const dispatch = useDispatch()
 	const cardBtn = (id) => {
-		console.log('item', id);
+		// console.log('id', id);
 	}
 	// const price = getPrice(item.regular_price, item.discount_price, item.discount_type)
 
@@ -201,7 +201,7 @@ const Single = ({ item }) => {
 
 		</div>
 		<div className="flex flex-col gap-x-2 gap-y-1 pl-2 text-sm">
-			<h3 className='text-black text-md  font-normal'><NavLink to={`/product/${item.id}`}>{item?.name?.slice(0, 30)}</NavLink></h3>
+			<h3 className='text-black text-md  font-normal'><NavLink to={`/product/${item.slug}`}>{item?.name?.slice(0, 30)}</NavLink></h3>
 			<Taka tk={parseInt(item?.price)} />
 		</div>
 		<div className="flex flex-col gap-1 justify-center items-center">

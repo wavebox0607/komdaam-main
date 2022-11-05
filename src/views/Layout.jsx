@@ -20,7 +20,7 @@ const Layout = () => {
         if (window.screen.width < 768) {
             setLeft(false)
         }
-        console.log('hlww')
+        // console.log('hlww')
         
     }, [])
 

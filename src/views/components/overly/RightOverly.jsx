@@ -53,10 +53,10 @@ export default function Right({ setOpen, open }) {
                                             <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
                                                 <div className="flex items-center text-[15px] font-bold text-white gap-2">
                                                     <ShoppingCartIcon className='h-5 w-5 ' color='white' />
-                                                    <p>{cartList.length + " "}ITEMS</p>
+                                                    <p>{cartList.length + " "}{bangla ? `আইটেম` : 'ITEMS'}</p>
                                                 </div>
                                                 <div className="">
-                                                    <button onClick={() => setOpen(!open)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
+                                                    <button onClick={() => setOpen(!open)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>{bangla ? `বন্ধ` : 'Close'}</button>
                                                 </div>
                                             </div>
                                             <h3 className='bg-gray-50 font-semibold px-2 py-1'>{bangla ? "দ্রুত ডেলিভারী" : "Express delivery"}</h3>

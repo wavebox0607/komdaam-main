@@ -105,9 +105,9 @@ const test=(test)=>{
           <ChevronDownIcon className="h-4 w-4" />
         </div>
       </div>
-      <div className="h-[40px] w-[40px] flex items-center">
+      { item?.images[0] && <div className="h-[40px] w-[40px] flex items-center">
         <img src={productImg + item?.images[0]} alt="" />
-      </div>
+      </div>}
       <div className="flex flex-col w-[120px] ">
         <Link to={"/product/" + item?.slug}>
           <div
@@ -120,7 +120,7 @@ const test=(test)=>{
               textOverflow: "ellipsis",
             }}
           >
-            {bangla?item?.name.slice(0, 30):item?.slug.slice(0, 30)}
+            {bangla?item?.name?.slice(0, 30):item?.slug?.slice(0, 30)}
           </div>
         </Link>
         <div className="flex text-xs font-semibold">

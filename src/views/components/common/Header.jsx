@@ -100,7 +100,6 @@ const HeaderDown = ({ handleLeft }) => {
     )
 }
 
-
 const HeaderTop = () => {
     const [lan, setLan] = useState(null)
     const { user } = useSelector((state) => state.auth)
@@ -117,7 +116,12 @@ const HeaderTop = () => {
         <div className={`w-full hidden 2md:flex justify-between bg-[#4c9a2a] h-6 px-2`}>
             {/* <div className='flex items-center divide-x-2 space-x-2'> */}
             {/* <p className='cursor-pointer text-white hover:text-red-600 transition-all duration-300 ease-linear'>Hot Offer</p> */}
+            
             <div className='flex items-center space-x-1 pl-2 '>
+                <div className='border-r-2 border-[#fff] mr-3'>
+                    <h2 className="font-bold text-white tracking-widest text-sm mr-3">{bangla ? "অ্যাপ ডাউনলোড করুন" : "Download App"}</h2>
+                </div>
+        
                 <a href="https://www.facebook.com/komdaam.shop/" target="_blank" rel="noopener noreferrer" className='rounded-full bg-white p-1 hover:bg-red-500  transition-all duration-300 ease-linear cursor-pointer'>
                     <FaFacebookF className=" fill-[#4c9a2a] text-[10px]" />
                 </a>

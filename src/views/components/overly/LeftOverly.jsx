@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { HomePage } from '../../../services'
 import { categoryImg } from '../../../constant/imgUri'
 import { ChevronDownIcon, ChevronUpIcon, ViewListIcon } from '@heroicons/react/solid'
+import { bangla } from '../../../constant/language'
 
 
 export default function Left({ setOpen, open }) {
@@ -47,10 +48,10 @@ export default function Left({ setOpen, open }) {
                                             <div className="flex justify-between bg-[#4c9a2a] px-2 h-[40px] items-center">
                                                 <div className="flex items-center text-[15px] font-bold text-white gap-2">
                                                     <ViewListIcon className='h-5 w-5 ' color='white' />
-                                                    <p>All Category</p>
+                                                    <p>{bangla ? `সকল ক্যাটাগরি` : 'All Category'}</p>
                                                 </div>
                                                 <div className="">
-                                                    <button onClick={() => setOpen(false)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0'>close</button>
+                                                    <button onClick={() => setOpen(false)} className='border border-white px-4 hover:text-[#4c9a2a] text-white hover:bg-gray-50 transition-all duration-300 ease-linear py-0 focus:outline-none'>{bangla ? `বন্ধ` : 'Close'}</button>
                                                 </div>
                                             </div>
 

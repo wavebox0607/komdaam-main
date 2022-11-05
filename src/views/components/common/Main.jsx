@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from '../../../private/Private';
 import PublicRoute from '../../../private/Public';
-import { About, Category, ChangePassword, Checkout, Dashboard, ForgetPassword, Home, Login, NotFound, Offer, Order, OrderDetails, ProductDetails, Profile, Signup, SubCategory, VerifyOtp, Search } from '../../screens';
+import { About, Category, ChangePassword, Checkout, Dashboard, ForgetPassword, Home, Login, NotFound, Offer, Order, OrderDetails, ProductDetails, Profile, Signup, SubCategory, VerifyOtp, Search, PrivacyPolicy, FAQ, TermsConditions, ReturnPolicy } from '../../screens';
 
 import ScrollToTop from '../react-router/ScrollToTop';
 import HomePage from './../../../services/home.service';
@@ -20,9 +20,12 @@ const Main = () => {
                 <Route path="/product/:slug" element={<ProductDetails />} />
                 <Route path="/search" element={<Offer />} />
                 <Route path="/search/:src" element={<Search />} />
-                <Route path="about" element={<About />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/terms&conditions" element={<TermsConditions />} />
+                <Route path="/return-policy" element={<ReturnPolicy />} />
                 <Route path="offer" element={<Offer />} />
-
 
                 {/* Private Routes  */}
                 <Route path="profile" element={<PrivateRoute><Dashboard /></PrivateRoute>}>

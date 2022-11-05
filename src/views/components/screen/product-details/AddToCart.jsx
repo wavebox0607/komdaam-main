@@ -12,7 +12,7 @@ import {
 import { Product } from "../../../../services";
 
 const AddToCart = ({ product, unit, already }) => {
-  console.log(product?.slug,"product");
+  // console.log(product?.slug,"product");
   const dispatch = useDispatch();
   const { cartList } = useSelector((state) => state.cart);
   const [alreadyCart, setAlreadyCart] = useState(null);
@@ -47,7 +47,7 @@ const AddToCart = ({ product, unit, already }) => {
 
   // New Added or Already added item increment quantity
   const handleAddToCart = () => {
-    console.log(data, "data");
+    // console.log(data, "data");
  
     if (product?.variant && unit) {
       dispatch(addToCartList(data));

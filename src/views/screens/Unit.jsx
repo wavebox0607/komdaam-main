@@ -16,10 +16,10 @@ const Unit = () => {
           .catch(console.error);;
   }
   const postIp=()=>{
-    console.log( ip)
+    // console.log( ip)
       httpReq.post('visitor', { ip:ip })
     .then(({ success }) => {
-       console.log('sc',success)
+      //  console.log('sc',success)
     })
   }
   postIp()

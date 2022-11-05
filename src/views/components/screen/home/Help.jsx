@@ -6,7 +6,7 @@ import { HomePage } from '../../../../services';
 
 const Help = () => {
     const { data } = HomePage.GetSettings()
-    console.log(data);
+    // console.log(data);
     return (
         <div className='grid md:grid-cols-2 grid-cols-1 shadow-md mx-4'>
             <div className=" flex flex-col space-y-2">

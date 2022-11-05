@@ -31,7 +31,7 @@ export const cartSlice = createSlice({
       } else {
         
         if(action.payload.variantId!==action.payload?.sameVariantId){
-          console.log(action.payload,'action');
+          // console.log(action.payload,'action');
         }
         state.cartList.push({
           ...action.payload,

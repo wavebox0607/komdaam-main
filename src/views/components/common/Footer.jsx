@@ -6,10 +6,13 @@ import { FaFacebookF } from 'react-icons/fa'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import { AiOutlineWhatsApp } from 'react-icons/ai'
 import { AiOutlineYoutube } from 'react-icons/ai'
-import payment from '../../../assets/payment.webp'
+// import payment from '../../../assets/payment.webp'
+import cod from '../../../assets/cod.png'
+import google from '../../../assets/google.png'
 import { bangla } from '../../../constant/language';
 import { HomePage } from '../../../services';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import { NavLink } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
@@ -50,7 +53,6 @@ const FooterBottom = () => {
                             </div>
                             <a href='mailto:info@komdaam.com ' className="text-gray-600 hover:text-gray-800 text-base ">info@ komdaam.com</a>
                         </li>
-
                     </nav>
                 </div>
 
@@ -58,36 +60,38 @@ const FooterBottom = () => {
                     <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-3 ">{bangla ? "গ্রাহক সেবা" : "Customer service"}</h2>
                     <nav className="list-none md:mb-10 mb-4 ">
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "আমাদের সম্পর্কে" : "About us"}</a>
+                            <NavLink to='/about' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "আমাদের সম্পর্কে" : "About us"}</NavLink>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base"> {bangla ? "প্রশ্ন উত্তর" : "FAQ"}</a>
+                            <NavLink to='/faq' className="text-gray-600 hover:text-gray-800 text-base"> {bangla ? "প্রশ্ন উত্তর" : "FAQ"}</NavLink>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "গোপনীয়তা নীতি" : "Privacy Policy"}</a>
+                            <NavLink to='/privacy-policy' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "গোপনীয়তা নীতি" : "Privacy Policy"}</NavLink>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "ব্যবহারের শর্তাবলী" : "Terms of use"}</a>
+                            <NavLink to='/terms&conditions' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "ব্যবহারের শর্তাবলী" : "Terms of Conditions"}</NavLink>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "রিটার্ন/বাতিল নীতি" : "Return/Cancel Policy"}</a>
+                            <NavLink to='/return-policy' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "রিটার্ন/বাতিল নীতি" : "Return/Cancel Policy"}</NavLink>
                         </li>
                         <li>
-                            <a href='/' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "কর্পোরেট ডিল" : "Corporate Deal"}</a>
+                            <NavLink to='/category/corporate' className="text-gray-600 hover:text-gray-800 text-base">{bangla ? "কর্পোরেট ডিল" : "Corporate Deal"}</NavLink>
                         </li>
                     </nav>
                 </div>
 
 
-                <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-3 text-center">{bangla ? "মূল্যপরিশোধ পদ্ধতি" : "Payment Method"}</h2>
-                    <div className="">
-                        <img src={payment} alt="" />
+                <div className="lg:w-1/4 md:w-1/2 w-full px-4 ">
+                    <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-1 text-center">{bangla ? "মূল্যপরিশোধ পদ্ধতি" : "Payment Method"}</h2>
+                    <div className="flex justify-center">
+                        <img src={cod} className='h-12' alt="" />
+                    </div>
+
+                    <h2 className="title-font font-bold text-gray-900 tracking-widest text-lg mb-1 mt-5 text-center">{bangla ? "অ্যাপ ডাউনলোড করুন" : "Download App"}</h2>
+                    <div className='flex justify-center'>
+                        <img src={google} alt="" className='h-12'/>
                     </div>
                 </div>
-
-
-
 
                 <div className="lg:w-1/4 md:w-1/2 w-full px-4 space-y-8">
                     <div className="">
