@@ -113,7 +113,7 @@ const CategoryProduct = () => {
       <SectionHeading text={bangla ? "চলমান পণ্য" : "Running Product"} />
 
 
-      <div className='px-3 '>
+      <div className=' '>
       <Slider {...settings}>
         {data?.data?.map((item) =>
 
